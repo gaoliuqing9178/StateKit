@@ -1,0 +1,31 @@
+{
+  "x-comment": [
+    "1. 工作区根 package 配置。",
+    "2. 作用：声明 monorepo 的 workspaces、共享脚本和统一开发依赖。",
+    "3. 维护要点：新增包或升级基础工具链时，应优先在这里收口。"
+  ],
+  "name": "statekit-workspace",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "npm@11.8.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "dev:docs": "npm run dev --workspace @statekit/docs",
+    "dev:example": "npm run dev --workspace @statekit/example-vite-vue-admin",
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@vitejs/plugin-vue": "^5.0.0",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.0",
+    "vue": "^3.4.0",
+    "vue-router": "^4.3.0",
+    "vue-tsc": "^2.0.0"
+  }
+}

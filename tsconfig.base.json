@@ -1,0 +1,26 @@
+// StateKit ?????
+// 1. ????? TypeScript ???
+// 2. ???????????????????????????
+// 3. ??????????????????????
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "baseUrl": ".",
+    "paths": {
+      "@statekit/shared": ["packages/shared/src/index.ts"],
+      "@statekit/shared/*": ["packages/shared/src/*"],
+      "@statekit/vue": ["packages/vue/src/index.ts"],
+      "@statekit/vue/*": ["packages/vue/src/*"]
+    }
+  }
+}

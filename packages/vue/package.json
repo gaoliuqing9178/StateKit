@@ -1,0 +1,28 @@
+{
+  "x-comment": [
+    "1. Vue 组件包的 package 配置。",
+    "2. 作用：定义 Vue 包的导出入口、样式入口和构建脚本。",
+    "3. 维护要点：发布入口或 peer 版本变化时，需要优先检查这里。"
+  ],
+  "name": "@statekit/vue",
+  "version": "0.1.0",
+  "type": "module",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts"
+    },
+    "./styles.css": "./src/styles/index.css"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.0"
+  },
+  "dependencies": {
+    "@statekit/shared": "0.1.0"
+  },
+  "scripts": {
+    "build": "vite build",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json"
+  }
+}

@@ -1,0 +1,20 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!--
+  StateKit ?????
+  1. ??? README ??? hero ?????
+  2. ??????????????? block ?????????????
+  3. ???????????????????? README ? docs ?????????
+  -->
+  <rect width="1280" height="720" rx="40" fill="#EEF3FA"/>
+  <rect x="44" y="44" width="1192" height="632" rx="32" fill="#F8FBFF"/>
+  <rect x="92" y="96" width="332" height="220" rx="28" fill="white"/>
+  <rect x="474" y="96" width="332" height="220" rx="28" fill="white"/>
+  <rect x="856" y="96" width="332" height="220" rx="28" fill="white"/>
+  <rect x="126" y="128" width="84" height="84" rx="24" fill="#DBEAFE"/>
+  <rect x="154" y="154" width="28" height="28" rx="10" fill="#2563EB"/>
+  <rect x="508" y="128" width="84" height="84" rx="24" fill="#FEE2E2"/>
+  <path d="M534 154L566 186" stroke="#B91C1C" stroke-width="12" stroke-linecap="round"/>
+  <path d="M566 154L534 186" stroke="#B91C1C" stroke-width="12" stroke-linecap="round"/>
+  <rect x="890" y="128" width="84" height="84" rx="24" fill="#DCFCE7"/>
+  <path d="M916 171L938 191L968 155" stroke="#15803D" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

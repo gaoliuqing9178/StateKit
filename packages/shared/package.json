@@ -1,0 +1,21 @@
+{
+  "x-comment": [
+    "1. 共享基础包的 package 配置。",
+    "2. 作用：声明纯类型与元数据层的导出方式，并提供构建、类型检查脚本。",
+    "3. 维护要点：对外导出入口或构建目标调整时，需要先更新这里。"
+  ],
+  "name": "@statekit/shared",
+  "version": "0.1.0",
+  "type": "module",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit"
+  }
+}
