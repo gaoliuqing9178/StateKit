@@ -1,4 +1,5 @@
 # StateKit
+# Not yet completed, still under construction
 
 Scenario-first state UI building blocks for SaaS products built with Vue.
 
