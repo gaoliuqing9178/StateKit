@@ -7,13 +7,17 @@
   "name": "@statekit/vue",
   "version": "0.1.0",
   "type": "module",
-  "types": "./src/index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
-      "types": "./src/index.ts",
-      "import": "./src/index.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
     },
-    "./styles.css": "./src/styles/index.css"
+    "./styles.css": "./dist/style.css"
   },
   "peerDependencies": {
     "vue": "^3.4.0"
@@ -22,7 +26,7 @@
     "@statekit/shared": "0.1.0"
   },
   "scripts": {
-    "build": "vite build",
+    "build": "vite build && vue-tsc -p tsconfig.build.json",
     "typecheck": "vue-tsc --noEmit -p tsconfig.json"
   }
 }

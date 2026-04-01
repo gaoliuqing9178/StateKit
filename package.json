@@ -16,8 +16,10 @@
   "scripts": {
     "dev:docs": "npm run dev --workspace @statekit/docs",
     "dev:example": "npm run dev --workspace @statekit/example-vite-vue-admin",
-    "build": "npm run build --workspaces --if-present",
-    "typecheck": "npm run typecheck --workspaces --if-present"
+    "build": "npm run build --workspace @statekit/shared && npm run build --workspace @statekit/vue && npm run build --workspace @statekit/docs && npm run build --workspace @statekit/example-vite-vue-admin",
+    "typecheck": "npm run typecheck --workspace @statekit/shared && npm run typecheck --workspace @statekit/vue && npm run typecheck --workspace @statekit/docs && npm run typecheck --workspace @statekit/example-vite-vue-admin",
+    "pack:check": "npm pack --workspace @statekit/shared --json --dry-run && npm pack --workspace @statekit/vue --json --dry-run",
+    "smoke:install": "node ./scripts/smoke-install.mjs"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
