@@ -20,16 +20,19 @@ export const examplePages = [
   {
     href: "/examples/admin-empty-states",
     title: "Admin Empty States",
-    description: "See search, collection, and first-run empty states inside an admin dashboard shell.",
+    description:
+      "Interactive empty states showing inline search recovery, async collection creation, and first-run onboarding setup.",
   },
   {
     href: "/examples/permissions-and-upgrade",
     title: "Permissions And Upgrade",
-    description: "Compare access restrictions, expired sessions, and plan-gated upgrade moments in one workflow.",
+    description:
+      "Permission and billing gates rewritten around request-access actions, session recovery, disabled CTAs, and upgrade decisions.",
   },
   {
     href: "/examples/task-flow",
     title: "Task Flow",
-    description: "Walk through loading, inline failure, and success feedback across a single task lifecycle.",
+    description:
+      "A task lifecycle example that demonstrates custom loading labels, inline retries, CTA links, and completion handoff actions.",
   },
 ];

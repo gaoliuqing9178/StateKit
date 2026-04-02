@@ -6,17 +6,40 @@
   ],
   "name": "@statekit/shared",
   "version": "0.1.0",
+  "description": "Shared types and metadata for StateKit preset state blocks.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     }
+  },
+  "keywords": [
+    "saas",
+    "ui",
+    "metadata",
+    "design-system",
+    "state-machine",
+    "vue"
+  ],
+  "homepage": "https://github.com/gaoliuqing9178/StateKit#readme",
+  "bugs": {
+    "url": "https://github.com/gaoliuqing9178/StateKit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaoliuqing9178/StateKit.git"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",

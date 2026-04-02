@@ -1,10 +1,3 @@
-/**
- * StateKit ?????
- * 1. ?????????
- * 2. ??????? block ??? props????????????????
- * 3. ???????????????????????????????
- */
-
 export type StateTone = "neutral" | "brand" | "danger" | "warning" | "success";
 export type StateDensity = "compact" | "cozy" | "spacious";
 export type StateLayout = "inline" | "panel" | "page";
@@ -31,6 +24,38 @@ export type StateBlockId =
   | "publish-success";
 
 export type ImplementedBlockId = StateBlockId;
-export interface StateAction { label: string; href?: string; disabled?: boolean; loading?: boolean; }
-export interface BaseStateProps { title: string; description?: string; tone?: StateTone; density?: StateDensity; layout?: StateLayout; primaryAction?: StateAction; secondaryAction?: StateAction; }
-export interface StateBlockMeta { id: StateBlockId; slug: string; componentName: string; category: StateCategory; summary: string; priority: "launch" | "backlog"; featured: boolean; supportedLayouts: StateLayout[]; defaults: BaseStateProps; }
+
+export type StateActionClickHandler = (event: MouseEvent) => void | Promise<void>;
+
+export interface StateAction {
+  label: string;
+  href?: string;
+  disabled?: boolean;
+  loading?: boolean;
+  loadingLabel?: string;
+  onClick?: StateActionClickHandler;
+}
+
+export type StateActionSlot = StateAction | null;
+
+export interface BaseStateProps {
+  title: string;
+  description?: string;
+  tone?: StateTone;
+  density?: StateDensity;
+  layout?: StateLayout;
+  primaryAction?: StateActionSlot;
+  secondaryAction?: StateActionSlot;
+}
+
+export interface StateBlockMeta {
+  id: StateBlockId;
+  slug: string;
+  componentName: string;
+  category: StateCategory;
+  summary: string;
+  priority: "launch" | "backlog";
+  featured: boolean;
+  supportedLayouts: StateLayout[];
+  defaults: BaseStateProps;
+}

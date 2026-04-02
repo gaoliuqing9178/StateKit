@@ -745,7 +745,11 @@ code {
   font-size: 0.82rem;
 }
 
-.detail-layout,
+.detail-layout {
+  display: grid;
+  gap: 20px;
+}
+
 .install-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
@@ -754,6 +758,7 @@ code {
 
 .detail-preview {
   padding: 24px;
+  min-width: 0;
 }
 
 .detail-preview__header {
@@ -767,11 +772,13 @@ code {
   margin-top: 20px;
   padding: 22px;
   border-radius: 28px;
+  min-width: 0;
   background:
     linear-gradient(180deg, rgba(244, 248, 255, 0.9), rgba(255, 255, 255, 0.74));
   border: 1px solid rgba(16, 27, 46, 0.08);
 }
 
+.detail-info-grid,
 .detail-sidebar,
 .install-sidebar,
 .install-steps {
@@ -779,8 +786,141 @@ code {
   gap: 16px;
 }
 
+.detail-info-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+}
+
 .detail-section {
   padding: 22px;
+  min-width: 0;
+}
+
+.detail-guide-grid,
+.detail-doc-grid,
+.detail-prop-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.detail-guide-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 16px;
+}
+
+.detail-guide-note {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  padding: 18px 20px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.46);
+  border: 1px solid rgba(16, 27, 46, 0.08);
+}
+
+.detail-guide-note span {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--site-muted);
+}
+
+.detail-guide-note strong {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  line-height: 1.35;
+  letter-spacing: -0.03em;
+}
+
+.detail-doc-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.detail-prop-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 16px;
+}
+
+.detail-prop-grid--compact {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.detail-prop-card {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+  padding: 22px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(16, 27, 46, 0.08);
+}
+
+.detail-prop-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.detail-prop-card__top .meta-pill {
+  max-width: 100%;
+  white-space: normal;
+  text-align: right;
+}
+
+.detail-section--doc,
+.detail-section--full {
+  display: grid;
+  gap: 14px;
+}
+
+.detail-section--doc h3,
+.detail-prop-card h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+}
+
+.detail-section--doc p,
+.detail-prop-card p {
+  margin: 0;
+}
+
+.detail-prop-card__group {
+  display: grid;
+  gap: 10px;
+}
+
+.detail-prop-card__hint {
+  color: var(--site-muted);
+}
+
+.detail-inline-code-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.detail-inline-code-list code {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 6px 10px;
+  border-radius: 14px;
+  background: rgba(16, 27, 46, 0.06);
+  border: 1px solid rgba(16, 27, 46, 0.08);
+  color: var(--site-ink);
+  font-size: 0.84rem;
+  overflow-wrap: anywhere;
+}
+
+.detail-section--usage {
+  grid-column: span 2;
 }
 
 .detail-definition-list {
@@ -811,6 +951,7 @@ code {
 .detail-definition-list dd {
   margin: 0;
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .detail-bullet-list,
@@ -826,6 +967,7 @@ code {
   padding: 18px 20px;
   border-radius: 22px;
   overflow: auto;
+  max-width: 100%;
   background:
     linear-gradient(180deg, rgba(16, 27, 46, 0.98), rgba(9, 18, 34, 0.96));
   color: #f4f8ff;
@@ -878,10 +1020,27 @@ code {
 
 @media (max-width: 1120px) {
   .home-hero__inner,
-  .detail-layout,
   .install-layout,
   .page-hero {
     grid-template-columns: 1fr;
+  }
+
+  .detail-info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .detail-guide-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .detail-doc-grid,
+  .detail-prop-grid,
+  .detail-prop-grid--compact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .detail-section--usage {
+    grid-column: 1 / -1;
   }
 
   .page-hero__facts,
@@ -967,8 +1126,22 @@ code {
   }
 
   .category-grid,
-  .editorial-grid {
+  .editorial-grid,
+  .detail-info-grid,
+  .detail-guide-grid,
+  .detail-doc-grid,
+  .detail-prop-grid,
+  .detail-prop-grid--compact {
     grid-template-columns: 1fr;
+  }
+
+  .detail-prop-card__top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .detail-section--usage {
+    grid-column: auto;
   }
 
   .install-step {

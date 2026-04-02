@@ -107,8 +107,13 @@ import { EmptySearchState } from "@statekit/vue";
 import { priorityStateBlockIds, stateBlockMetaList } from "@statekit/shared";
 
 const description = \`Loaded \${stateBlockMetaList.length} packed blocks and \${priorityStateBlockIds.length} launch states from npm tarballs.\`;
-const primaryAction = { label: "Clear filters" };
-const secondaryAction = { label: "Open docs", href: "#" };
+const primaryAction = {
+  label: "Clear filters",
+  loading: true,
+  loadingLabel: "Clearing filters...",
+  onClick: () => {},
+};
+const secondaryAction = null;
 </script>
 
 <template>

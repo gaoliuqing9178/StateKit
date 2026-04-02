@@ -103,7 +103,10 @@ Block 列表页必须：
 ### 交互检查
 
 - 有 `href` 的 action 渲染为链接，没有 `href` 的渲染为按钮。
-- `loading` action 会显示 `Working...`。
+- `onClick` action 可正常触发；如果同时提供 `href`，仍保持链接语义。
+- `loading` action 会显示 `loadingLabel ?? "Working..."`，并阻止重复点击或跳转。
+- 对 preset 传入 `primaryAction: null` 或 `secondaryAction: null` 时，默认按钮会被显式移除。
+- `disabled` 与 `loading` 动作都有明显的不可交互视觉状态，包含灰态或 cursor 变化。
 - 次按钮样式与主按钮明显区分。
 - 移动端按钮会纵向堆叠，点击区域足够。
 

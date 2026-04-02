@@ -10,4 +10,6 @@ import type { PresetStateBlockProps } from "../../types";
 defineProps<PresetStateBlockProps>();
 </script>
 
-<template><StatePresetBlock block-id="empty-search" v-bind="$props" /></template>
+<template>
+  <StatePresetBlock block-id="empty-search" v-bind="$props" />
+</template>
