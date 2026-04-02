@@ -12,9 +12,10 @@ export const homeCopy = {
     "StateKit helps teams ship empty, loading, error, permission, upgrade, and success states that already feel like part of the product.",
 };
 export const installationSteps = [
-  "Install the package in your Vue workspace.",
-  "Import the shared stylesheet before rendering any StateKit block.",
-  "Start with one preset block and override only the title, description, and CTA copy you actually need.",
+  "Install `@statekit-vue/vue` in the Vue 3.4+ workspace that renders the blocks.",
+  "Import `@statekit-vue/vue/styles.css` once before rendering any StateKit preset.",
+  "Import one preset block from `@statekit-vue/vue` and override only the copy and CTA props you need.",
+  "Install `@statekit-vue/shared` separately only when you need metadata or shared types without the Vue UI package.",
 ];
 export const examplePages = [
   {

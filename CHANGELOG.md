@@ -81,7 +81,7 @@
 
 - 发布 scope 已从仓库内部沿用的 `@statekit/*` 调整为实际可发布的 `@statekit-vue/*`。
 - 根脚本、workspace 依赖、TypeScript path alias、Vite alias、docs/example 引用、README 和 smoke install 流程都已切换到 `@statekit-vue/shared` 与 `@statekit-vue/vue`。
-- `@statekit-vue/shared@0.1.0` 与 `@statekit-vue/vue@0.1.0` 已发布到 npm，当前 `latest` dist-tag 均指向 `0.1.0`，包状态为 `public`。
+- `@statekit-vue/shared@0.1.0` 与 `@statekit-vue/vue@0.1.0` 已完成首次发布；首发时 `latest` dist-tag 均指向 `0.1.0`，包状态为 `public`。
 - 后续继续发版时，需要同时升级 `packages/shared/package.json`、`packages/vue/package.json`，以及 `packages/vue/package.json` 中对 `@statekit-vue/shared` 的依赖版本。
 
 ## 验证状态
@@ -107,4 +107,18 @@
 
 - `npm run typecheck`, `npm run build`, `npm run pack:check`, and `npm run smoke:install` pass against the current workspace state.
 - `smoke:install` completes with an external consumer install plus production build using the published package surface.
-- `@statekit-vue/shared@0.1.0` and `@statekit-vue/vue@0.1.0` are published on npm with public access and `latest` pointing at `0.1.0`.
+- `@statekit-vue/shared@0.1.1` and `@statekit-vue/vue@0.1.1` are published on npm with public access and `latest` pointing at `0.1.1`.
+
+## 2026-04-02 Patch Release Prep (0.1.1)
+
+- Bumped `@statekit-vue/shared` from `0.1.0` to `0.1.1`.
+- Bumped `@statekit-vue/vue` from `0.1.0` to `0.1.1` and aligned its dependency on `@statekit-vue/shared` to `0.1.1`.
+- Updated the docs app, example app, and lockfile so the workspace resolves against the `0.1.1` package line before publish.
+
+## 2026-04-02 Patch Release Prep (0.1.2)
+
+- Bumped `@statekit-vue/shared` from `0.1.1` to `0.1.2`.
+- Bumped `@statekit-vue/vue` from `0.1.1` to `0.1.2` and aligned its dependency on `@statekit-vue/shared` to `0.1.2`.
+- Updated the docs app, example app, and lockfile so the workspace resolves against the `0.1.2` package line before publish.
+- Refreshed `packages/shared/README.md` and `packages/vue/README.md` so the npm package pages match the current shared exports, CTA action API, and install guidance.
+- As of this release prep, the latest published npm version remains `0.1.1` until the `0.1.2` publish step is executed.

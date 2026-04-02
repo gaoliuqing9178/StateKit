@@ -2,12 +2,13 @@ import type { StateActionSlot, StateBlockMeta } from "@statekit-vue/shared";
 
 export const installSnippet = "npm install @statekit-vue/vue";
 
-export const baseUsageSnippet = [
-  'import "@statekit-vue/vue/styles.css";',
-  'import { EmptySearchState } from "@statekit-vue/vue";',
-].join("\n");
+export const stylesheetSnippet = 'import "@statekit-vue/vue/styles.css";';
 
 export const minimalUsageSnippet = [
+  '<script setup lang="ts">',
+  'import { EmptySearchState } from "@statekit-vue/vue";',
+  "</script>",
+  "",
   "<template>",
   "  <EmptySearchState",
   '    title="No matching invoices"',

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
 import {
-  baseUsageSnippet,
   installSnippet,
   minimalUsageSnippet,
+  stylesheetSnippet,
 } from "../lib/example-code";
 import { installationSteps } from "../lib/copy";
 
@@ -12,21 +12,21 @@ const installSections = [
     index: "01",
     title: "Add the package",
     description:
-      "Install the Vue package in the consuming workspace where the state blocks will render.",
+      "Install the Vue package in the consuming Vue 3.4+ workspace where the state blocks will render.",
     code: installSnippet,
   },
   {
     index: "02",
     title: "Import the shared stylesheet",
     description:
-      "Pull in the default StateKit styles once so every preset block keeps the same shell and tone system.",
-    code: baseUsageSnippet,
+      "Pull in the default StateKit styles once in your app entry or page shell so every preset block keeps the same shell and tone system.",
+    code: stylesheetSnippet,
   },
   {
     index: "03",
     title: "Render one preset and override the copy",
     description:
-      "Start from an existing scenario block and change only the title, description, and CTA content that matters to the product flow.",
+      "After the stylesheet is in place, import one preset component and change only the title, description, and CTA content that matters to the product flow.",
     code: minimalUsageSnippet,
   },
 ];
@@ -40,7 +40,7 @@ const overrideOptions = [
 const consistencyNotes = [
   "Shared metadata drives the default tone, density, layout, and action structure.",
   "Every block keeps the same underlying API so teams can switch presets without relearning the surface.",
-  "Docs and examples are built from the same shared catalog used by the Vue package.",
+  "The standard UI install only needs `@statekit-vue/vue`; add `@statekit-vue/shared` only for metadata and shared types.",
 ];
 </script>
 
@@ -62,7 +62,7 @@ const consistencyNotes = [
           <span>Package</span>
         </div>
         <div class="page-fact">
-          <strong>01</strong>
+          <strong>02</strong>
           <span>Stylesheet</span>
         </div>
         <div class="page-fact">

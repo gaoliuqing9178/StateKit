@@ -5,7 +5,7 @@
     "3. 维护要点：对外导出入口或构建目标调整时，需要先更新这里。"
   ],
   "name": "@statekit-vue/shared",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Shared types and metadata for StateKit preset state blocks.",
   "type": "module",
   "main": "./dist/index.js",

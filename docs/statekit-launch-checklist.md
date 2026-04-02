@@ -56,11 +56,12 @@
 - [x] 没有把内部 demo、dist 垃圾文件或错误路径当成发布内容。
 - [x] 版本号策略和 changelog 方式已经确定。
 
-当前首发结果：
+当前 npm 发布状态：
 
-- [x] `@statekit-vue/shared@0.1.0` 已发布且为 `public`
-- [x] `@statekit-vue/vue@0.1.0` 已发布且为 `public`
-- [x] 两个包的 `latest` dist-tag 当前都指向 `0.1.0`
+- [x] `@statekit-vue/shared@0.1.1` 已发布且为 `public`
+- [x] `@statekit-vue/vue@0.1.1` 已发布且为 `public`
+- [x] 两个包的 `latest` dist-tag 当前都指向 `0.1.1`
+- [x] 本地 workspace 当前待发布版本已推进到 `0.1.2`，但在执行 publish 之前不会改变 npm 上的最新可安装版本
 
 如果只是开源仓库展示，可适当跳过 npm 发布细项，但文档和构建项不能跳。
 
