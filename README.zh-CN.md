@@ -6,6 +6,12 @@
 
 StateKit 专注处理产品里那些高频出现、却最容易被临时拼凑的状态界面：empty、loading、error、permission、upgrade 和 success。它不是按钮库、表单库，也不是完整设计系统，而是专门解决“状态页与流程节点”这一层的问题。
 
+## 在线文档
+
+- 在线 docs：https://state-kit-vue-docs.vercel.app/
+- 推荐从 `/recipes` 开始浏览预设 recipes，从 `/docs/installation` 查看安装说明。
+- 旧的 `/blocks` 路由会自动跳转到 `/recipes`，方便兼容历史链接。
+
 ## StateKit 提供什么
 
 当前对外公开的主入口是 6 个按类别统一的组件：
@@ -113,6 +119,7 @@ async function handleClearFilters() {
 
 ## 文档与示例
 
+- 在线 docs：https://state-kit-vue-docs.vercel.app/
 - `npm run dev:docs` 可以打开本地 docs 站，查看 recipe 预览、安装说明和示例路由。
 - docs 站当前以 `/recipes` 作为主要路由前缀，同时保留 `/blocks` 到新地址的跳转兼容。
 - 每个 recipe 详情页现在都会说明：

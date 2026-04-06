@@ -97,5 +97,6 @@ Passing `null` removes a preset action explicitly. Leaving an action prop `undef
 ## Links
 
 - Repository: https://github.com/gaoliuqing9178/StateKit
+- Online docs: https://state-kit-vue-docs.vercel.app/
 - Root docs and examples: https://github.com/gaoliuqing9178/StateKit#readme
 - Release notes: https://github.com/gaoliuqing9178/StateKit/blob/main/CHANGELOG.md

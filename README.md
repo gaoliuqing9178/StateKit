@@ -6,6 +6,12 @@ Category-first state UI for SaaS products built with Vue.
 
 StateKit focuses on the product states teams rebuild constantly but rarely standardize well: empty, loading, error, permission, upgrade, and success. It is not a button kit, form kit, or general design system. It is a narrow layer for product-grade state surfaces and workflow checkpoints.
 
+## Online Docs
+
+- Docs site: https://state-kit-vue-docs.vercel.app/
+- Start with `/recipes` to browse preset recipes and `/docs/installation` for the install guide.
+- Legacy `/blocks` routes still redirect to `/recipes` for compatibility.
+
 ## What StateKit Ships
 
 StateKit currently exposes six public category-first components:
@@ -113,6 +119,7 @@ Passing rules:
 
 ## Docs And Examples
 
+- Online docs: https://state-kit-vue-docs.vercel.app/
 - `npm run dev:docs` opens the local docs app with recipe previews, installation guidance, and example routes.
 - The docs app now uses `/recipes` as the primary route family and preserves `/blocks` redirects for compatibility.
 - Each recipe detail page documents:
