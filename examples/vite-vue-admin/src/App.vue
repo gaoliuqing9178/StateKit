@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import {
-  EmptySearchState,
-  LoadingTableState,
-  NoPermissionState,
-  PublishSuccessState,
-  UpgradePlanState,
+  EmptyState,
+  LoadingState,
+  PermissionState,
+  SuccessState,
+  UpgradeState,
 } from "@statekit-vue/vue";
 
 const navItems = [
@@ -141,7 +141,7 @@ const searchPrimaryAction = computed(() =>
                 saves the current empty view as a reusable workspace filter.
               </p>
             </div>
-            <span class="status-chip">EmptySearchState</span>
+            <span class="status-chip">EmptyState</span>
           </div>
 
           <div class="table-card">
@@ -151,7 +151,7 @@ const searchPrimaryAction = computed(() =>
               <span>Status</span>
               <span>Owner</span>
             </div>
-            <EmptySearchState
+            <EmptyState
               layout="inline"
               density="compact"
               title="No approved hero assets match this review"
@@ -191,7 +191,7 @@ const searchPrimaryAction = computed(() =>
                 for a real publishing queue.
               </p>
             </div>
-            <span class="status-chip">LoadingTableState</span>
+            <span class="status-chip">LoadingState</span>
           </div>
 
           <div class="table-card">
@@ -201,7 +201,7 @@ const searchPrimaryAction = computed(() =>
               <span>Status</span>
               <span>ETA</span>
             </div>
-            <LoadingTableState
+            <LoadingState
               layout="inline"
               density="compact"
               title="Loading release queue"
@@ -222,10 +222,10 @@ const searchPrimaryAction = computed(() =>
                 a link into the broader billing workflow.
               </p>
             </div>
-            <span class="status-chip">UpgradePlanState</span>
+            <span class="status-chip">UpgradeState</span>
           </div>
 
-          <UpgradePlanState
+          <UpgradeState
             layout="inline"
             density="compact"
             title="Upgrade to unlock approval routing"
@@ -258,10 +258,10 @@ const searchPrimaryAction = computed(() =>
                 hides the secondary button to keep one clear next step.
               </p>
             </div>
-            <span class="status-chip">NoPermissionState</span>
+            <span class="status-chip">PermissionState</span>
           </div>
 
-          <NoPermissionState
+          <PermissionState
             layout="panel"
             density="compact"
             title="You need workspace approval"
@@ -287,10 +287,10 @@ const searchPrimaryAction = computed(() =>
               summary after the release has already gone live.
             </p>
           </div>
-          <span class="status-chip">PublishSuccessState</span>
+          <span class="status-chip">SuccessState</span>
         </div>
 
-        <PublishSuccessState
+        <SuccessState
           tone="success"
           layout="page"
           density="compact"

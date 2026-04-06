@@ -32,29 +32,29 @@
   说明：`typecheck` 和 `build` 之前通过过，但 `pack:check` 和 `smoke:install` 还没有在最新 docs/example 整理后重新跑。
   完成标准：四个命令全部通过，没有包导出、安装或构建回归。
 
-- [ ] 校对发布面文档和当前仓库状态
+- [x] 校对发布面文档和当前仓库状态
   需要对齐的文件：`README.md`、`README.zh-CN.md`、`CHANGELOG.md`、`剩餘部分.md`、`docs/statekit-ai-handoff-brief.md`、`docs/statekit-launch-checklist.md`。
   检查点：不要同时出现“README 已补齐”和“README 仍待补”这类冲突表述。
   完成标准：文档口径统一，当前已完成项、待完成项和技术边界一致。
 
-- [ ] 按 launch checklist 逐项勾选当前版本的真实状态
+- [x] 按 launch checklist 逐项勾选当前版本的真实状态
   目标文件：`docs/statekit-launch-checklist.md`
   做法：只勾已经验证过的项；没验证的保持未勾选，不要凭印象收口。
   完成标准：checklist 可以真实反映是否具备公开展示或发包条件。
 
 ## P1 短期应推进
 
-- [ ] 为关键 UI 增加最小可用的自动化回归测试
+- [x] 为关键 UI 增加最小可用的自动化回归测试
   建议先做最小闭环，不要一次铺太大：
   1. 为 `StateBlockShell` 增加 DOM 级断言，覆盖 `layout`、`tone`、`primaryAction`、`secondaryAction`、`href`、`loading`、`disabled`、`null`。
   2. 为 docs 关键路由增加截图级或快照级回归，至少覆盖一个 `inline`、一个 `panel`、一个 `page` 场景。
   完成标准：未来再改 CTA 或布局样式时，能自动发现明显回归。
 
-- [ ] 扩充 example 场景，而不是继续堆 Block 数量
+- [x] 扩充 example 场景，而不是继续堆 Block 数量
   建议新增方向：多步骤任务流、权限受限后升级、数据为空后的首个成功闭环。
   完成标准：example 不只是组件陈列，而能展示更真实的产品接入方式。
 
-- [ ] 降低 docs 站手写映射的维护成本
+- [x] 降低 docs 站手写映射的维护成本
   方向：梳理 `apps/docs/src/lib/block-docs.ts`、`apps/docs/src/lib/block-components.ts`、路由和 shared 元数据之间的重复映射。
   完成标准：新增或修改 Block 时，不需要在太多位置手工同步。
 

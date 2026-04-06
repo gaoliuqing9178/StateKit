@@ -6,15 +6,15 @@
  */
 
 export const homeCopy = {
-  eyebrow: "Scenario-first State UI",
-  title: "Product-grade state blocks for Vue teams",
+  eyebrow: "Category-first State UI",
+  title: "Category-first state components for Vue teams",
   description:
-    "StateKit helps teams ship empty, loading, error, permission, upgrade, and success states that already feel like part of the product.",
+    "StateKit gives Vue teams six public state categories with one shared API, backed by 18 preset recipes for empty, loading, error, permission, upgrade, and success moments.",
 };
 export const installationSteps = [
-  "Install `@statekit-vue/vue` in the Vue 3.4+ workspace that renders the blocks.",
-  "Import `@statekit-vue/vue/styles.css` once before rendering any StateKit preset.",
-  "Import one preset block from `@statekit-vue/vue` and override only the copy and CTA props you need.",
+  "Install `@statekit-vue/vue` in the Vue 3.4+ workspace that renders the category components.",
+  "Import `@statekit-vue/vue/styles.css` once before rendering any StateKit recipe.",
+  "Import one category component from `@statekit-vue/vue` and override only the copy and CTA props you need.",
   "Install `@statekit-vue/shared` separately only when you need metadata or shared types without the Vue UI package.",
 ];
 export const examplePages = [

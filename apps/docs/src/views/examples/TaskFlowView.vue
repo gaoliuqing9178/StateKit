@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import {
-  InlineErrorState,
-  LoadingImportState,
-  PublishSuccessState,
-  TaskSuccessState,
+  ErrorState,
+  LoadingState,
+  SuccessState,
 } from "@statekit-vue/vue";
 
 const logOpenPending = ref(false);
@@ -114,10 +113,10 @@ const taskRows = computed(() => [
                 "busy" means.
               </p>
             </div>
-            <span class="demo-badge">LoadingImportState</span>
+            <span class="demo-badge">LoadingState</span>
           </div>
 
-          <LoadingImportState
+          <LoadingState
             title="Importing 124 finance records"
             description="The queue stays visible while the system validates the source file and maps each destination field."
             :primary-action="{
@@ -140,7 +139,7 @@ const taskRows = computed(() => [
                 notes below.
               </p>
             </div>
-            <span class="demo-badge">InlineErrorState</span>
+            <span class="demo-badge">ErrorState</span>
           </div>
 
           <div class="demo-status-list">
@@ -156,7 +155,7 @@ const taskRows = computed(() => [
             </div>
           </div>
 
-          <InlineErrorState
+          <ErrorState
             layout="inline"
             density="compact"
             title="One destination field still needs review"
@@ -184,10 +183,10 @@ const taskRows = computed(() => [
                 so the operator has one obvious handoff action.
               </p>
             </div>
-            <span class="demo-badge">TaskSuccessState</span>
+            <span class="demo-badge">SuccessState</span>
           </div>
 
-          <TaskSuccessState
+          <SuccessState
             layout="page"
             density="spacious"
             title="Import completed and ready for handoff"
@@ -210,11 +209,11 @@ const taskRows = computed(() => [
                 the board once the main task handoff has already been completed.
               </p>
             </div>
-            <span class="demo-badge">PublishSuccessState</span>
+            <span class="demo-badge">SuccessState</span>
           </div>
 
           <div class="demo-panel-stack">
-            <PublishSuccessState
+            <SuccessState
               layout="panel"
               title="Verified records are now live"
               description="Open the publish summary or head back to the import board for the next batch."
@@ -236,7 +235,7 @@ const taskRows = computed(() => [
                 Publish summaries opened from this panel: {{ publishSummaryCount }}
               </li>
               <li>
-                This smaller success state works after the main `TaskSuccessState`
+                This smaller success state works after the main `SuccessState`
                 has already confirmed the larger workflow handoff.
               </li>
             </ul>

@@ -12,21 +12,21 @@ const installSections = [
     index: "01",
     title: "Add the package",
     description:
-      "Install the Vue package in the consuming Vue 3.4+ workspace where the state blocks will render.",
+      "Install the Vue package in the consuming Vue 3.4+ workspace where the category-first state components will render.",
     code: installSnippet,
   },
   {
     index: "02",
     title: "Import the shared stylesheet",
     description:
-      "Pull in the default StateKit styles once in your app entry or page shell so every preset block keeps the same shell and tone system.",
+      "Pull in the default StateKit styles once in your app entry or page shell so every recipe rendered through a category component keeps the same shell and tone system.",
     code: stylesheetSnippet,
   },
   {
     index: "03",
-    title: "Render one preset and override the copy",
+    title: "Render one category component and override the copy",
     description:
-      "After the stylesheet is in place, import one preset component and change only the title, description, and CTA content that matters to the product flow.",
+      "After the stylesheet is in place, import one category component and change only the title, description, and CTA content that matters to the product flow.",
     code: minimalUsageSnippet,
   },
 ];
@@ -39,7 +39,7 @@ const overrideOptions = [
 
 const consistencyNotes = [
   "Shared metadata drives the default tone, density, layout, and action structure.",
-  "Every block keeps the same underlying API so teams can switch presets without relearning the surface.",
+  "Every category entry keeps the same underlying API, while recipes only change the defaults.",
   "The standard UI install only needs `@statekit-vue/vue`; add `@statekit-vue/shared` only for metadata and shared types.",
 ];
 </script>
@@ -49,10 +49,10 @@ const consistencyNotes = [
     <section class="page-hero">
       <div>
         <p class="eyebrow">Installation</p>
-        <h1>Start with one preset, then change only the product language.</h1>
+        <h1>Start with one category component, then change only the product language.</h1>
         <p>
           StateKit is meant to be low-decision: one package, one stylesheet, and
-          a small set of high-value props on top of shared defaults.
+          six public entries on top of shared recipe defaults.
         </p>
       </div>
 
@@ -112,7 +112,7 @@ const consistencyNotes = [
           </ol>
         </section>
 
-        <RouterLink class="button-link" to="/blocks">Browse all blocks</RouterLink>
+        <RouterLink class="button-link" to="/recipes">Browse preset recipes</RouterLink>
       </aside>
     </section>
   </section>

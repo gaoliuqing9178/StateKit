@@ -15,8 +15,8 @@
     "typecheck": "vue-tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
-    "@statekit-vue/shared": "0.1.2",
-    "@statekit-vue/vue": "0.1.2",
+    "@statekit-vue/shared": "0.2.0",
+    "@statekit-vue/vue": "0.2.0",
     "vue": "^3.4.0",
     "vue-router": "^4.3.0"
   },

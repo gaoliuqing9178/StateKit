@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { RouterLink } from "vue-router";
-import { allBlockDocs } from "../lib/block-docs";
+import { allRecipeDocs } from "../lib/recipe-docs";
 
 const categoryLabels = {
   empty: "Empty",
@@ -27,13 +27,13 @@ const categorySections = computed(() =>
       category,
       label: categoryLabels[category],
       description: categoryDescriptions[category],
-      blocks: allBlockDocs.filter((block) => block.category === category),
+      recipes: allRecipeDocs.filter((recipe) => recipe.category === category),
     }),
   ),
 );
 
-const launchCount = computed(
-  () => allBlockDocs.filter((block) => block.priority === "launch").length,
+const launchRecipeCount = computed(
+  () => allRecipeDocs.filter((recipe) => recipe.priority === "launch").length,
 );
 </script>
 
@@ -41,22 +41,22 @@ const launchCount = computed(
   <section class="page-stack">
     <section class="page-hero">
       <div>
-        <p class="eyebrow">Block Index</p>
-        <h1>Prebuilt states by scenario</h1>
+        <p class="eyebrow">Recipe Index</p>
+        <h1>Preset recipes by state category</h1>
         <p>
-          Browse the full V1 catalog, compare adjacent moments inside the same
-          category, and jump from metadata to live preview without losing
-          context.
+          Browse all 18 preset recipes, compare adjacent moments inside the same
+          category, and see which public category entry each recipe resolves
+          through.
         </p>
       </div>
 
       <div class="page-hero__facts">
         <div class="page-fact">
-          <strong>{{ allBlockDocs.length }}</strong>
-          <span>Total blocks</span>
+          <strong>{{ allRecipeDocs.length }}</strong>
+          <span>Total recipes</span>
         </div>
         <div class="page-fact">
-          <strong>{{ launchCount }}</strong>
+          <strong>{{ launchRecipeCount }}</strong>
           <span>Launch priority</span>
         </div>
         <div class="page-fact">
@@ -74,33 +74,33 @@ const launchCount = computed(
       <div class="section-heading section-heading--inline">
         <div>
           <p class="eyebrow">{{ section.category }}</p>
-          <h2>{{ section.label }} states</h2>
+          <h2>{{ section.label }} recipes</h2>
           <p>{{ section.description }}</p>
         </div>
-        <span class="meta-pill meta-pill--solid">{{ section.blocks.length }} blocks</span>
+        <span class="meta-pill meta-pill--solid">{{ section.recipes.length }} recipes</span>
       </div>
 
       <div class="block-list">
         <RouterLink
-          v-for="block in section.blocks"
-          :key="block.id"
+          v-for="recipe in section.recipes"
+          :key="recipe.id"
           class="block-list__item"
-          :to="'/blocks/' + block.slug"
+          :to="'/recipes/' + recipe.slug"
         >
           <div class="block-list__main">
-            <p class="block-card__eyebrow">{{ block.category }}</p>
-            <h3>{{ block.defaults.title }}</h3>
-            <p>{{ block.summary }}</p>
+            <p class="block-card__eyebrow">{{ recipe.category }}</p>
+            <h3>{{ recipe.defaults.title }}</h3>
+            <p>{{ recipe.summary }}</p>
           </div>
 
           <div class="block-list__meta">
-            <span class="meta-pill">{{ block.componentName }}</span>
-            <span class="meta-pill">{{ block.supportedLayouts.join(" · ") }}</span>
+            <span class="meta-pill">Entry {{ recipe.componentName }}</span>
+            <span class="meta-pill">{{ recipe.supportedLayouts.join(" · ") }}</span>
             <span
               class="meta-pill"
-              :class="{ 'meta-pill--accent': block.priority === 'launch' }"
+              :class="{ 'meta-pill--accent': recipe.priority === 'launch' }"
             >
-              {{ block.priority }}
+              {{ recipe.priority }}
             </span>
           </div>
         </RouterLink>

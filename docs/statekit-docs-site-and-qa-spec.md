@@ -17,8 +17,8 @@
 | 路径 | 页面职责 |
 | --- | --- |
 | `/` | 首页，介绍 StateKit 定位、展示 featured blocks、跳转示例页 |
-| `/blocks` | Block 总览列表页 |
-| `/blocks/:slug` | 单个 Block 详情页，包含 live preview、元数据、代码片段 |
+| `/recipes` | Recipe 总览列表页 |
+| `/recipes/:slug` | 单个 Recipe 详情页，包含 live preview、元数据、代码片段 |
 | `/docs/installation` | 安装与最小接入说明 |
 | `/examples/admin-empty-states` | 示例页，展示空状态在后台中的组合 |
 | `/examples/permissions-and-upgrade` | 示例页，展示权限与升级场景 |

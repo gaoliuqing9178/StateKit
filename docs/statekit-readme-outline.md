@@ -64,21 +64,21 @@ npm install @statekit-vue/vue
 
 ```ts
 import "@statekit-vue/vue/styles.css";
-import { EmptySearchState } from "@statekit-vue/vue";
+import { EmptyState } from "@statekit-vue/vue";
 ```
 
 再给一个极简模板示例。
 
 ### 5. 典型组件示例
 
-推荐展示 3 到 4 个高价值 Block，而不是把 18 个全部塞进 README：
+推荐展示 3 到 4 个高价值类别入口，而不是把 18 个 recipe 全部塞进 README：
 
-- `EmptySearchState`
-- `NoPermissionState`
-- `UpgradePlanState`
-- `TaskSuccessState`
+- `EmptyState`
+- `PermissionState`
+- `UpgradeState`
+- `SuccessState`
 
-目标是让访问者快速理解这不是“卡片组件”，而是一套预制场景。
+目标是让访问者快速理解这不是“卡片组件”，而是一套按类别统一、可按 preset recipe 起步的状态界面 API。
 
 ### 6. 仓库结构
 

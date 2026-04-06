@@ -32,10 +32,10 @@ const route = useRoute();
           </RouterLink>
           <RouterLink
             class="site-nav__link"
-            :class="{ 'is-active': route.path.startsWith('/blocks') }"
-            to="/blocks"
+            :class="{ 'is-active': route.path.startsWith('/recipes') }"
+            to="/recipes"
           >
-            Blocks
+            Recipes
           </RouterLink>
           <RouterLink
             class="site-nav__link"

@@ -1,4 +1,7 @@
-import type { StateActionSlot, StateBlockMeta } from "@statekit-vue/shared";
+import type {
+  StateActionSlot,
+  StateBlockMeta as StateRecipeMeta,
+} from "@statekit-vue/shared";
 
 export const installSnippet = "npm install @statekit-vue/vue";
 
@@ -6,11 +9,11 @@ export const stylesheetSnippet = 'import "@statekit-vue/vue/styles.css";';
 
 export const minimalUsageSnippet = [
   '<script setup lang="ts">',
-  'import { EmptySearchState } from "@statekit-vue/vue";',
+  'import { EmptyState } from "@statekit-vue/vue";',
   "</script>",
   "",
   "<template>",
-  "  <EmptySearchState",
+  "  <EmptyState",
   '    title="No matching invoices"',
   '    description="Try a different keyword or clear your current filters."',
   '    :primary-action="{ label: \'Clear filters\' }"',
@@ -88,50 +91,63 @@ function sharedImportLines(componentName: string) {
   ];
 }
 
-export function blockUsageSnippet(meta: StateBlockMeta) {
+export function recipeUsageSnippet(recipeMeta: StateRecipeMeta) {
   const lines = [
-    ...sharedImportLines(meta.componentName),
+    ...sharedImportLines(recipeMeta.componentName),
     "",
     "<template>",
-    `  <${meta.componentName}`,
-    `    title="${toDoubleQuotedAttr(meta.defaults.title)}"`,
+    `  <${recipeMeta.componentName}`,
+    `    title="${toDoubleQuotedAttr(recipeMeta.defaults.title)}"`,
   ];
 
-  if (meta.defaults.description) {
-    lines.push(`    description="${toDoubleQuotedAttr(meta.defaults.description)}"`);
+  if (recipeMeta.defaults.description) {
+    lines.push(
+      `    description="${toDoubleQuotedAttr(recipeMeta.defaults.description)}"`,
+    );
   }
 
-  if (meta.defaults.tone) {
-    lines.push(`    tone="${meta.defaults.tone}"`);
+  if (recipeMeta.defaults.tone) {
+    lines.push(`    tone="${recipeMeta.defaults.tone}"`);
   }
 
-  if (meta.defaults.density) {
-    lines.push(`    density="${meta.defaults.density}"`);
+  if (recipeMeta.defaults.density) {
+    lines.push(`    density="${recipeMeta.defaults.density}"`);
   }
 
-  if (meta.defaults.layout) {
-    lines.push(`    layout="${meta.defaults.layout}"`);
+  if (recipeMeta.defaults.layout) {
+    lines.push(`    layout="${recipeMeta.defaults.layout}"`);
   }
 
-  appendLiteralActionAttribute(lines, "primary-action", meta.defaults.primaryAction);
-  appendLiteralActionAttribute(lines, "secondary-action", meta.defaults.secondaryAction);
+  appendLiteralActionAttribute(
+    lines,
+    "primary-action",
+    recipeMeta.defaults.primaryAction,
+  );
+  appendLiteralActionAttribute(
+    lines,
+    "secondary-action",
+    recipeMeta.defaults.secondaryAction,
+  );
 
   lines.push("  />", "</template>");
 
   return lines.join("\n");
 }
 
-export function blockScriptBindingSnippet(meta: StateBlockMeta) {
-  const titleText = meta.defaults.title;
+export function recipeScriptBindingSnippet(recipeMeta: StateRecipeMeta) {
+  const titleText = recipeMeta.defaults.title;
   const descriptionText =
-    meta.defaults.description ??
+    recipeMeta.defaults.description ??
     "Rewrite the supporting copy so it matches the exact moment in your product.";
-  const primaryLabel = actionLabel(meta.defaults.primaryAction, "Open next step");
+  const primaryLabel = actionLabel(
+    recipeMeta.defaults.primaryAction,
+    "Open next step",
+  );
 
   return [
     '<script setup lang="ts">',
     'import { ref } from "vue";',
-    `import { ${meta.componentName} } from "@statekit-vue/vue";`,
+    `import { ${recipeMeta.componentName} } from "@statekit-vue/vue";`,
     "",
     `const pageTitle = ref(${toSingleQuoted(titleText)});`,
     `const helperCopy = ref(${toSingleQuoted(descriptionText)});`,
@@ -147,12 +163,12 @@ export function blockScriptBindingSnippet(meta: StateBlockMeta) {
     "</script>",
     "",
     "<template>",
-    `  <${meta.componentName}`,
+    `  <${recipeMeta.componentName}`,
     '    :title="pageTitle"',
     '    :description="helperCopy"',
-    `    tone="${meta.defaults.tone}"`,
-    `    density="${meta.defaults.density}"`,
-    `    layout="${meta.defaults.layout}"`,
+    `    tone="${recipeMeta.defaults.tone}"`,
+    `    density="${recipeMeta.defaults.density}"`,
+    `    layout="${recipeMeta.defaults.layout}"`,
     '    :primary-action="primaryAction"',
     '    :secondary-action="secondaryAction"',
     "  />",
@@ -160,18 +176,18 @@ export function blockScriptBindingSnippet(meta: StateBlockMeta) {
   ].join("\n");
 }
 
-export function blockObjectBindingSnippet(meta: StateBlockMeta) {
-  const titleText = meta.defaults.title;
+export function recipeObjectBindingSnippet(recipeMeta: StateRecipeMeta) {
+  const titleText = recipeMeta.defaults.title;
   const descriptionText =
-    meta.defaults.description ??
-    "Compose all block props in one object when the page derives them from state.";
-  const primaryLabel = actionLabel(meta.defaults.primaryAction, "Continue");
-  const loadingLabel = loadingLabelFrom(meta.defaults.primaryAction);
+    recipeMeta.defaults.description ??
+    "Compose all state props in one object when the page derives them from state.";
+  const primaryLabel = actionLabel(recipeMeta.defaults.primaryAction, "Continue");
+  const loadingLabel = loadingLabelFrom(recipeMeta.defaults.primaryAction);
 
   return [
     '<script setup lang="ts">',
     'import { computed, ref } from "vue";',
-    `import { ${meta.componentName}, type PresetStateBlockProps } from "@statekit-vue/vue";`,
+    `import { ${recipeMeta.componentName} } from "@statekit-vue/vue";`,
     "",
     "const busy = ref(false);",
     "",
@@ -179,12 +195,12 @@ export function blockObjectBindingSnippet(meta: StateBlockMeta) {
     "  busy.value = true;",
     "}",
     "",
-    "const blockProps = computed<PresetStateBlockProps>(() => ({",
+    "const stateProps = computed(() => ({",
     `  title: ${toSingleQuoted(titleText)},`,
     `  description: ${toSingleQuoted(descriptionText)},`,
-    `  tone: ${toSingleQuoted(meta.defaults.tone ?? "neutral")},`,
-    `  density: ${toSingleQuoted(meta.defaults.density ?? "cozy")},`,
-    `  layout: ${toSingleQuoted(meta.defaults.layout ?? "panel")},`,
+    `  tone: ${toSingleQuoted(recipeMeta.defaults.tone ?? "neutral")},`,
+    `  density: ${toSingleQuoted(recipeMeta.defaults.density ?? "cozy")},`,
+    `  layout: ${toSingleQuoted(recipeMeta.defaults.layout ?? "panel")},`,
     "  primaryAction: {",
     `    label: ${toSingleQuoted(primaryLabel)},`,
     "    onClick: handlePrimaryClick,",
@@ -196,20 +212,23 @@ export function blockObjectBindingSnippet(meta: StateBlockMeta) {
     "</script>",
     "",
     "<template>",
-    `  <${meta.componentName} v-bind="blockProps" />`,
+    `  <${recipeMeta.componentName} v-bind="stateProps" />`,
     "</template>",
   ].join("\n");
 }
 
-export function blockActionSnippet(meta: StateBlockMeta) {
-  const primaryLabel = actionLabel(meta.defaults.primaryAction, "Retry");
-  const secondaryLabel = actionLabel(meta.defaults.secondaryAction, "Open docs");
-  const loadingLabel = loadingLabelFrom(meta.defaults.primaryAction);
+export function recipeActionSnippet(recipeMeta: StateRecipeMeta) {
+  const primaryLabel = actionLabel(recipeMeta.defaults.primaryAction, "Retry");
+  const secondaryLabel = actionLabel(
+    recipeMeta.defaults.secondaryAction,
+    "Open docs",
+  );
+  const loadingLabel = loadingLabelFrom(recipeMeta.defaults.primaryAction);
 
   return [
     '<script setup lang="ts">',
     'import { ref } from "vue";',
-    `import { ${meta.componentName} } from "@statekit-vue/vue";`,
+    `import { ${recipeMeta.componentName} } from "@statekit-vue/vue";`,
     "",
     "const pending = ref(false);",
     "",
@@ -224,7 +243,7 @@ export function blockActionSnippet(meta: StateBlockMeta) {
     "</script>",
     "",
     "<template>",
-    `  <${meta.componentName}`,
+    `  <${recipeMeta.componentName}`,
     '    :primary-action="{',
     `      label: ${toSingleQuoted(primaryLabel)},`,
     "      onClick: handlePrimaryClick,",

@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import {
-  EmptyCollectionState,
-  EmptySearchState,
-  FirstProjectState,
-} from "@statekit-vue/vue";
+import { EmptyState } from "@statekit-vue/vue";
 
 const activeFilters = ref([
   "Campaign: Spring relaunch",
@@ -100,10 +96,10 @@ const setupChecks = computed(() => [
           <p class="demo-kicker">Example</p>
           <h1>Admin Empty States</h1>
           <p>
-            A content operations workspace rewritten around the current block
-            API: inline recovery for empty search results, a single-CTA
-            collection setup flow, and a first-run onboarding page with a real
-            loading button.
+            A content operations workspace rewritten around the current
+            category-first API: inline recovery for empty search results, a
+            single-CTA collection setup flow, and a first-run onboarding page
+            with a real loading button.
           </p>
         </div>
         <div class="demo-chip-row" aria-label="Scenario tags">
@@ -139,7 +135,7 @@ const setupChecks = computed(() => [
                 secondary action that remains actionable.
               </p>
             </div>
-            <span class="demo-badge">EmptySearchState</span>
+            <span class="demo-badge">EmptyState</span>
           </div>
 
           <div class="demo-toolbar">
@@ -165,7 +161,7 @@ const setupChecks = computed(() => [
               <span>Status</span>
               <span>Owner</span>
             </div>
-            <EmptySearchState
+            <EmptyState
               layout="inline"
               density="compact"
               title="No approved hero assets match this review"
@@ -195,7 +191,7 @@ const setupChecks = computed(() => [
                 removal of the preset secondary action.
               </p>
             </div>
-            <span class="demo-badge">EmptyCollectionState</span>
+            <span class="demo-badge">EmptyState</span>
           </div>
 
           <div class="demo-status-list">
@@ -209,7 +205,7 @@ const setupChecks = computed(() => [
             </div>
           </div>
 
-          <EmptyCollectionState
+          <EmptyState
             layout="panel"
             title="No shared launch library yet"
             description="Create one collection first, then invite content owners to upload approved assets."
@@ -238,10 +234,10 @@ const setupChecks = computed(() => [
                 remains a real link into the setup guide.
               </p>
             </div>
-            <span class="demo-badge">FirstProjectState</span>
+            <span class="demo-badge">EmptyState</span>
           </div>
 
-          <FirstProjectState
+          <EmptyState
             layout="page"
             density="spacious"
             title="Open the workspace with one launch stream"

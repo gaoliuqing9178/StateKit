@@ -1,11 +1,8 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import {
-  NoPermissionState,
-  RoleRestrictedState,
-  SessionExpiredState,
-  UpgradePlanState,
-  UsageLimitState,
+  PermissionState,
+  UpgradeState,
 } from "@statekit-vue/vue";
 
 const accessRequestPending = ref(false);
@@ -102,7 +99,7 @@ const reviewNotes = computed(() => [
           <article class="demo-metric">
             <p class="demo-surface__eyebrow">Recovered sessions</p>
             <strong>{{ sessionRefreshes }}</strong>
-            <p>SessionExpiredState now demonstrates a custom loading label.</p>
+            <p>PermissionState now demonstrates a custom loading label.</p>
           </article>
           <article class="demo-metric">
             <p class="demo-surface__eyebrow">Billing unlocks</p>
@@ -119,14 +116,14 @@ const reviewNotes = computed(() => [
               <p class="demo-surface__eyebrow">Task</p>
               <h2>Request access to a locked approvals workspace</h2>
               <p>
-                This block uses `onClick`, `loading`, and `loadingLabel` on the
+                This recipe uses `onClick`, `loading`, and `loadingLabel` on the
                 primary action, while the secondary action stays a real link.
               </p>
             </div>
-            <span class="demo-badge">NoPermissionState</span>
+            <span class="demo-badge">PermissionState</span>
           </div>
 
-          <NoPermissionState
+          <PermissionState
             title="You cannot open finance approvals yet"
             description="Ask a billing admin for workspace access, or review the approval policy before trying again."
             :primary-action="{
@@ -137,7 +134,7 @@ const reviewNotes = computed(() => [
             }"
             :secondary-action="{
               label: 'Review policy',
-              href: '/blocks/no-permission-state',
+              href: '/recipes/no-permission-state',
             }"
           />
         </article>
@@ -152,10 +149,10 @@ const reviewNotes = computed(() => [
                 action explains the async transition with a custom loading label.
               </p>
             </div>
-            <span class="demo-badge">SessionExpiredState</span>
+            <span class="demo-badge">PermissionState</span>
           </div>
 
-          <SessionExpiredState
+          <PermissionState
             title="Your approvals session needs a fresh sign-in"
             description="Sign in again to keep editing reviewer assignments and approval thresholds."
             :primary-action="{
@@ -179,10 +176,10 @@ const reviewNotes = computed(() => [
                 state.
               </p>
             </div>
-            <span class="demo-badge">UpgradePlanState</span>
+            <span class="demo-badge">UpgradeState</span>
           </div>
 
-          <UpgradePlanState
+          <UpgradeState
             layout="page"
             density="spacious"
             title="Upgrade to unlock approval routing"
@@ -195,7 +192,7 @@ const reviewNotes = computed(() => [
             }"
             :secondary-action="{
               label: 'See quota state',
-              href: '/blocks/usage-limit-state',
+              href: '/recipes/usage-limit-state',
             }"
           />
         </article>
@@ -215,7 +212,7 @@ const reviewNotes = computed(() => [
           </div>
 
           <div class="demo-panel-stack">
-            <UsageLimitState
+            <UpgradeState
               layout="panel"
               density="compact"
               title="Approval runs are at this month's cap"
@@ -248,13 +245,15 @@ const reviewNotes = computed(() => [
                 <p class="demo-surface__eyebrow">Inline restriction</p>
                 <h3>Keep the review queue visible for non-admin operators</h3>
                 <p>
-                  This inline block shows how permission messaging can live
+                  This inline recipe shows how permission messaging can live
                   inside the active workflow rather than replacing the whole page.
                 </p>
               </div>
-              <RoleRestrictedState
+              <PermissionState
                 layout="inline"
                 density="compact"
+                title="Your role cannot approve this step"
+                description="Keep reviewing the queue here, but ask an admin to finish the approval handoff."
                 :primary-action="{
                   label: 'Ping admin',
                   onClick: pingAdmin,

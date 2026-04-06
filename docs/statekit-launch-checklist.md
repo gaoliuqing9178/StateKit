@@ -14,7 +14,7 @@
 ## 2. 包结构与导出
 
 - [x] `@statekit-vue/shared` 的类型与元数据导出正常。
-- [x] `@statekit-vue/vue` 能正常导出全部 18 个 Block 组件。
+- [x] `@statekit-vue/vue` 能正常导出 6 个类别组件入口，并兼容导出全部 18 个 preset recipe 组件。
 - [x] `@statekit-vue/vue/styles.css` 可被外部直接引入。
 - [x] 根 workspace 的脚本能在当前环境中正常运行。
 
@@ -58,10 +58,10 @@
 
 当前 npm 发布状态：
 
-- [x] `@statekit-vue/shared@0.1.1` 已发布且为 `public`
-- [x] `@statekit-vue/vue@0.1.1` 已发布且为 `public`
-- [x] 两个包的 `latest` dist-tag 当前都指向 `0.1.1`
-- [x] 本地 workspace 当前待发布版本已推进到 `0.1.2`，但在执行 publish 之前不会改变 npm 上的最新可安装版本
+- [x] `@statekit-vue/shared@0.1.2` 已发布且为 `public`
+- [x] `@statekit-vue/vue@0.1.2` 已发布且为 `public`
+- [x] 两个包的 `latest` dist-tag 当前都指向 `0.1.2`
+- [x] 本地 workspace 当前版本为 `0.1.2`，与 npm 上最新可安装版本一致
 
 如果只是开源仓库展示，可适当跳过 npm 发布细项，但文档和构建项不能跳。
 

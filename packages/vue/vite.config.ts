@@ -8,4 +8,23 @@
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-export default defineConfig({ plugins: [vue()], build: { lib: { entry: resolve(__dirname, "src/index.ts"), name: "StateKitVue", fileName: "index", formats: ["es"] }, rollupOptions: { external: ["vue", "@statekit-vue/shared"], output: { assetFileNames: (assetInfo) => assetInfo.name === "style.css" ? "style.css" : "assets/[name]-[hash][extname]" } } } });
+export default defineConfig({
+  plugins: [vue()],
+  build: {
+    lib: {
+      entry: resolve(__dirname, "src/index.ts"),
+      name: "StateKitVue",
+      fileName: "index",
+      formats: ["es"],
+    },
+    rollupOptions: {
+      external: ["vue", "@statekit-vue/shared"],
+      output: {
+        assetFileNames: (assetInfo) =>
+          assetInfo.name === "style.css"
+            ? "style.css"
+            : "assets/[name]-[hash][extname]",
+      },
+    },
+  },
+});

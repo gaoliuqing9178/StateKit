@@ -5,8 +5,8 @@
     "3. 维护要点：发布入口或 peer 版本变化时，需要优先检查这里。"
   ],
   "name": "@statekit-vue/vue",
-  "version": "0.1.2",
-  "description": "Scenario-first Vue state UI blocks for SaaS products.",
+  "version": "0.2.0",
+  "description": "Category-first Vue state UI for SaaS products.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -49,7 +49,7 @@
     "vue": "^3.4.0"
   },
   "dependencies": {
-    "@statekit-vue/shared": "0.1.2"
+    "@statekit-vue/shared": "0.2.0"
   },
   "scripts": {
     "build": "vite build && vue-tsc -p tsconfig.build.json",

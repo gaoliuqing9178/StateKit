@@ -1,8 +1,8 @@
 # @statekit-vue/shared
 
-Shared types and metadata for StateKit preset state blocks.
+Shared types and metadata for StateKit state recipes.
 
-`@statekit-vue/shared` is the source-of-truth package behind StateKit. Use it when you need typed block ids, categories, layouts, tones, metadata lists, or lookup helpers without pulling in the Vue component layer.
+`@statekit-vue/shared` is the source-of-truth package behind StateKit. Use it when you need typed ids, categories, layouts, tones, metadata lists, or lookup helpers without pulling in the Vue component layer.
 
 ## Install
 
@@ -33,8 +33,8 @@ console.log(priorityStateBlocks.map((block) => block.id));
 
 ## Typical Uses
 
-- Build docs tooling, block pickers, or internal registries from the same metadata used by the Vue package
-- Drive analytics or routing from stable block ids and slugs
+- Build docs tooling, recipe pickers, or internal registries from the same metadata used by the Vue package
+- Drive analytics or routing from stable recipe ids and slugs
 - Create custom wrappers around StateKit presets while keeping shared type safety
 
 If you only want ready-to-use Vue components, install `@statekit-vue/vue` instead.

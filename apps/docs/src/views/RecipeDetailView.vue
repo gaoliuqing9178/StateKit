@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { RouterLink, useRoute } from "vue-router";
-import { blockComponentMap } from "../lib/block-components";
-import { allBlockDocs, getBlockDocBySlug } from "../lib/block-docs";
+import { recipeComponentMap } from "../lib/recipe-components";
+import { allRecipeDocs, getRecipeDocBySlug } from "../lib/recipe-docs";
 import {
-  blockActionSnippet,
-  blockObjectBindingSnippet,
-  blockScriptBindingSnippet,
-  blockUsageSnippet,
+  recipeActionSnippet,
+  recipeObjectBindingSnippet,
+  recipeScriptBindingSnippet,
+  recipeUsageSnippet,
   stateActionTypeSnippet,
 } from "../lib/example-code";
 
@@ -36,7 +36,7 @@ const categoryCustomizationGuide = {
   empty:
     "Rewrite the copy so the user understands what is missing, why the screen is empty, and what they should create or clear next.",
   loading:
-    "Keep the title and description procedural. Loading blocks work best when they confirm progress and avoid adding unnecessary secondary actions.",
+    "Keep the title and description procedural. Loading recipes work best when they confirm progress and avoid adding unnecessary secondary actions.",
   error:
     "Use direct recovery language. The title should name the failure plainly, and the primary action should map to the safest retry path.",
   permission:
@@ -52,7 +52,7 @@ const parameterRules = [
   "Use `:` bindings whenever the value comes from a variable, `ref`, `computed`, object literal, boolean, or `null`.",
   "In Vue templates, prop names stay kebab-case: `primaryAction` becomes `primary-action`, and `secondaryAction` becomes `secondary-action`.",
   "Leaving `primaryAction` or `secondaryAction` undefined keeps the preset default. Passing `null` removes that default button explicitly.",
-  "Put click behavior inside `primaryAction.onClick` or `secondaryAction.onClick`. Do not attach CTA handlers to the block component root.",
+  "Put click behavior inside `primaryAction.onClick` or `secondaryAction.onClick`. Do not attach CTA handlers to the category component root.",
 ] as const;
 
 const actionFieldDocs = [
@@ -84,7 +84,7 @@ const actionFieldDocs = [
     name: "loading",
     type: "boolean | undefined",
     description:
-      "Marks the action as busy. StateKit blocks repeat clicks and link navigation while loading is true.",
+      "Marks the action as busy. StateKit actions ignore repeat clicks and link navigation while loading is true.",
     syntax: ["loading: pending"],
     current: "Optional. Consumer state controls it.",
   },
@@ -106,35 +106,35 @@ const actionFieldDocs = [
   },
 ] as const;
 
-const blockMeta = computed(() =>
-  getBlockDocBySlug(String(route.params.slug ?? "")),
+const recipeMeta = computed(() =>
+  getRecipeDocBySlug(String(route.params.slug ?? "")),
 );
 
-const blockComponent = computed(() =>
-  blockMeta.value ? blockComponentMap[blockMeta.value.componentName] : null,
+const recipeComponent = computed(() =>
+  recipeMeta.value ? recipeComponentMap[recipeMeta.value.componentName] : null,
 );
 
 const usageSnippet = computed(() =>
-  blockMeta.value ? blockUsageSnippet(blockMeta.value) : "",
+  recipeMeta.value ? recipeUsageSnippet(recipeMeta.value) : "",
 );
 
 const scriptBindingSnippet = computed(() =>
-  blockMeta.value ? blockScriptBindingSnippet(blockMeta.value) : "",
+  recipeMeta.value ? recipeScriptBindingSnippet(recipeMeta.value) : "",
 );
 
 const objectBindingSnippet = computed(() =>
-  blockMeta.value ? blockObjectBindingSnippet(blockMeta.value) : "",
+  recipeMeta.value ? recipeObjectBindingSnippet(recipeMeta.value) : "",
 );
 
 const actionSnippet = computed(() =>
-  blockMeta.value ? blockActionSnippet(blockMeta.value) : "",
+  recipeMeta.value ? recipeActionSnippet(recipeMeta.value) : "",
 );
 
-const defaultActions = computed(() =>
-  blockMeta.value
+const defaultActionLabels = computed(() =>
+  recipeMeta.value
     ? [
-        blockMeta.value.defaults.primaryAction,
-        blockMeta.value.defaults.secondaryAction,
+        recipeMeta.value.defaults.primaryAction,
+        recipeMeta.value.defaults.secondaryAction,
       ]
         .filter((action): action is NonNullable<typeof action> => Boolean(action))
         .map((action) => action.label)
@@ -142,7 +142,7 @@ const defaultActions = computed(() =>
 );
 
 const detailFacts = computed<DetailFact[]>(() => {
-  const meta = blockMeta.value;
+  const meta = recipeMeta.value;
 
   if (!meta) {
     return [];
@@ -150,7 +150,7 @@ const detailFacts = computed<DetailFact[]>(() => {
 
   return [
     {
-      label: "Use this block when",
+      label: "Use this recipe when",
       value: meta.summary,
     },
     {
@@ -163,15 +163,15 @@ const detailFacts = computed<DetailFact[]>(() => {
     },
     {
       label: "Default CTA pattern",
-      value: defaultActions.value.length
-        ? defaultActions.value.join(" + ")
+      value: defaultActionLabels.value.length
+        ? defaultActionLabels.value.join(" + ")
         : "No preset actions. Add one only if the flow needs a clear next step.",
     },
   ];
 });
 
 const customizationNotes = computed(() => {
-  const meta = blockMeta.value;
+  const meta = recipeMeta.value;
 
   if (!meta) {
     return [];
@@ -181,14 +181,14 @@ const customizationNotes = computed(() => {
     categoryCustomizationGuide[meta.category],
     "Replace `title` first. The heading should describe the exact user moment in your own product vocabulary, not the generic sample copy.",
     "Replace `description` next. Use it to explain the next step, any boundary, or any recovery path the user can take from this screen.",
-    defaultActions.value.length
+    defaultActionLabels.value.length
       ? "Keep a preset CTA only if it still matches the product flow. Otherwise replace it with your own `primaryAction` / `secondaryAction`, or pass `null` to remove the default."
       : "This preset ships without a strong CTA pattern. Add a primary action only when your product flow genuinely needs one.",
   ];
 });
 
 const propDocs = computed<PropDoc[]>(() => {
-  const meta = blockMeta.value;
+  const meta = recipeMeta.value;
 
   if (!meta) {
     return [];
@@ -228,7 +228,7 @@ const propDocs = computed<PropDoc[]>(() => {
       name: "density",
       type: "compact | cozy | spacious",
       description:
-        "Controls spacing and media scale so the same block can fit inline, panel, or page contexts.",
+        "Controls spacing and media scale so the same category entry can fit inline, panel, or page contexts.",
       syntax: ['density="compact"', ':density="density"'],
       current: meta.defaults.density ?? "cozy",
     },
@@ -246,7 +246,7 @@ const propDocs = computed<PropDoc[]>(() => {
       description:
         "Defines or replaces the main CTA. Pass `null` when you want to hide the preset primary button.",
       syntax: [
-        `:primary-action="{ label: '${defaultActions.value[0] ?? "Create item"}', onClick: handlePrimaryClick }"`,
+        `:primary-action="{ label: '${defaultActionLabels.value[0] ?? "Create item"}', onClick: handlePrimaryClick }"`,
         ':primary-action="primaryAction"',
         ':primary-action="null"',
       ],
@@ -260,7 +260,7 @@ const propDocs = computed<PropDoc[]>(() => {
       description:
         "Defines, replaces, or removes the secondary CTA. Use it for lower-priority alternatives such as go back, compare, or learn more.",
       syntax: [
-        `:secondary-action="{ label: '${defaultActions.value[1] ?? "Learn more"}', href: '/docs/installation' }"`,
+        `:secondary-action="{ label: '${defaultActionLabels.value[1] ?? "Learn more"}', href: '/docs/installation' }"`,
         ':secondary-action="secondaryAction"',
         ':secondary-action="null"',
       ],
@@ -272,12 +272,12 @@ const propDocs = computed<PropDoc[]>(() => {
 });
 
 const parameterExamples = computed<CodeExample[]>(() =>
-  blockMeta.value
+  recipeMeta.value
     ? [
         {
           title: "1. Pass fixed values directly in the template",
           description:
-            "Use this form when the block content is static for the page. Strings and enum-like props can be written without `:`.",
+            "Use this form when the recipe content is static for the page. Strings and enum-like props can be written without `:`.",
           code: usageSnippet.value,
         },
         {
@@ -289,7 +289,7 @@ const parameterExamples = computed<CodeExample[]>(() =>
         {
           title: "3. Build one props object and spread it with `v-bind`",
           description:
-            "Use this pattern when the page composes the block from computed state, feature flags, or async task status.",
+            "Use this pattern when the page composes the recipe from computed state, feature flags, or async task status.",
           code: objectBindingSnippet.value,
         },
       ]
@@ -297,7 +297,7 @@ const parameterExamples = computed<CodeExample[]>(() =>
 );
 
 const actionExamples = computed<CodeExample[]>(() =>
-  blockMeta.value
+  recipeMeta.value
     ? [
         {
           title: "StateAction object shape",
@@ -315,13 +315,13 @@ const actionExamples = computed<CodeExample[]>(() =>
     : [],
 );
 
-const relatedBlocks = computed(() => {
-  const meta = blockMeta.value;
+const relatedRecipes = computed(() => {
+  const meta = recipeMeta.value;
   if (!meta) {
     return [];
   }
 
-  return allBlockDocs
+  return allRecipeDocs
     .filter((item) => item.category === meta.category && item.id !== meta.id)
     .slice(0, 3);
 });
@@ -329,25 +329,25 @@ const relatedBlocks = computed(() => {
 
 <template>
   <section class="page-stack">
-    <template v-if="blockMeta">
+    <template v-if="recipeMeta">
       <section class="page-hero page-hero--detail">
         <div>
-          <p class="eyebrow">{{ blockMeta.category }} block</p>
-          <h1>{{ blockMeta.defaults.title }}</h1>
-          <p>{{ blockMeta.summary }}</p>
+          <p class="eyebrow">{{ recipeMeta.category }} recipe</p>
+          <h1>{{ recipeMeta.defaults.title }}</h1>
+          <p>{{ recipeMeta.summary }}</p>
         </div>
 
         <div class="page-hero__facts">
           <div class="page-fact">
-            <strong>{{ blockMeta.priority }}</strong>
+            <strong>{{ recipeMeta.priority }}</strong>
             <span>Priority</span>
           </div>
           <div class="page-fact">
-            <strong>{{ blockMeta.defaults.layout }}</strong>
+            <strong>{{ recipeMeta.defaults.layout }}</strong>
             <span>Default layout</span>
           </div>
           <div class="page-fact">
-            <strong>{{ blockMeta.supportedLayouts.length }}</strong>
+            <strong>{{ recipeMeta.supportedLayouts.length }}</strong>
             <span>Layouts supported</span>
           </div>
         </div>
@@ -358,23 +358,18 @@ const relatedBlocks = computed(() => {
           <div class="detail-preview__header">
             <div>
               <p class="detail-preview__eyebrow">Live preview</p>
-              <h2>{{ blockMeta.componentName }}</h2>
+              <h2>{{ recipeMeta.componentName }}</h2>
             </div>
 
             <div class="detail-preview__meta">
-              <span class="meta-pill">{{ blockMeta.defaults.tone }}</span>
-              <span class="meta-pill">{{ blockMeta.defaults.density }}</span>
-              <span class="meta-pill">{{ blockMeta.defaults.layout }}</span>
+              <span class="meta-pill">{{ recipeMeta.defaults.tone }}</span>
+              <span class="meta-pill">{{ recipeMeta.defaults.density }}</span>
+              <span class="meta-pill">{{ recipeMeta.defaults.layout }}</span>
             </div>
           </div>
 
           <div class="detail-preview__surface">
-            <component
-              :is="blockComponent"
-              :layout="blockMeta.defaults.layout"
-              :density="blockMeta.defaults.density"
-              :tone="blockMeta.defaults.tone"
-            />
+            <component :is="recipeComponent" v-bind="recipeMeta.defaults" />
           </div>
         </article>
 
@@ -384,19 +379,19 @@ const relatedBlocks = computed(() => {
             <dl class="detail-definition-list">
               <div>
                 <dt>Slug</dt>
-                <dd>{{ blockMeta.slug }}</dd>
+                <dd>{{ recipeMeta.slug }}</dd>
               </div>
               <div>
-                <dt>Component</dt>
-                <dd>{{ blockMeta.componentName }}</dd>
+                <dt>Public entry</dt>
+                <dd>{{ recipeMeta.componentName }}</dd>
               </div>
               <div>
                 <dt>Priority</dt>
-                <dd>{{ blockMeta.priority }}</dd>
+                <dd>{{ recipeMeta.priority }}</dd>
               </div>
               <div>
                 <dt>Layouts</dt>
-                <dd>{{ blockMeta.supportedLayouts.join(", ") }}</dd>
+                <dd>{{ recipeMeta.supportedLayouts.join(", ") }}</dd>
               </div>
             </dl>
           </section>
@@ -404,11 +399,11 @@ const relatedBlocks = computed(() => {
           <section class="detail-section">
             <h2>Defaults</h2>
             <ul class="detail-bullet-list">
-              <li><strong>Tone:</strong> {{ blockMeta.defaults.tone }}</li>
-              <li><strong>Density:</strong> {{ blockMeta.defaults.density }}</li>
-              <li><strong>Layout:</strong> {{ blockMeta.defaults.layout }}</li>
-              <li v-if="defaultActions.length">
-                <strong>Default actions:</strong> {{ defaultActions.join(", ") }}
+              <li><strong>Tone:</strong> {{ recipeMeta.defaults.tone }}</li>
+              <li><strong>Density:</strong> {{ recipeMeta.defaults.density }}</li>
+              <li><strong>Layout:</strong> {{ recipeMeta.defaults.layout }}</li>
+              <li v-if="defaultActionLabels.length">
+                <strong>Default actions:</strong> {{ defaultActionLabels.join(", ") }}
               </li>
             </ul>
           </section>
@@ -424,12 +419,12 @@ const relatedBlocks = computed(() => {
         <div class="section-heading">
           <div>
             <p class="eyebrow">Guide</p>
-            <h2>How to use {{ blockMeta.componentName }}</h2>
+            <h2>How to use {{ recipeMeta.componentName }} for this recipe</h2>
           </div>
           <p>
-            Every preset block is a Vue component with the same base props.
-            Start from this scenario default, then customize only the content,
-            layout, and CTA behavior your flow actually needs.
+            Each recipe resolves through a category-first Vue component with the
+            same base props. Start from this preset default, then customize only
+            the content, layout, and CTA behavior your flow actually needs.
           </p>
         </div>
 
@@ -455,9 +450,9 @@ const relatedBlocks = computed(() => {
           <section class="detail-section detail-section--doc">
             <h3>Quick start example</h3>
             <p>
-              This is the fastest way to render the preset. It shows the
-              component import, direct prop passing, and the default shell values
-              for this block.
+              This is the fastest way to render this recipe through its public
+              category component. It shows the component import, direct prop
+              passing, and the default shell values for this recipe.
             </p>
             <pre class="code-block"><code>{{ usageSnippet }}</code></pre>
           </section>
@@ -471,9 +466,9 @@ const relatedBlocks = computed(() => {
             <h2>How to customize content and pass parameters</h2>
           </div>
           <p>
-            The same prop surface works across every preset. The only thing that
-            changes between blocks is the default copy, supported layouts, and
-            action defaults coming from shared metadata.
+            The same prop surface works across every category entry and recipe.
+            The only thing that changes between recipes is the default copy,
+            supported layouts, and action defaults coming from shared metadata.
           </p>
         </div>
 
@@ -524,7 +519,7 @@ const relatedBlocks = computed(() => {
           <p>
             `primaryAction` and `secondaryAction` are where CTA behavior lives.
             Use them to define button labels, link targets, disabled state,
-            loading state, and click handlers for this block.
+            loading state, and click handlers for this recipe.
           </p>
         </div>
 
@@ -574,13 +569,13 @@ const relatedBlocks = computed(() => {
       </section>
 
       <section
-        v-if="relatedBlocks.length"
+        v-if="relatedRecipes.length"
         class="section-card section-card--outline"
       >
         <div class="section-heading">
           <div>
             <p class="eyebrow">Related</p>
-            <h2>More blocks in the same category</h2>
+            <h2>More recipes in the same category</h2>
           </div>
           <p>
             Use these when the moment changes but the user still expects the
@@ -590,10 +585,10 @@ const relatedBlocks = computed(() => {
 
         <div class="related-grid">
           <RouterLink
-            v-for="item in relatedBlocks"
+            v-for="item in relatedRecipes"
             :key="item.id"
             class="editorial-link"
-            :to="'/blocks/' + item.slug"
+            :to="'/recipes/' + item.slug"
           >
             <span class="editorial-link__index">{{ item.category }}</span>
             <div>
@@ -607,8 +602,8 @@ const relatedBlocks = computed(() => {
 
     <section v-else class="section-card section-card--empty">
       <p class="eyebrow">Missing</p>
-      <h1>Block not found</h1>
-      <p>The requested slug does not match any block in the shared metadata.</p>
+      <h1>Recipe not found</h1>
+      <p>The requested slug does not match any recipe in the shared metadata.</p>
     </section>
   </section>
 </template>

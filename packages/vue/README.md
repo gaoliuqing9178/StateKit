@@ -1,6 +1,6 @@
 # @statekit-vue/vue
 
-Scenario-first Vue state UI blocks for SaaS products.
+Category-first Vue state UI for SaaS products.
 
 `@statekit-vue/vue` is the main public package for StateKit. Install it when your app needs production-ready empty, loading, error, permission, upgrade, and success states without rebuilding layout, copy structure, and CTA behavior from scratch.
 
@@ -20,7 +20,7 @@ Peer dependency:
 <script setup lang="ts">
 import { ref } from "vue";
 import "@statekit-vue/vue/styles.css";
-import { EmptySearchState } from "@statekit-vue/vue";
+import { EmptyState } from "@statekit-vue/vue";
 
 const clearing = ref(false);
 
@@ -35,7 +35,7 @@ async function handleClearFilters() {
 </script>
 
 <template>
-  <EmptySearchState
+  <EmptyState
     title="No matching invoices"
     description="Try a different keyword or clear your current filters."
     :primary-action="{
@@ -54,12 +54,14 @@ async function handleClearFilters() {
 
 ## What It Includes
 
-- 18 preset blocks across six categories: empty, loading, error, permission, upgrade, and success
+- Six category-first public components: `EmptyState`, `LoadingState`, `ErrorState`, `PermissionState`, `UpgradeState`, and `SuccessState`
+- 18 preset recipes and compatibility exports across the same six categories
 - Shared prop surface for `title`, `description`, `tone`, `density`, `layout`, `primaryAction`, and `secondaryAction`
 - Built-in stylesheet entry at `@statekit-vue/vue/styles.css`
-- Re-exports from `@statekit-vue/shared` for block metadata and shared types
+- Re-exports from `@statekit-vue/shared` for recipe metadata and shared types
 
 Onboarding-style entry points currently live inside the empty-state category through first-run presets such as `FirstProjectState`.
+Prefer the unified category entries in new code and customize the copy, layout, and actions per screen. Older scenario-specific exports remain available as deprecated compatibility presets.
 
 ## Shared Preset API
 

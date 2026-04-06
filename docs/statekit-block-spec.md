@@ -52,27 +52,28 @@ interface StateAction {
 ## Block 清单
 
 下表描述当前 18 个已实现 Block 的用途与默认形态。
+当前 public API 已开始收敛到六个按类别统一的入口：`EmptyState`、`LoadingState`、`ErrorState`、`PermissionState`、`UpgradeState`、`SuccessState`。表里的 18 个 Block 继续作为 preset recipe 保留，用于提供默认文案、布局和 CTA 参考。
 
 | Block ID | Vue 组件 | 类别 | 默认布局 | 支持布局 | 用途 | 优先级 |
 | --- | --- | --- | --- | --- | --- | --- |
-| `empty-collection` | `EmptyCollectionState` | `empty` | `panel` | `panel`, `page` | 集合还未开始创建时使用 | `backlog` |
-| `empty-search` | `EmptySearchState` | `empty` | `panel` | `inline`, `panel`, `page` | 搜索或筛选结果为空 | `launch` |
-| `first-project` | `FirstProjectState` | `empty` | `page` | `panel`, `page` | 首次创建项目，承担 onboarding 入口 | `launch` |
-| `loading-table` | `LoadingTableState` | `loading` | `inline` | `inline`, `panel` | 表格或列表骨架加载 | `backlog` |
-| `loading-workspace` | `LoadingWorkspaceState` | `loading` | `page` | `panel`, `page` | 工作区、编辑器或主画布准备中 | `backlog` |
-| `loading-import` | `LoadingImportState` | `loading` | `panel` | `inline`, `panel`, `page` | 导入、同步、批处理进行中 | `backlog` |
-| `inline-error` | `InlineErrorState` | `error` | `inline` | `inline`, `panel` | 局部模块加载失败 | `backlog` |
-| `page-error` | `PageErrorState` | `error` | `page` | `panel`, `page` | 页面核心数据无法加载 | `launch` |
-| `offline-error` | `OfflineErrorState` | `error` | `panel` | `panel`, `page` | 用户离线或网络中断 | `backlog` |
-| `no-permission` | `NoPermissionState` | `permission` | `panel` | `panel`, `page` | 当前用户无权访问资源 | `launch` |
-| `role-restricted` | `RoleRestrictedState` | `permission` | `inline` | `inline`, `panel` | 可查看但不可执行动作 | `backlog` |
-| `session-expired` | `SessionExpiredState` | `permission` | `panel` | `panel`, `page` | 会话失效，需要重新登录 | `backlog` |
-| `upgrade-plan` | `UpgradePlanState` | `upgrade` | `page` | `panel`, `page` | 功能被套餐门槛拦住 | `launch` |
-| `trial-ending` | `TrialEndingState` | `upgrade` | `panel` | `panel`, `page` | 试用即将到期 | `backlog` |
-| `usage-limit` | `UsageLimitState` | `upgrade` | `panel` | `inline`, `panel`, `page` | 配额或计划上限已触达 | `backlog` |
-| `task-success` | `TaskSuccessState` | `success` | `page` | `panel`, `page` | 导入、导出或后台任务成功完成 | `launch` |
-| `invite-success` | `InviteSuccessState` | `success` | `panel` | `panel`, `page` | 团队邀请发送成功 | `backlog` |
-| `publish-success` | `PublishSuccessState` | `success` | `panel` | `panel`, `page` | 发布、配置或内容上线成功 | `backlog` |
+| `empty-collection` | `EmptyState` | `empty` | `panel` | `panel`, `page` | 集合还未开始创建时使用 | `backlog` |
+| `empty-search` | `EmptyState` | `empty` | `panel` | `inline`, `panel`, `page` | 搜索或筛选结果为空 | `launch` |
+| `first-project` | `EmptyState` | `empty` | `page` | `panel`, `page` | 首次创建项目，承担 onboarding 入口 | `launch` |
+| `loading-table` | `LoadingState` | `loading` | `inline` | `inline`, `panel` | 表格或列表骨架加载 | `backlog` |
+| `loading-workspace` | `LoadingState` | `loading` | `page` | `panel`, `page` | 工作区、编辑器或主画布准备中 | `backlog` |
+| `loading-import` | `LoadingState` | `loading` | `panel` | `inline`, `panel`, `page` | 导入、同步、批处理进行中 | `backlog` |
+| `inline-error` | `ErrorState` | `error` | `inline` | `inline`, `panel` | 局部模块加载失败 | `backlog` |
+| `page-error` | `ErrorState` | `error` | `page` | `panel`, `page` | 页面核心数据无法加载 | `launch` |
+| `offline-error` | `ErrorState` | `error` | `panel` | `panel`, `page` | 用户离线或网络中断 | `backlog` |
+| `no-permission` | `PermissionState` | `permission` | `panel` | `panel`, `page` | 当前用户无权访问资源 | `launch` |
+| `role-restricted` | `PermissionState` | `permission` | `inline` | `inline`, `panel` | 可查看但不可执行动作 | `backlog` |
+| `session-expired` | `PermissionState` | `permission` | `panel` | `panel`, `page` | 会话失效，需要重新登录 | `backlog` |
+| `upgrade-plan` | `UpgradeState` | `upgrade` | `page` | `panel`, `page` | 功能被套餐门槛拦住 | `launch` |
+| `trial-ending` | `UpgradeState` | `upgrade` | `panel` | `panel`, `page` | 试用即将到期 | `backlog` |
+| `usage-limit` | `UpgradeState` | `upgrade` | `panel` | `inline`, `panel`, `page` | 配额或计划上限已触达 | `backlog` |
+| `task-success` | `SuccessState` | `success` | `page` | `panel`, `page` | 导入、导出或后台任务成功完成 | `launch` |
+| `invite-success` | `SuccessState` | `success` | `panel` | `panel`, `page` | 团队邀请发送成功 | `backlog` |
+| `publish-success` | `SuccessState` | `success` | `panel` | `panel`, `page` | 发布、配置或内容上线成功 | `backlog` |
 
 ## 类别语义
 
