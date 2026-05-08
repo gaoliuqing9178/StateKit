@@ -72,7 +72,41 @@ npm run verify:release
 
 `npm run verify` 默认等同于 `npm run verify:release`。
 
-### 4. 运行时可读性
+### 4. Codex 环境下的测试执行规则
+
+**同一个 Codex agent 不能自己写代码又自己跑 Browser MCP 测试。**
+
+这条规则的底层逻辑是：Codex agent 在沙箱里执行，无法访问宿主机上的 browser 进程和 MCP 工具。如果同一个 agent 自己写完代码又自己宣布"Browser MCP 检查通过"，结论没有实际证据支撑。
+
+**正确的分工方式：**
+
+1. **编码 agent（Builder）**：完成代码改动，运行 `verify:fast`，记录改动范围和需要验证的用户路径，写入 `progress.md`。编码 agent 可以运行 `npm run test:ui`（Playwright 自动化），因为 Playwright 会自动启动 dev server，不依赖宿主 browser 进程。
+
+2. **测试 agent（QA Terminal）**：由**宿主环境**另起一个新的 Codex 终端，等待 MCP 工具（Playwright MCP 和 Chrome DevTools MCP）初始化完成后，再执行 Browser MCP 交互 QA。
+
+**宿主环境操作步骤：**
+
+```
+1. 确认编码 agent 已完成代码改动并运行过 verify:fast
+2. 在宿主机上另起一个新的 Codex 终端（独立 session）
+3. 等待该终端的 Playwright MCP 和 Chrome DevTools MCP 初始化完成
+4. 在新终端里按 docs/statekit-agent-harness.md 第 5 节的步骤执行 Browser MCP QA
+5. 把 QA 结果（URL、视口、截图路径、console/network 结论）写回 progress.md 或 agent-task-template 的完成记录
+```
+
+**什么情况下必须走新 Codex 终端：**
+
+- 涉及可见 UI、路由、响应式、onboarding 语义或 example app 的改动
+- docs 示例页或 example app 视觉有变化
+- 用户指出了具体页面问题需要确认
+
+**什么情况下编码 agent 可以自己验证：**
+
+- 只改内部文档或 harness 脚本（Light Review）
+- 只改 `packages/shared` 或 `packages/vue` 逻辑（`npm run verify:fast` 足够）
+- 运行 `npm run test:ui`（Playwright 自动化，不依赖宿主 browser 进程）
+
+### 5. 运行时可读性
 
 `apps/docs` 是当前最重要的运行时 QA 目录。Playwright 通过 `playwright.config.ts` 同时启动 docs 站和 `examples/vite-vue-admin`，并在 Chromium 下执行 `apps/docs/tests` 中的主路径与真实集成示例测试。
 
@@ -92,7 +126,7 @@ Browser MCP 交互 QA 用来覆盖自动化断言之外的真实浏览器感知�
 4. 对视觉或布局改动，保存至少一张截图到 `.agent/`，并在最终回复或 review 输入里写明截图路径。
 5. 如果 MCP 不可用，说明不可用原因；不能把“没有做浏览器 MCP 检查”写成已经完成。
 
-### 5. 架构边界
+### 6. 架构边界
 
 默认修改顺序是：
 
@@ -118,7 +152,7 @@ Browser MCP 交互 QA 用来覆盖自动化断言之外的真实浏览器感知�
 - 高度自由的 slot 系统
 - 每个场景一个公开组件名的 API
 
-### 6. 文档同步规则
+### 7. 文档同步规则
 
 如果改动影响公开行为，至少检查这些文件：
 

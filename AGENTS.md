@@ -6,12 +6,14 @@
 
 1. `docs/README.md`
 2. `docs/statekit-ai-handoff-brief.md`
-3. `docs/statekit-agent-harness.md`
-4. `docs/agent-review-loop.md`
-5. `docs/statekit-implementation-blueprint.md`
-6. `docs/statekit-block-spec.md`
-7. `docs/statekit-docs-site-and-qa-spec.md`
-8. `docs/交接/TODO.md`
+3. `feature_list.json`（功能清单和验收状态，找 `passes: false` 的条目确认当前待完成项）
+4. `progress.md`（最新轮次的工作记录）
+5. `docs/statekit-agent-harness.md`
+6. `docs/agent-review-loop.md`
+7. `docs/statekit-implementation-blueprint.md`
+8. `docs/statekit-block-spec.md`
+9. `docs/statekit-docs-site-and-qa-spec.md`
+10. `docs/交接/TODO.md`
 
 ## 当前项目事实
 
@@ -36,6 +38,7 @@
 
 ## 常用命令
 
+- 首次初始化：`.\init.ps1`
 - 安装依赖：`npm install`
 - 框架依赖边界：`npm run lint:boundaries`
 - 类型检查：`npm run typecheck`

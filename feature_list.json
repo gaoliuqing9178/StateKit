@@ -1,0 +1,98 @@
+[
+  {
+    "id": "onboarding-category-pilot",
+    "category": "architecture",
+    "description": "OnboardingState 作为第七个 category-first 入口落地，引入 onboarding-workspace recipe",
+    "passes": true,
+    "verified_by": ["npm run typecheck", "npm run build", "npm run test:unit", "npm run test:ui", "npm run pack:check"]
+  },
+  {
+    "id": "onboarding-recipe-family",
+    "category": "architecture",
+    "description": "onboarding recipe family 从 1 个试点扩展到 3 个：onboarding-workspace、onboarding-members、onboarding-integration",
+    "passes": true,
+    "verified_by": ["npm run typecheck", "npm run build", "npm run test:unit", "npm run test:ui"]
+  },
+  {
+    "id": "onboarding-activation-example",
+    "category": "docs",
+    "description": "/examples/onboarding-activation 示例页，串联完整 first-run 激活流程（workspace → members → integration → success）",
+    "passes": true,
+    "verified_by": ["npm run test:ui", "Browser MCP QA"]
+  },
+  {
+    "id": "vite-vue-admin-rebuild",
+    "category": "example",
+    "description": "examples/vite-vue-admin 重做为 onboarding-to-completion 叙事主线，覆盖全部 7 个 category-first 入口",
+    "passes": true,
+    "verified_by": ["npm run typecheck", "npm run build", "npm run test:ui"]
+  },
+  {
+    "id": "playwright-coverage-expansion",
+    "category": "testing",
+    "description": "Playwright 测试套件扩展到 11 个 spec 文件，覆盖所有主路径、移动端断点和中文 locale 导航",
+    "passes": true,
+    "verified_by": ["npm run test:ui"]
+  },
+  {
+    "id": "packaging-cleanup",
+    "category": "build",
+    "description": "从 tsconfig.build.json 排除 *.test.ts，防止测试产物进入 dist；添加 prebuild 清理脚本",
+    "passes": true,
+    "verified_by": ["npm run build", "npm run pack:check"]
+  },
+  {
+    "id": "chinese-locale-docs",
+    "category": "docs",
+    "description": "docs 站新增 /zh-CN 路由家族，支持中英文切换",
+    "passes": true,
+    "verified_by": ["npm run typecheck", "npm run build", "npm run test:ui"]
+  },
+  {
+    "id": "version-0-3-0-release",
+    "category": "release",
+    "description": "完成 0.3.0 最终验证并发布 @statekit-vue/shared 和 @statekit-vue/vue 到 npm",
+    "passes": false,
+    "steps": [
+      "运行 npm run verify:release",
+      "确认 smoke:install 通过",
+      "人工浏览 /examples/onboarding-activation 和 examples/vite-vue-admin 确认语义边界",
+      "npm publish @statekit-vue/shared",
+      "npm publish @statekit-vue/vue",
+      "确认 npm view @statekit-vue/shared version 和 npm view @statekit-vue/vue version 返回 0.3.0"
+    ]
+  },
+  {
+    "id": "scenario-gap-matrix",
+    "category": "planning",
+    "description": "建立 category × 用户阶段的场景缺口矩阵，为下一批 recipe 扩展提供依据",
+    "passes": false,
+    "steps": [
+      "在 docs/ 里新增场景缺口矩阵文档",
+      "维度：category × 用户阶段（start / operate / blocked / recover / finish）",
+      "输出：哪些高频场景已有 recipe，哪些缺口最值得补"
+    ]
+  },
+  {
+    "id": "visual-regression-screenshots",
+    "category": "testing",
+    "description": "为 error / permission / success 插图补截图测试，减少视觉回归对人工确认的依赖",
+    "passes": false,
+    "steps": [
+      "在 apps/docs/tests/ 里新增截图比对 spec",
+      "覆盖 error cross 居中、permission lock 居中、success 无 shadow line 三个修复点",
+      "确认 CI 环境中截图比对可重复"
+    ]
+  },
+  {
+    "id": "docs-handwritten-copy-reduction",
+    "category": "docs",
+    "description": "减少 docs 站手写分类文案，让新增 recipe 时同步点进一步减少",
+    "passes": false,
+    "steps": [
+      "审查 apps/docs/src/ 中仍然手写的 category 说明文案",
+      "评估哪些可以从 shared 元数据驱动",
+      "不把 shared 搞得过重的前提下推进"
+    ]
+  }
+]
