@@ -211,6 +211,6 @@ Reviewer 不负责实现新功能，只负责发现真实问题。没有 blockin
 
 - 依赖边界已有基础架构 linter：`npm run lint:boundaries`。它覆盖静态 import 和 package manifest，不替代更完整的循环依赖、bundle 体积或运行时行为分析。
 - 还没有视觉像素级回归测试，插图细节仍需要人工浏览确认。
-- docs 站仍有部分手写分类文案，新增 recipe 时需要人工确认同步点。
+- docs 站的分类文案已集中到 `apps/docs/src/lib/category-docs.ts`，但新增 recipe 时仍要确认首页、列表页和详情页是否自动吃到同一份分类标签和说明。
 
 这些缺口不阻塞当前 harness 使用。Browser MCP 交互 QA 是当前替代像素级回归的最低人工浏览器证据。后续如果继续强化 agent 自主性，优先把文档新鲜度检查、循环依赖分析、截图比对和更细的包产物检查做成脚本或 lint 规则。

@@ -2,33 +2,21 @@
 import { computed } from "vue";
 import { RouterLink } from "vue-router";
 import { allRecipeDocs } from "../lib/recipe-docs";
-import { categoryCopy, recipeIndexCopy } from "../lib/copy";
+import { recipeIndexCopy } from "../lib/copy";
+import { getCategorySections, getCategoryLabel } from "../lib/category-docs";
 import { useLocale } from "../lib/i18n";
 import { getRecipeCopy } from "../lib/recipe-i18n";
 
 const { locale, routePath } = useLocale();
 const copy = computed(() => recipeIndexCopy[locale.value]);
-const categoriesCopy = computed(() => categoryCopy[locale.value]);
-
 const categorySections = computed(() =>
-  (
-    [
-      "empty",
-      "onboarding",
-      "loading",
-      "error",
-      "permission",
-      "upgrade",
-      "success",
-    ] as const
-  ).map((category) => ({
-    category,
-    label: categoriesCopy.value.labels[category],
-    description: categoriesCopy.value.listDescriptions[category],
+  getCategorySections(locale.value).map((section) => ({
+    ...section,
     recipes: allRecipeDocs
-      .filter((recipe) => recipe.category === category)
+      .filter((recipe) => recipe.category === section.category)
       .map((recipe) => ({
         ...recipe,
+        categoryLabel: getCategoryLabel(locale.value, recipe.category),
         localized: getRecipeCopy(recipe, locale.value),
       })),
   })),
@@ -73,12 +61,12 @@ const launchRecipeCount = computed(
     >
       <div class="section-heading section-heading--inline">
         <div>
-          <p class="eyebrow">{{ section.category }}</p>
+          <p class="eyebrow">{{ section.label }}</p>
           <h2>{{ copy.sectionRecipeTitle(section.label) }}</h2>
-          <p>{{ section.description }}</p>
+          <p>{{ section.listDescription }}</p>
         </div>
         <span class="meta-pill meta-pill--solid">
-          {{ section.recipes.length }} {{ copy.recipeSuffix }}
+          {{ section.count }} {{ copy.recipeSuffix }}
         </span>
       </div>
 
@@ -91,7 +79,7 @@ const launchRecipeCount = computed(
           :to="routePath('/recipes/' + recipe.slug)"
         >
           <div class="block-list__main">
-            <p class="block-card__eyebrow">{{ recipe.category }}</p>
+            <p class="block-card__eyebrow">{{ recipe.categoryLabel }}</p>
             <h3>{{ recipe.localized.defaults.title }}</h3>
             <p>{{ recipe.localized.summary }}</p>
           </div>

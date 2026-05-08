@@ -2,27 +2,18 @@
 import { computed } from "vue";
 import { RouterLink } from "vue-router";
 import { allRecipeDocs, featuredRecipeDocs } from "../lib/recipe-docs";
-import { categoryCopy, examplePages, homeCopy } from "../lib/copy";
+import { examplePages, homeCopy } from "../lib/copy";
+import { getCategoryLabel, getCategorySections } from "../lib/category-docs";
 import { useLocale } from "../lib/i18n";
 import { getRecipeCopy } from "../lib/recipe-i18n";
 
 const { locale, routePath } = useLocale();
 const copy = computed(() => homeCopy[locale.value]);
-const categoriesCopy = computed(() => categoryCopy[locale.value]);
-
-const categoryOrder = [
-  "empty",
-  "onboarding",
-  "loading",
-  "error",
-  "permission",
-  "upgrade",
-  "success",
-] as const;
+const categoryOverview = computed(() => getCategorySections(locale.value));
 
 const heroStats = computed(() => [
   {
-    value: String(categoryOrder.length).padStart(2, "0"),
+    value: String(categoryOverview.value.length).padStart(2, "0"),
     label: copy.value.heroStats.categories,
   },
   {
@@ -35,18 +26,10 @@ const heroStats = computed(() => [
   },
 ]);
 
-const categoryOverview = computed(() =>
-  categoryOrder.map((category) => ({
-    category,
-    label: categoriesCopy.value.labels[category],
-    count: allRecipeDocs.filter((recipe) => recipe.category === category).length,
-    description: categoriesCopy.value.descriptions[category],
-  })),
-);
-
 const featuredRecipes = computed(() =>
   featuredRecipeDocs.slice(0, 4).map((recipe) => ({
     ...recipe,
+    categoryLabel: getCategoryLabel(locale.value, recipe.category),
     localized: getRecipeCopy(recipe, locale.value),
   })),
 );
@@ -109,7 +92,7 @@ const localizedExamplePages = computed(() => examplePages[locale.value]);
             :key="recipe.id"
             class="hero-blueprint__note"
           >
-            <p>{{ recipe.category }}</p>
+            <p>{{ recipe.categoryLabel }}</p>
             <strong>{{ recipe.localized.defaults.title }}</strong>
           </div>
         </div>
@@ -133,7 +116,7 @@ const localizedExamplePages = computed(() => examplePages[locale.value]);
           :key="item.category"
           class="category-panel"
         >
-          <span class="meta-pill">{{ item.count }} recipes</span>
+          <span class="meta-pill">{{ item.count }} {{ copy.recipeCount }}</span>
           <h3>{{ item.label }}</h3>
           <p>{{ item.description }}</p>
         </article>
@@ -160,7 +143,7 @@ const localizedExamplePages = computed(() => examplePages[locale.value]);
           :to="routePath('/recipes/' + recipe.slug)"
         >
           <div class="feature-item__copy">
-            <p class="block-card__eyebrow">{{ recipe.category }}</p>
+            <p class="block-card__eyebrow">{{ recipe.categoryLabel }}</p>
             <h3>{{ recipe.localized.defaults.title }}</h3>
             <p>{{ recipe.localized.summary }}</p>
           </div>

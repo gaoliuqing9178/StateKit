@@ -40,15 +40,12 @@
   已完成：当前已有 `onboarding-workspace`、`onboarding-members`、`onboarding-integration` 三个 recipe。
   docs 示例页已补强 recipe-level 展示和跳转覆盖，`OnboardingState` 不再只对应"创建 workspace"这一个瞬间，而能覆盖 first-run 激活链路里最常见的几个节点。
 
-- [ ] 先做"场景缺口矩阵"，再决定下一批新增组件
-  目标：避免凭感觉一直加组件名，最后把 API 做散。
-  建议维度：`category × 用户阶段（start / operate / blocked / recover / finish）`。
-  输出内容：哪些高频场景已经有 recipe，哪些缺口最值得补，哪些其实只需要覆盖文案而不需要新增组件。
+- [x] 先做"场景缺口矩阵"，再决定下一批新增组件
+  已完成：`docs/statekit-scenario-gap-matrix.md` 已补齐 `category × 用户阶段（start / operate / blocked / recover / finish）` 矩阵，并明确哪些高频场景已经有 recipe、哪些缺口值得补、哪些只需要文案覆盖。
   完成标准：下一批扩展有一张可复用的缺口表，而不是每次重新拍脑袋。
 
-- [ ] 新增场景时，优先扩 recipe 覆盖率，而不是继续膨胀顶层公开入口
-  目标：让 StateKit 继续保持"少量统一入口 + 多个高价值 preset recipe"的结构。
-  做法：默认先在 `packages/shared/src/block-meta.ts` 增 recipe，再同步 docs/example；只有当多个高频场景都明显不适合现有 7 个 category 时，才考虑新增第 8 类入口。
+- [x] 新增场景时，优先扩 recipe 覆盖率，而不是继续膨胀顶层公开入口
+  已完成：docs 站分类说明已收口到 `apps/docs/src/lib/category-docs.ts`，首页、recipes 列表和 detail 都改为从同一份 docs-local 分类数据读取；扩展新场景时，先同步 shared recipe，再让 docs 自动消费，而不是再手写一套分类文案。
   完成标准：新增场景后，公开 API 仍然清楚，不会退回到"每个场景一个公开组件名"的旧路径。
 
 - [x] 扩 docs / example 的产品上下文，而不是只在 metadata 里增加 recipe

@@ -29,6 +29,8 @@ StateKit 是一个面向 SaaS 产品的 category-first 状态 UI 组件库，当
 
 ## 最近已经完成的工作
 
+- 新增 `docs/statekit-scenario-gap-matrix.md`，用 `category × 用户阶段（start / operate / blocked / recover / finish）` 确认下一批 recipe 扩展缺口和不该新增组件名的场景。
+- docs 站分类文案已收口到 `apps/docs/src/lib/category-docs.ts`，首页、recipes 列表和 recipe detail 都从同一份 docs-local 分类说明读取标签、说明和 category usage guide。
 - `OnboardingActivationView` 已新增为 docs 的第四个示例页（`/examples/onboarding-activation`），串联完整 first-run 激活流程：workspace → 邀请成员 → 连接集成 → 完成。
 - `examples/vite-vue-admin` 已重做为 onboarding-to-completion 叙事主线，覆盖全部 7 个 category-first 入口。
 - Playwright 测试套件已扩展到 10 个 spec 文件，覆盖所有主路径和移动端断点。

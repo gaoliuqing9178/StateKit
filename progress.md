@@ -6,6 +6,38 @@
 
 ---
 
+## 2026-05-08 P1 场景矩阵与 docs 文案收口
+
+**这轮做了什么**
+
+- 新增 `docs/statekit-scenario-gap-matrix.md`，把 `category × 用户阶段（start / operate / blocked / recover / finish）` 的现状、缺口和下一步判断放到一张可复用矩阵里。
+- 新增 `apps/docs/src/lib/category-docs.ts`，把 docs 站里手写的分类标签、分类说明和 category 级 usage guide 收到单一 docs-local 数据层。
+- 更新 `apps/docs/src/views/HomeView.vue`、`apps/docs/src/views/RecipesView.vue`、`apps/docs/src/views/RecipeDetailView.vue`，让首页、列表页和详情页都从同一份分类数据读取 label / description / guide。
+- 同步更新 `docs/README.md`、`docs/statekit-ai-handoff-brief.md`、`docs/statekit-agent-harness.md`、`docs/交接/TODO.md` 和 `feature_list.json`，把矩阵和收口状态写回交接入口。
+
+**为什么这么做**
+
+P1 要求的两个方向其实是一件事的两面：先把下一批扩展的判断标准摆清楚，再把 docs 站里零散的分类文案收口成单一来源。这样后续新增 recipe 时，至少不会再手动改三四个页面却漏掉一个入口。
+
+**这轮验证结果**
+
+```
+npm run typecheck --workspace @statekit/docs  ✅
+npm run verify:fast                          ✅
+npm run test:ui                              ✅
+Playwright MCP                               ✅
+Chrome DevTools MCP                          ✅
+```
+
+**Browser MCP 记录**
+
+- Playwright MCP: `http://127.0.0.1:4173/` → `/recipes` → `/recipes/onboarding-workspace-state`
+- 视口: desktop 默认视口，`window.innerWidth = 1707`；mobile `390x844`
+- 点击路径: 首页 `Browse recipes` → recipes 列表 → `onboarding-workspace` 详情页
+- 无横向溢出: desktop `true`，mobile `true`
+- 截图: `.agent/docs-recipe-detail-mobile.png`
+- Chrome DevTools: 详情页 `accessibility snapshot` 正常，`document/script/stylesheet` 请求均为 200/304；console 只有 `favicon.ico` 404 这一条非业务错误
+
 ## 2026-05-08 Harness 缺口补全
 
 **这轮做了什么**

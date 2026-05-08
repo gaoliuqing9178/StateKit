@@ -1,4 +1,3 @@
-import type { StateCategory } from "@statekit-vue/shared";
 import type { Locale } from "./copy";
 
 export interface DetailFact {
@@ -137,44 +136,6 @@ export const recipeDetailCopy = {
     missingDescription: "当前 slug 没有匹配 shared 元数据中的任何 recipe。",
   },
 } as const;
-
-export const categoryCustomizationGuide: Record<
-  Locale,
-  Record<StateCategory, string>
-> = {
-  en: {
-    empty:
-      "Rewrite the copy so the user understands what is missing, why the surface is still empty, and what they should create or clear next.",
-    onboarding:
-      "Keep the message activation-shaped. Good onboarding copy explains the first setup action plainly and makes the next step feel safe, not overwhelming.",
-    loading:
-      "Keep the title and description procedural. Loading recipes work best when they confirm progress and avoid adding unnecessary secondary actions.",
-    error:
-      "Use direct recovery language. The title should name the failure plainly, and the primary action should map to the safest retry path.",
-    permission:
-      "Explain the boundary clearly. Good permission copy says who can act, what is restricted, and whether the user should request access or go back.",
-    upgrade:
-      "Keep the business message product-shaped. Focus on what unlocks next, not on marketing slogans or generic upsell copy.",
-    success:
-      "Treat this as a completion checkpoint. Confirm what finished, then make the next meaningful action obvious through the primary button.",
-  },
-  "zh-CN": {
-    empty:
-      "先把文案改到用户能明白缺了什么、为什么当前界面还是空的，以及下一步应该创建什么或清除什么。",
-    onboarding:
-      "保持激活语气。好的 onboarding 文案会把第一个设置动作讲清楚，让下一步显得可控，而不是压迫感很强。",
-    loading:
-      "标题和描述要偏流程化。loading recipe 最适合确认进度，不要随手加没必要的次按钮。",
-    error:
-      "直接写恢复路径。标题要清楚说出失败，主操作要对应最安全的重试或回退方式。",
-    permission:
-      "把边界解释清楚。好的权限文案会说明谁可以操作、当前限制是什么、用户应该申请权限还是返回。",
-    upgrade:
-      "商业信息也要像产品流程。重点写升级后能继续做什么，不要写成泛泛的营销口号。",
-    success:
-      "把它当作完成检查点。先确认什么完成了，再通过主按钮指出下一个有意义的动作。",
-  },
-};
 
 export const parameterRules: Record<Locale, readonly string[]> = {
   en: [
@@ -329,4 +290,3 @@ export const onboardingSlotDocs: Record<Locale, PropDoc[]> = {
     },
   ],
 };
-

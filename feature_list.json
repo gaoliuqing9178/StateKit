@@ -66,12 +66,8 @@
     "id": "scenario-gap-matrix",
     "category": "planning",
     "description": "建立 category × 用户阶段的场景缺口矩阵，为下一批 recipe 扩展提供依据",
-    "passes": false,
-    "steps": [
-      "在 docs/ 里新增场景缺口矩阵文档",
-      "维度：category × 用户阶段（start / operate / blocked / recover / finish）",
-      "输出：哪些高频场景已有 recipe，哪些缺口最值得补"
-    ]
+    "passes": true,
+    "verified_by": ["npm run verify:fast", "npm run test:ui", "Browser MCP QA"]
   },
   {
     "id": "visual-regression-screenshots",
@@ -88,11 +84,7 @@
     "id": "docs-handwritten-copy-reduction",
     "category": "docs",
     "description": "减少 docs 站手写分类文案，让新增 recipe 时同步点进一步减少",
-    "passes": false,
-    "steps": [
-      "审查 apps/docs/src/ 中仍然手写的 category 说明文案",
-      "评估哪些可以从 shared 元数据驱动",
-      "不把 shared 搞得过重的前提下推进"
-    ]
+    "passes": true,
+    "verified_by": ["npm run verify:fast", "npm run test:ui", "Browser MCP QA"]
   }
 ]

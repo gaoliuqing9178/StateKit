@@ -12,7 +12,6 @@ import {
 } from "../lib/example-code";
 import {
   actionFieldDocs,
-  categoryCustomizationGuide,
   onboardingSlotDocs,
   parameterRules,
   recipeDetailCopy,
@@ -20,6 +19,10 @@ import {
   type DetailFact,
   type PropDoc,
 } from "../lib/detail-copy";
+import {
+  getCategoryCustomizationGuide,
+  getCategoryLabel,
+} from "../lib/category-docs";
 import { useLocale } from "../lib/i18n";
 import { getRecipeCopy } from "../lib/recipe-i18n";
 
@@ -33,6 +36,10 @@ const recipeMeta = computed(() =>
 
 const localizedRecipe = computed(() =>
   recipeMeta.value ? getRecipeCopy(recipeMeta.value, locale.value) : null,
+);
+
+const categoryLabel = computed(() =>
+  recipeMeta.value ? getCategoryLabel(locale.value, recipeMeta.value.category) : "",
 );
 
 const recipeComponent = computed(() =>
@@ -130,7 +137,7 @@ const customizationNotes = computed(() => {
 
   if (locale.value === "zh-CN") {
     return [
-      categoryCustomizationGuide[locale.value][meta.category],
+      getCategoryCustomizationGuide(locale.value, meta.category),
       "先替换 `title`。标题应该描述你产品里的真实用户时刻，而不是停留在通用示例文案。",
       "再替换 `description`。用它说明下一步、边界条件，或用户可以从当前界面采取的恢复路径。",
       defaultActionLabels.value.length
@@ -140,7 +147,7 @@ const customizationNotes = computed(() => {
   }
 
   return [
-    categoryCustomizationGuide[locale.value][meta.category],
+    getCategoryCustomizationGuide(locale.value, meta.category),
     "Replace `title` first. The heading should describe the exact user moment in your own product vocabulary, not the generic sample copy.",
     "Replace `description` next. Use it to explain the next step, any boundary, or any recovery path the user can take from this screen.",
     defaultActionLabels.value.length
@@ -413,6 +420,7 @@ const relatedRecipes = computed(() => {
     .slice(0, 3)
     .map((item) => ({
       ...item,
+      categoryLabel: getCategoryLabel(locale.value, item.category),
       localized: getRecipeCopy(item, locale.value),
     }));
 });
@@ -423,7 +431,7 @@ const relatedRecipes = computed(() => {
     <template v-if="recipeMeta && localizedRecipe">
       <section class="page-hero page-hero--detail">
         <div>
-          <p class="eyebrow">{{ recipeMeta.category }} {{ copy.recipeLabel }}</p>
+          <p class="eyebrow">{{ categoryLabel }} {{ copy.recipeLabel }}</p>
           <h1>{{ localizedRecipe.defaults.title }}</h1>
           <p>{{ localizedRecipe.summary }}</p>
         </div>
@@ -688,7 +696,7 @@ const relatedRecipes = computed(() => {
             :data-testid="`recipe-related-${item.slug}`"
             :to="routePath('/recipes/' + item.slug)"
           >
-            <span class="editorial-link__index">{{ item.category }}</span>
+            <span class="editorial-link__index">{{ item.categoryLabel }}</span>
             <div>
               <h3>{{ item.localized.defaults.title }}</h3>
               <p>{{ item.localized.summary }}</p>
