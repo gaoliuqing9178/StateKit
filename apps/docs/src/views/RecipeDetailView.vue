@@ -5,6 +5,7 @@ import { recipeComponentMap } from "../lib/recipe-components";
 import { allRecipeDocs, getRecipeDocBySlug } from "../lib/recipe-docs";
 import {
   recipeActionSnippet,
+  recipeOnboardingSlotSnippet,
   recipeObjectBindingSnippet,
   recipeScriptBindingSnippet,
   recipeUsageSnippet,
@@ -58,6 +59,12 @@ const snippetMeta = computed(() =>
 
 const usageSnippet = computed(() =>
   snippetMeta.value ? recipeUsageSnippet(snippetMeta.value) : "",
+);
+
+const onboardingSlotSnippet = computed(() =>
+  snippetMeta.value && recipeMeta.value?.category === "onboarding"
+    ? recipeOnboardingSlotSnippet(snippetMeta.value, locale.value)
+    : "",
 );
 
 const scriptBindingSnippet = computed(() =>
@@ -409,6 +416,112 @@ const actionExamples = computed<CodeExample[]>(() => {
   ];
 });
 
+const onboardingPreviewCopy = computed(() => {
+  const slug = recipeMeta.value?.slug ?? "onboarding-workspace-state";
+
+  const previews = {
+    en: {
+      "onboarding-workspace-state": {
+        eyebrow: "Launch path",
+        title: "Workspace activation plan",
+        chip: "Workspace recipe",
+        rail: ["Workspace", "Team", "Integrations"],
+        toolbar: ["Plan", "Access", "Launch"],
+        statOneLabel: "Setup steps",
+        statOneValue: "03",
+        statTwoLabel: "Current step",
+        statTwoValue: "Workspace",
+        primaryFallback: "Start setup",
+        secondaryFallback: "View setup guide",
+        compare: "Open full activation example",
+        skip: "Skip setup",
+      },
+      "onboarding-members-state": {
+        eyebrow: "Collaboration setup",
+        title: "Starter team roster",
+        chip: "Members recipe",
+        rail: ["Owners", "Reviewers", "Operators"],
+        toolbar: ["Roles", "Invites", "Handoff"],
+        statOneLabel: "Invite roles",
+        statOneValue: "03",
+        statTwoLabel: "Launch owner",
+        statTwoValue: "Assigned",
+        primaryFallback: "Invite teammates",
+        secondaryFallback: "Copy invite link",
+        compare: "Open full activation example",
+        skip: "Skip invite",
+      },
+      "onboarding-integration-state": {
+        eyebrow: "System setup",
+        title: "Source sync checklist",
+        chip: "Integration recipe",
+        rail: ["Source", "Sync", "Verify"],
+        toolbar: ["Connect", "Import", "Review"],
+        statOneLabel: "Connected tools",
+        statOneValue: "01",
+        statTwoLabel: "Import status",
+        statTwoValue: "Ready",
+        primaryFallback: "Connect integration",
+        secondaryFallback: "View setup guide",
+        compare: "Open full activation example",
+        skip: "Skip integration",
+      },
+    },
+    "zh-CN": {
+      "onboarding-workspace-state": {
+        eyebrow: "启动路径",
+        title: "工作区激活计划",
+        chip: "Workspace recipe",
+        rail: ["工作区", "成员", "集成"],
+        toolbar: ["计划", "权限", "上线"],
+        statOneLabel: "设置步骤",
+        statOneValue: "03",
+        statTwoLabel: "当前步骤",
+        statTwoValue: "工作区",
+        primaryFallback: "开始设置",
+        secondaryFallback: "查看设置指南",
+        compare: "打开完整激活示例",
+        skip: "暂时跳过",
+      },
+      "onboarding-members-state": {
+        eyebrow: "协作设置",
+        title: "初始团队名单",
+        chip: "Members recipe",
+        rail: ["负责人", "审核者", "操作者"],
+        toolbar: ["角色", "邀请", "交接"],
+        statOneLabel: "邀请角色",
+        statOneValue: "03",
+        statTwoLabel: "上线负责人",
+        statTwoValue: "已分配",
+        primaryFallback: "邀请成员",
+        secondaryFallback: "复制邀请链接",
+        compare: "打开完整激活示例",
+        skip: "暂时跳过邀请",
+      },
+      "onboarding-integration-state": {
+        eyebrow: "系统设置",
+        title: "数据源同步清单",
+        chip: "Integration recipe",
+        rail: ["来源", "同步", "校验"],
+        toolbar: ["连接", "导入", "检查"],
+        statOneLabel: "已连接工具",
+        statOneValue: "01",
+        statTwoLabel: "导入状态",
+        statTwoValue: "就绪",
+        primaryFallback: "连接集成",
+        secondaryFallback: "查看设置指南",
+        compare: "打开完整激活示例",
+        skip: "暂时跳过集成",
+      },
+    },
+  } as const;
+
+  const localePreviews = previews[locale.value];
+  const previewSlug = slug as keyof typeof localePreviews;
+
+  return localePreviews[previewSlug] ?? localePreviews["onboarding-workspace-state"];
+});
+
 const relatedRecipes = computed(() => {
   const meta = recipeMeta.value;
   if (!meta) {
@@ -467,8 +580,126 @@ const relatedRecipes = computed(() => {
             </div>
           </div>
 
-          <div class="detail-preview__surface" data-testid="recipe-detail-live-preview">
-            <component :is="recipeComponent" v-bind="localizedRecipe.defaults" />
+          <div
+            class="detail-preview__surface"
+            data-testid="recipe-detail-live-preview"
+          >
+            <component
+              v-if="recipeMeta.category === 'onboarding'"
+              :is="recipeComponent"
+              v-bind="localizedRecipe.defaults"
+            >
+              <template #media>
+                <div
+                  class="sk-onboarding-media"
+                  data-testid="onboarding-slot-media-example"
+                >
+                  <div class="sk-onboarding-media__header">
+                    <div>
+                      <p class="sk-onboarding-media__eyebrow">
+                        {{ onboardingPreviewCopy.eyebrow }}
+                      </p>
+                      <strong class="sk-onboarding-media__title">
+                        {{ onboardingPreviewCopy.title }}
+                      </strong>
+                    </div>
+                    <span class="sk-onboarding-media__chip">
+                      {{ onboardingPreviewCopy.chip }}
+                    </span>
+                  </div>
+
+                  <div class="sk-onboarding-media__window">
+                    <div class="sk-onboarding-media__rail">
+                      <div
+                        v-for="(label, index) in onboardingPreviewCopy.rail"
+                        :key="label"
+                        class="sk-onboarding-media__rail-entry"
+                        :class="{ 'is-active': index === 0 }"
+                      >
+                        <span class="sk-onboarding-media__rail-dot" />
+                        <span class="sk-onboarding-media__rail-label">
+                          {{ label }}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="sk-onboarding-media__canvas">
+                      <div class="sk-onboarding-media__toolbar">
+                        <span
+                          v-for="(label, index) in onboardingPreviewCopy.toolbar"
+                          :key="label"
+                          :class="{ 'is-active': index === 0 }"
+                        >
+                          {{ label }}
+                        </span>
+                      </div>
+
+                      <div class="sk-onboarding-media__stats">
+                        <div class="sk-onboarding-media__stat">
+                          <small>{{ onboardingPreviewCopy.statOneLabel }}</small>
+                          <strong>{{ onboardingPreviewCopy.statOneValue }}</strong>
+                        </div>
+                        <div class="sk-onboarding-media__stat">
+                          <small>{{ onboardingPreviewCopy.statTwoLabel }}</small>
+                          <strong>{{ onboardingPreviewCopy.statTwoValue }}</strong>
+                        </div>
+                      </div>
+
+                      <div class="sk-onboarding-media__feed">
+                        <div class="sk-onboarding-media__feed-item">
+                          <span />
+                          <span />
+                        </div>
+                        <div class="sk-onboarding-media__feed-item">
+                          <span />
+                          <span />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </template>
+
+              <template #actions>
+                <div
+                  class="sk-onboarding-actions"
+                  data-testid="onboarding-slot-actions-example"
+                >
+                  <div class="sk-onboarding-actions__group">
+                    <button class="sk-shell__action" type="button">
+                      {{
+                        defaultActionLabels[0] ??
+                        onboardingPreviewCopy.primaryFallback
+                      }}
+                    </button>
+                    <button class="sk-shell__action is-secondary" type="button">
+                      {{
+                        defaultActionLabels[1] ??
+                        onboardingPreviewCopy.secondaryFallback
+                      }}
+                    </button>
+                  </div>
+
+                  <div class="sk-onboarding-actions__secondary">
+                    <RouterLink
+                      class="sk-shell__action is-secondary"
+                      :to="routePath('/examples/onboarding-activation')"
+                    >
+                      {{ onboardingPreviewCopy.compare }}
+                    </RouterLink>
+                    <button class="sk-onboarding-actions__skip" type="button">
+                      {{ onboardingPreviewCopy.skip }}
+                    </button>
+                  </div>
+                </div>
+              </template>
+            </component>
+
+            <component
+              v-else
+              :is="recipeComponent"
+              v-bind="localizedRecipe.defaults"
+            />
           </div>
         </article>
 
@@ -620,6 +851,15 @@ const relatedRecipes = computed(() => {
             <p>{{ slotDoc.description }}</p>
           </section>
         </div>
+
+        <section
+          class="detail-section detail-section--doc detail-section--full"
+          data-testid="onboarding-slot-code-example"
+        >
+          <h3>{{ copy.slotExampleTitle }}</h3>
+          <p>{{ copy.slotExampleDescription }}</p>
+          <pre class="code-block"><code>{{ onboardingSlotSnippet }}</code></pre>
+        </section>
       </section>
 
       <section class="section-card section-card--outline">

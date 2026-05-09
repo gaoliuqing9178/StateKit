@@ -86,10 +86,13 @@ test.describe("Mobile layout", () => {
 
     const detailPreview = page.getByTestId("recipe-detail-preview");
     const metadata = page.getByTestId("recipe-detail-metadata");
+    const livePreview = page.getByTestId("recipe-detail-live-preview");
 
     await expectNoHorizontalOverflow(page);
     await expect(detailPreview).toBeVisible();
     await expect(metadata).toBeVisible();
+    await expect(livePreview.getByTestId("onboarding-slot-media-example")).toBeVisible();
+    await expect(livePreview.getByTestId("onboarding-slot-actions-example")).toBeVisible();
     await expect(page.locator(".detail-info-grid")).toHaveCSS(
       "grid-template-columns",
       /^(?!.* ).+/,

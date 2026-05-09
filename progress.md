@@ -6,6 +6,42 @@
 
 ---
 
+## 2026-05-09 Onboarding recipe 插槽示例与 media stat 边界修复
+
+**这轮做了什么**
+
+- 更新 `apps/docs/src/views/RecipeDetailView.vue`，让 onboarding recipe 详情页的 live preview 使用真实 `#media` 和 `#actions` 插槽，而不是只展示默认 CTA。
+- 新增 `recipeOnboardingSlotSnippet`，在 onboarding recipe 详情页补出可复制的 media/action 插槽代码示例。
+- 更新 `apps/docs/src/lib/detail-copy.ts`，补充中英文插槽示例说明。
+- 修复 `packages/vue/src/styles/base.css` 中 `.sk-onboarding-media__stat strong` 的长文本溢出问题，避免 `Workspace` 这类非数字值超出 stat 卡片。
+- 扩展 `apps/docs/tests/recipes-navigation.spec.ts` 和 `apps/docs/tests/mobile-layout.spec.ts`，覆盖 onboarding slot preview、slot snippet，以及 stat value 不越出卡片边界。
+
+**为什么这么做**
+
+onboarding 本来就应该比普通状态块更像一次性激活入口。只在文案里说支持插槽不够，recipe 详情页需要直接展示 richer media 和 layered actions，用户才会直观看到它和 EmptyState / ErrorState 这类组件的差异。
+
+**这轮验证结果**
+
+```
+npm run typecheck --workspace @statekit/docs      ✅
+npm run typecheck --workspace @statekit-vue/vue   ✅
+npm run test:ui -- apps/docs/tests/recipes-navigation.spec.ts apps/docs/tests/mobile-layout.spec.ts ✅
+npm run verify:fast                              ✅
+npm run test:ui                                  ✅
+Playwright MCP                                   ✅
+Chrome DevTools MCP                              ✅
+```
+
+**Browser MCP 记录**
+
+- Playwright MCP: `http://127.0.0.1:4173/recipes/onboarding-workspace-state`
+- 视口: desktop `1252x879`
+- 检查点: live preview 中 `#media` / `#actions` 均存在；`Open full activation example` 可跳转到 `/examples/onboarding-activation`；`Workspace` stat value 未越出卡片右边界。
+- 截图: `.agent/docs-onboarding-recipe-desktop-fixed.png`
+- Chrome DevTools: accessibility snapshot 可读；`document/script/stylesheet` 请求为 200/304；console 无 error/warn；截图为 `.agent/chrome-devtools-onboarding-recipe-fixed.png`
+
+---
+
 ## 2026-05-08 P1 场景矩阵与 docs 文案收口
 
 **这轮做了什么**

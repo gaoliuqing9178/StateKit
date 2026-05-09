@@ -62,6 +62,9 @@ export const recipeDetailCopy = {
     slotsTitle: "Rich onboarding media and action areas",
     slotsDescription:
       "`OnboardingState` can stay simple for straightforward launch copy, but it also exposes two optional named slots for richer hero experiences across workspace setup, teammate invite, and initial integration flows. The page still owns visibility, skip behavior, and any persistence rules outside the component.",
+    slotExampleTitle: "Media and action slot example",
+    slotExampleDescription:
+      "Use this pattern when the recipe needs to feel like a guided product entry point instead of another quiet status block. The custom media previews the activation path, while the actions slot can group primary setup, docs, examples, and skip affordances.",
     actionsEyebrow: "Actions",
     actionsTitle: "Buttons, links, loading, and click events",
     actionsDescription:
@@ -120,6 +123,9 @@ export const recipeDetailCopy = {
     slotsTitle: "更丰富的 onboarding 媒体和操作区域",
     slotsDescription:
       "`OnboardingState` 可以保持简单，只承载直接的启动文案；也可以通过两个可选命名 slot 承载更强的 hero 体验，用在工作区设置、邀请成员和初始集成流程里。是否显示、跳过逻辑和持久化规则仍然属于页面本身。",
+    slotExampleTitle: "media 和 action 插槽示例",
+    slotExampleDescription:
+      "当这个 recipe 需要像一个产品入口，而不是普通安静状态块时，就用这个模式。自定义 media 预览激活路径，actions 插槽可以把主要设置、文档、完整示例和跳过动作分组放在一起。",
     actionsEyebrow: "Actions",
     actionsTitle: "按钮、链接、loading 和点击事件",
     actionsDescription:

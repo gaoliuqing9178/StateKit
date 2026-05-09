@@ -1,5 +1,27 @@
 # StateKit Changelog
 
+## 2026-05-09 Onboarding Recipe Slot Examples (Unreleased)
+
+### Added
+
+- Added rich `#media` and `#actions` slot examples to onboarding recipe detail live previews so `onboarding-workspace`, `onboarding-members`, and `onboarding-integration` read as guided activation surfaces instead of generic status blocks.
+- Added an onboarding-specific slot code snippet on recipe detail pages showing a custom media preview, grouped primary/secondary actions, a full-example link, and a low-priority skip affordance.
+- Expanded Playwright coverage for onboarding recipe detail pages, including assertions that the slot preview and snippet render.
+
+### Fixed
+
+- Tightened `.sk-onboarding-media__stat` value styling so longer labels such as `Workspace` stay inside the stat card boundary.
+- Added a browser-level assertion that onboarding media stat values do not overflow their cards.
+
+### Verified
+
+- `npm run typecheck --workspace @statekit/docs`
+- `npm run typecheck --workspace @statekit-vue/vue`
+- `npm run verify:fast`
+- `npm run test:ui`
+- Playwright MCP on `/recipes/onboarding-workspace-state`
+- Chrome DevTools MCP on `/recipes/onboarding-workspace-state`
+
 ## 2026-05-07 Chinese Docs Locale (Unreleased)
 
 ### Added
