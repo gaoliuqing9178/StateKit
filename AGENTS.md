@@ -32,7 +32,7 @@
 2. 再改 `packages/vue`
 3. 再改 `apps/docs`
 4. 再改 `examples/vite-vue-admin`
-5. 最后同步 README、package README、`docs/交接/CHANGELOG.md`、`docs/交接/剩餘部分.md`、`docs/交接/TODO.md` 和 launch checklist
+5. 最后同步 README、package README、`docs/交接/CHANGELOG.md`、`docs/交接/TODO.md` 和 launch checklist
 
 不要先改 docs 文案，再回头猜实现应该是什么。
 

@@ -29,21 +29,19 @@ StateKit 是一个面向 SaaS 产品的 category-first 状态界面组件库。�
    对齐 tone、density、layout、插画语义和 CTA 规范。
 6. [statekit-docs-site-and-qa-spec.md](./statekit-docs-site-and-qa-spec.md)  
    用于维护 `apps/docs` 的信息架构、页面要求、自动化 QA 和 Browser MCP 交互检查项。
-7. [statekit-readme-outline.md](./statekit-readme-outline.md)  
-   用于持续维护根目录 README 和本地化 README 的结构与口径一致。
-8. [statekit-launch-checklist.md](./statekit-launch-checklist.md)  
+7. [statekit-launch-checklist.md](./statekit-launch-checklist.md)  
    用于正式发布前的收口与自检。
-9. [statekit-ai-handoff-brief.md](./statekit-ai-handoff-brief.md)  
+8. [statekit-ai-handoff-brief.md](./statekit-ai-handoff-brief.md)  
    用于把当前项目状态快速交接给新成员或 AI 协作者。
-10. [statekit-agent-harness.md](./statekit-agent-harness.md)
+9. [statekit-agent-harness.md](./statekit-agent-harness.md)
    用于说明 agent 接手仓库时的入口地图、验证命令、Codex 测试分工、工作循环和当前 harness 缺口。
-11. [decision-log.md](./decision-log.md)
+10. [decision-log.md](./decision-log.md)
     记录影响架构、公开 API 和产品边界的关键决策，防止后续 agent 反复推翻已有决定。
-12. [agent-review-loop.md](./agent-review-loop.md)
+11. [agent-review-loop.md](./agent-review-loop.md)
     用于定义 Builder Agent 与 Reviewer Agent 的审查闭环、review level 和状态流转。
-13. [agent-review-template.md](./agent-review-template.md)
+12. [agent-review-template.md](./agent-review-template.md)
     用于给 Reviewer Agent 提供稳定审查提示词和输出格式。
-14. [agent-task-template.md](./agent-task-template.md)
+13. [agent-task-template.md](./agent-task-template.md)
     用于复杂任务开始前记录目标、范围、验证命令和 Browser MCP QA 证据。
 
 ## 文档约束

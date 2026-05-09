@@ -33,7 +33,7 @@ StateKit 是一个面向 SaaS 产品的 category-first 状态 UI 组件库，当
 - docs 站分类文案已收口到 `apps/docs/src/lib/category-docs.ts`，首页、recipes 列表和 recipe detail 都从同一份 docs-local 分类说明读取标签、说明和 category usage guide。
 - `OnboardingActivationView` 已新增为 docs 的第四个示例页（`/examples/onboarding-activation`），串联完整 first-run 激活流程：workspace → 邀请成员 → 连接集成 → 完成。
 - `examples/vite-vue-admin` 已重做为 onboarding-to-completion 叙事主线，覆盖全部 7 个 category-first 入口。
-- Playwright 测试套件已扩展到 10 个 spec 文件，覆盖所有主路径和移动端断点。
+- Playwright 测试套件已扩展到 12 个 spec 文件，覆盖所有主路径、移动端断点、中文 locale 以及 `examples/vite-vue-admin` 集成面。
 - example 已完成第一轮视觉重做，方向是更安静、更开放的 editorial layout，而不是 admin 卡片墙。
 - docs 示例页和 docs 站外层样式已一起收口，整体持续减少卡片感。
 - onboarding 已作为独立 category 引入，当前提供 `OnboardingState` 以及 `onboarding-workspace`、`onboarding-members`、`onboarding-integration` 三个 recipes。
@@ -78,7 +78,7 @@ StateKit 是一个面向 SaaS 产品的 category-first 状态 UI 组件库，当
 - onboarding 已经是独立 category，不要再默认把 first-run 激活语义塞回 `empty`。
 - 当前没有第三个 CTA，也没有复杂 slot 系统。
 - docs 站不是 marketing site，而是产品文档和 QA 工具。
-- 当前已有 10 个 Playwright spec 文件覆盖主路径和移动端，但仍无自动化视觉像素级回归；插图细节调整仍需人工确认。
+- 当前已有 12 个 Playwright spec 文件覆盖主路径、移动端和中文 locale，但仍无自动化视觉像素级回归；插图细节调整仍需人工确认。
 
 ## 当前已验证
 

@@ -30,7 +30,7 @@
   {
     "id": "playwright-coverage-expansion",
     "category": "testing",
-    "description": "Playwright 测试套件扩展到 11 个 spec 文件，覆盖所有主路径、移动端断点和中文 locale 导航",
+    "description": "Playwright 测试套件扩展到 12 个 spec 文件，覆盖所有主路径、移动端断点、中文 locale 导航和 example 集成面",
     "passes": true,
     "verified_by": ["npm run test:ui"]
   },

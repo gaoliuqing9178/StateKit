@@ -69,7 +69,7 @@ harness 文件本身不需要跑 verify 命令（属于 Light Review 级别，�
 
 1. 读 `feature_list.json`，找 `passes: false` 的条目。
 2. 最高优先级是 `version-0-3-0-release`：跑 `npm run verify:release`，确认全部通过后发布 npm。
-3. 涉及 UI 验证时，按 `docs/statekit-agent-harness.md` 第 7 节的 Codex 测试说明，由宿主环境另起新 Codex 终端执行 Browser MCP 检查。
+3. 涉及 UI 验证时，按 `docs/statekit-agent-harness.md` 第 4 节的 Codex 测试说明，由宿主环境另起新 Codex 终端执行 Browser MCP 检查。
 
 ---
 

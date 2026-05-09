@@ -52,7 +52,7 @@ H:\StateKit
 - 作为产品文档站展示 StateKit 的价值、安装方式和 Block 明细。
 - 从 `@statekit-vue/shared` 直接读取 Block 元数据。
 - 从 `@statekit-vue/vue` 读取实际组件进行 live preview。
-- 作为 Playwright 自动化回归的宿主（`apps/docs/tests/`，当前 10 个 spec 文件）。
+- 作为 Playwright 自动化回归的宿主（`apps/docs/tests/`，当前 12 个 spec 文件）。
 
 当前站点路由：
 
@@ -146,7 +146,7 @@ H:\StateKit
 
 - 所有 Block 共享同一套视觉外壳，类别差异主要通过 tone、背景和媒体图形体现。
 - 使用者当前只能覆盖文本、布局、tone、density 和两个动作按钮。
-- 已有 Vitest 单元测试（`packages/vue/src/base/`）和 Playwright 浏览器测试（`apps/docs/tests/`，10 个 spec），但暂无像素级视觉回归；插图细节调整仍需人工确认。
+- 已有 Vitest 单元测试（`packages/vue/src/base/`）和 Playwright 浏览器测试（`apps/docs/tests/`，12 个 spec），但暂无像素级视觉回归；插图细节调整仍需人工确认。
 - docs 站内容与 shared 元数据关联紧密，因此 shared 是最重要的单一事实来源。
 
 ## 开发命令

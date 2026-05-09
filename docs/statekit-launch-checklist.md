@@ -31,7 +31,7 @@
 - [x] docs 首页、recipes 和 recipe detail 已同步 onboarding category 的 7 类口径
 - [x] `/examples/onboarding-activation` 已上线，展示完整 first-run 激活流程和 3 个 onboarding recipes
 - [x] `/examples` 默认重定向到 `/examples/onboarding-activation`
-- [x] Playwright 自动化覆盖主路径 + 移动端断点（10 个 spec 文件）
+- [x] Playwright 自动化覆盖主路径 + 移动端断点 + 中文 locale + example 集成面（12 个 spec 文件）
 - [ ] 人工浏览 docs 首页、`/recipes`、`/recipes/:slug`、`/examples/onboarding-activation` 和其余三个 example 页
 - [ ] 人工检查移动端留白、分隔线、hover 强度和 CTA 节奏
 

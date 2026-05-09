@@ -76,7 +76,7 @@ V1 只解决一件事：让团队能以低决策成本交付一套统一、可�
   - `permissions-and-upgrade`：权限与升级场景
   - `task-flow`：loading / error / success 流程串联
 - 一个 admin 风格 example 工程（onboarding-to-completion 叙事主线）。
-- Playwright 自动化回归套件（10 个 spec 文件，覆盖主路径和移动端）。
+- Playwright 自动化回归套件（12 个 spec 文件，覆盖主路径、移动端、中文 locale 和 example 集成面）。
 
 ## V1 成功标准
 

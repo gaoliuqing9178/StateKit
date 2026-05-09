@@ -111,7 +111,7 @@ Recipe 列表页必须：
 
 ## QA 原则
 
-docs 站是最重要的人工 QA 面板。同时，`apps/docs/tests/` 下已有 10 个 Playwright spec 文件覆盖主路径和移动端断点，提供基础自动化回归。自动化测试通过后，仍需人工确认视觉质量。
+docs 站是最重要的人工 QA 面板。同时，`apps/docs/tests/` 下已有 12 个 Playwright spec 文件覆盖主路径、移动端断点、中文 locale 和 example 集成面，提供基础自动化回归。自动化测试通过后，仍需人工确认视觉质量。
 
 ### Browser MCP 交互 QA
 
@@ -219,7 +219,7 @@ Browser MCP QA:
 
 - `npm run dev:docs` 可启动。
 - `npm run build --workspace @statekit/docs` 通过。
-- `npm run test:ui` 通过（10 个 Playwright spec）。
+- `npm run test:ui` 通过（12 个 Playwright spec）。
 - Block 列表数量与 shared 中一致。
 - 每个 launch 级 Block 都有可访问详情页。
 - Installation 页能让新用户完成最基本接入。
@@ -231,4 +231,3 @@ Browser MCP QA:
 - 已有 Playwright 自动化覆盖主路径和移动端断点，但暂无像素级视觉回归；插图细节仍需人工确认。
 - docs 站的组件映射仍是手工维护的（`recipe-components.ts`）。
 - 示例页产品流程的覆盖密度还有提升空间，尤其是 permissions-and-upgrade 和 task-flow 示例页的叙事深度。
-- 根 README 仍需按 `statekit-readme-outline.md` 单独补齐（当前 README 已基本符合大纲要求）。

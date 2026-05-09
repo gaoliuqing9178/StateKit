@@ -164,7 +164,6 @@ Browser MCP 交互 QA 用来覆盖自动化断言之外的真实浏览器感知�
 - `docs/statekit-ai-handoff-brief.md`
 - `docs/statekit-launch-checklist.md`
 - `docs/交接/CHANGELOG.md`
-- `docs/交接/剩餘部分.md`
 - `docs/交接/TODO.md`
 
 如果只是内部 harness 文档或验证脚本变化，不要把它写成产品功能发布；可以同步 `docs/README.md` 和 handoff brief，让后续 agent 能发现。

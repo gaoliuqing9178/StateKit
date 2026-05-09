@@ -11,7 +11,7 @@
 - [x] 为 `onboarding` category pilot 确定下一次版本号与发布口径
   结论：按 minor 版本 `0.3.0` 处理。
   原因：新增独立 category-first 入口 `OnboardingState`，并把 onboarding recipe family 从 1 个试点扩到 3 个可展示场景，属于公开能力扩展，不再按 patch 尾声处理。
-  需要同步的文件：`README.md`、`README.zh-CN.md`、`packages/vue/README.md`、`docs/statekit-ai-handoff-brief.md`、`docs/statekit-launch-checklist.md`、`docs/交接/CHANGELOG.md`、`docs/交接/剩餘部分.md`。
+  需要同步的文件：`README.md`、`README.zh-CN.md`、`packages/vue/README.md`、`docs/statekit-ai-handoff-brief.md`、`docs/statekit-launch-checklist.md`、`docs/交接/CHANGELOG.md`。
   完成标准：对外文档、交接文档和最终版本号口径一致，不再出现"代码里已经有 onboarding，但发布说明还像 0.2.1 patch 尾声"的割裂表述。
 
 - [x] 补一次围绕 `onboarding` 的人工 QA
@@ -53,7 +53,7 @@
   下一步：可继续把 `/examples/permissions-and-upgrade` 和 `/examples/task-flow` 串成更完整的"阻断 → 完成"路径。
 
 - [x] 把 UI 自动化覆盖扩到更多示例页和主路径
-  已完成：新增 `home-featured-recipes`、`installation-navigation`、`mobile-layout`、`onboarding-activation`、`recipe-detail-paths`、`chinese-locale` 等 spec 文件，当前共 11 个 Playwright spec，覆盖了所有主路径、移动端断点和中文 locale 导航。
+  已完成：新增 `home-featured-recipes`、`installation-navigation`、`mobile-layout`、`onboarding-activation`、`recipe-detail-paths`、`chinese-locale` 等 spec 文件，当前共 12 个 Playwright spec，覆盖了所有主路径、移动端断点、中文 locale 导航和 `examples/vite-vue-admin` 集成面。
   剩余：`/examples/permissions-and-upgrade` 和 `/examples/task-flow` 已有 spec，确认断言密度是否足够。
 
 - [x] 给 docs 站补中文版本

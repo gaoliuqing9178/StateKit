@@ -66,7 +66,7 @@ Write-Host ""
 Write-Host "UI 测试说明（Codex 环境）：" -ForegroundColor Yellow
 Write-Host "  npm run test:ui 会自动启动 docs 和 example 开发服务器并执行 Playwright 测试。"
 Write-Host "  如果当前 agent 是 Codex，UI 测试和 Browser MCP 检查需要由宿主环境另起一个新的"
-Write-Host "  Codex 终端来执行（见 docs/statekit-agent-harness.md 第 7 节）。"
+Write-Host "  Codex 终端来执行（见 docs/statekit-agent-harness.md 第 4 节）。"
 Write-Host "  不要让同一个编码 agent 自己写代码又自己跑 Browser MCP 测试。"
 Write-Host ""
 Write-Host "先读文件：" -ForegroundColor White

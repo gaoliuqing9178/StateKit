@@ -92,7 +92,6 @@ npm run verify:ui
 
 - Standard Review 的全部材料。
 - `docs/交接/CHANGELOG.md`。
-- `docs/交接/剩餘部分.md`。
 - `docs/交接/TODO.md`。
 - `docs/statekit-launch-checklist.md`。
 - `npm run verify:release` 结果。
