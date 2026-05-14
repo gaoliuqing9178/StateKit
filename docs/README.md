@@ -43,6 +43,12 @@ StateKit 是一个面向 SaaS 产品的 category-first 状态界面组件库。�
     用于给 Reviewer Agent 提供稳定审查提示词和输出格式。
 13. [agent-task-template.md](./agent-task-template.md)
     用于复杂任务开始前记录目标、范围、验证命令和 Browser MCP QA 证据。
+14. [quality.md](./quality.md)
+    定义 DoD 六条硬指标、Evaluator 控制台日志审查规程、StateKit 默认 console 噪音分级表。
+15. [handoff.md](./handoff.md)
+    每一轮交付前必须更新；下一轮 agent 拿到仓库的第一份指引（`AGENTS.md` 入口顺序的第 3 步）。
+16. [runbooks/debug.md](./runbooks/debug.md)
+    冷启动 / verify 链 / 运行时 / Browser MCP 排障入口。
 
 ## 文档约束
 

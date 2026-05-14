@@ -5,7 +5,8 @@
       "Bash(npx playwright *)",
       "Bash(npm run *)",
       "Bash(git *)",
-      "Bash(python3 *)"
+      "Bash(python3 *)",
+      "Bash(node -e \"const j=require\\('./feature_list.json'\\); console.log\\('meta.spec_version:',j.meta?.spec_version\\); console.log\\('total:',j.features.length\\); const noEvid=j.features.filter\\(f=>f.passes&&\\(!f.evaluator||!f.evidence\\)\\); console.log\\('passes:true 无 evaluator/evidence:',noEvid.length\\); const failed=j.features.filter\\(f=>!f.passes\\); console.log\\('passes:false:',failed.map\\(f=>f.id\\).join\\(', '\\)\\);\")"
     ]
   }
 }

@@ -1,90 +1,203 @@
-[
-  {
-    "id": "onboarding-category-pilot",
-    "category": "architecture",
-    "description": "OnboardingState 作为第七个 category-first 入口落地，引入 onboarding-workspace recipe",
-    "passes": true,
-    "verified_by": ["npm run typecheck", "npm run build", "npm run test:unit", "npm run test:ui", "npm run pack:check"]
+{
+  "x-comment": [
+    "1. StateKit feature 验收清单。",
+    "2. 作用：作为 agent 可读的'功能完成度'事实来源；与 docs/quality.md §1 的 DoD 配套。",
+    "3. 规则：passes:true 必须配 evaluator + evidence；steps/verified_by 只允许补充更严格验证，不允许弱化。",
+    "4. 历史条目用 unverified-legacy:true 标记，下一轮 evaluator 可补跑确认。"
+  ],
+  "meta": {
+    "project": "StateKit",
+    "spec_version": "v0.2",
+    "last_updated": "2026-05-14-harness-alignment",
+    "schema_doc": "docs/quality.md#4-evidence-格式",
+    "instructions": "passes 改为 true 时必须同时填 evaluator + evidence；evidence 路径必须可复现。禁止删减 steps / verified_by。"
   },
-  {
-    "id": "onboarding-recipe-family",
-    "category": "architecture",
-    "description": "onboarding recipe family 从 1 个试点扩展到 3 个：onboarding-workspace、onboarding-members、onboarding-integration",
-    "passes": true,
-    "verified_by": ["npm run typecheck", "npm run build", "npm run test:unit", "npm run test:ui"]
-  },
-  {
-    "id": "onboarding-activation-example",
-    "category": "docs",
-    "description": "/examples/onboarding-activation 示例页，串联完整 first-run 激活流程（workspace → members → integration → success）",
-    "passes": true,
-    "verified_by": ["npm run test:ui", "Browser MCP QA"]
-  },
-  {
-    "id": "vite-vue-admin-rebuild",
-    "category": "example",
-    "description": "examples/vite-vue-admin 重做为 onboarding-to-completion 叙事主线，覆盖全部 7 个 category-first 入口",
-    "passes": true,
-    "verified_by": ["npm run typecheck", "npm run build", "npm run test:ui"]
-  },
-  {
-    "id": "playwright-coverage-expansion",
-    "category": "testing",
-    "description": "Playwright 测试套件扩展到 12 个 spec 文件，覆盖所有主路径、移动端断点、中文 locale 导航和 example 集成面",
-    "passes": true,
-    "verified_by": ["npm run test:ui"]
-  },
-  {
-    "id": "packaging-cleanup",
-    "category": "build",
-    "description": "从 tsconfig.build.json 排除 *.test.ts，防止测试产物进入 dist；添加 prebuild 清理脚本",
-    "passes": true,
-    "verified_by": ["npm run build", "npm run pack:check"]
-  },
-  {
-    "id": "chinese-locale-docs",
-    "category": "docs",
-    "description": "docs 站新增 /zh-CN 路由家族，支持中英文切换",
-    "passes": true,
-    "verified_by": ["npm run typecheck", "npm run build", "npm run test:ui"]
-  },
-  {
-    "id": "version-0-3-0-release",
-    "category": "release",
-    "description": "完成 0.3.0 最终验证并发布 @statekit-vue/shared 和 @statekit-vue/vue 到 npm",
-    "passes": false,
-    "steps": [
-      "运行 npm run verify:release",
-      "确认 smoke:install 通过",
-      "人工浏览 /examples/onboarding-activation 和 examples/vite-vue-admin 确认语义边界",
-      "npm publish @statekit-vue/shared",
-      "npm publish @statekit-vue/vue",
-      "确认 npm view @statekit-vue/shared version 和 npm view @statekit-vue/vue version 返回 0.3.0"
-    ]
-  },
-  {
-    "id": "scenario-gap-matrix",
-    "category": "planning",
-    "description": "建立 category × 用户阶段的场景缺口矩阵，为下一批 recipe 扩展提供依据",
-    "passes": true,
-    "verified_by": ["npm run verify:fast", "npm run test:ui", "Browser MCP QA"]
-  },
-  {
-    "id": "visual-regression-screenshots",
-    "category": "testing",
-    "description": "为 error / permission / success 插图补截图测试，减少视觉回归对人工确认的依赖",
-    "passes": false,
-    "steps": [
-      "在 apps/docs/tests/ 里新增截图比对 spec",
-      "覆盖 error cross 居中、permission lock 居中、success 无 shadow line 三个修复点",
-      "确认 CI 环境中截图比对可重复"
-    ]
-  },
-  {
-    "id": "docs-handwritten-copy-reduction",
-    "category": "docs",
-    "description": "减少 docs 站手写分类文案，让新增 recipe 时同步点进一步减少",
-    "passes": true,
-    "verified_by": ["npm run verify:fast", "npm run test:ui", "Browser MCP QA"]
-  }
-]
+  "features": [
+    {
+      "id": "onboarding-category-pilot",
+      "category": "architecture",
+      "priority": "P0",
+      "description": "OnboardingState 作为第七个 category-first 入口落地，引入 onboarding-workspace recipe",
+      "verified_by": ["npm run typecheck", "npm run build", "npm run test:unit", "npm run test:ui", "npm run pack:check"],
+      "passes": true,
+      "evaluator": "self-verified-by-builder@2026-04-27",
+      "unverified-legacy": true,
+      "evidence": {
+        "verify_log": "progress.md#2026-04-27-onboarding-hero-flow--test-coverage",
+        "playwright": "apps/docs/tests/onboarding-activation.spec.ts",
+        "decision_log": "docs/decision-log.md#d-001-category-first-公开-api-取代场景名组件"
+      }
+    },
+    {
+      "id": "onboarding-recipe-family",
+      "category": "architecture",
+      "priority": "P0",
+      "description": "onboarding recipe family 从 1 个试点扩展到 3 个：onboarding-workspace、onboarding-members、onboarding-integration",
+      "verified_by": ["npm run typecheck", "npm run build", "npm run test:unit", "npm run test:ui"],
+      "passes": true,
+      "evaluator": "self-verified-by-builder@2026-05-09",
+      "unverified-legacy": true,
+      "evidence": {
+        "verify_log": "progress.md#2026-05-09-onboarding-recipe-插槽示例与-media-stat-边界修复",
+        "playwright": "apps/docs/tests/recipes-navigation.spec.ts",
+        "screenshot_desktop": ".agent/docs-onboarding-recipe-desktop-fixed.png",
+        "screenshot_mobile": ".agent/docs-onboarding-recipe-mobile.png",
+        "shared_meta": "packages/shared/src/block-meta.ts"
+      }
+    },
+    {
+      "id": "onboarding-activation-example",
+      "category": "docs",
+      "priority": "P1",
+      "description": "/examples/onboarding-activation 示例页，串联完整 first-run 激活流程（workspace → members → integration → success）",
+      "verified_by": ["npm run test:ui", "Browser MCP QA"],
+      "passes": true,
+      "evaluator": "self-verified-by-builder@2026-04-27",
+      "unverified-legacy": true,
+      "evidence": {
+        "verify_log": "progress.md#2026-04-27-onboarding-hero-flow--test-coverage",
+        "playwright": "apps/docs/tests/onboarding-activation.spec.ts",
+        "view": "apps/docs/src/views/examples/OnboardingActivationView.vue"
+      }
+    },
+    {
+      "id": "vite-vue-admin-rebuild",
+      "category": "example",
+      "priority": "P1",
+      "description": "examples/vite-vue-admin 重做为 onboarding-to-completion 叙事主线，覆盖全部 7 个 category-first 入口",
+      "verified_by": ["npm run typecheck", "npm run build", "npm run test:ui"],
+      "passes": true,
+      "evaluator": "self-verified-by-builder@2026-04-27",
+      "unverified-legacy": true,
+      "evidence": {
+        "verify_log": "progress.md#2026-04-27-onboarding-hero-flow--test-coverage",
+        "source": "examples/vite-vue-admin/src/App.vue",
+        "playwright": "apps/docs/tests/example-app.spec.ts",
+        "screenshot_mobile": ".agent/example-onboarding-fixed.png"
+      }
+    },
+    {
+      "id": "playwright-coverage-expansion",
+      "category": "testing",
+      "priority": "P1",
+      "description": "Playwright 测试套件扩展到 12 个 spec 文件，覆盖所有主路径、移动端断点、中文 locale 导航和 example 集成面",
+      "verified_by": ["npm run test:ui"],
+      "passes": true,
+      "evaluator": "self-verified-by-builder@2026-05-08",
+      "unverified-legacy": true,
+      "evidence": {
+        "verify_log": "progress.md#2026-04-27-onboarding-hero-flow--test-coverage",
+        "playwright_dir": "apps/docs/tests/"
+      }
+    },
+    {
+      "id": "packaging-cleanup",
+      "category": "build",
+      "priority": "P1",
+      "description": "从 tsconfig.build.json 排除 *.test.ts，防止测试产物进入 dist；添加 prebuild 清理脚本",
+      "verified_by": ["npm run build", "npm run pack:check"],
+      "passes": true,
+      "evaluator": "self-verified-by-builder@2026-05-04",
+      "unverified-legacy": true,
+      "evidence": {
+        "verify_log": "progress.md#2026-05-04-release-prep-030",
+        "tsconfig_shared": "packages/shared/tsconfig.build.json",
+        "tsconfig_vue": "packages/vue/tsconfig.build.json"
+      }
+    },
+    {
+      "id": "chinese-locale-docs",
+      "category": "docs",
+      "priority": "P1",
+      "description": "docs 站新增 /zh-CN 路由家族，支持中英文切换",
+      "verified_by": ["npm run typecheck", "npm run build", "npm run test:ui"],
+      "passes": true,
+      "evaluator": "self-verified-by-builder@2026-05-07",
+      "unverified-legacy": true,
+      "evidence": {
+        "verify_log": "progress.md#2026-05-07-中文-docs-locale已验证",
+        "playwright": "apps/docs/tests/chinese-locale.spec.ts",
+        "router": "apps/docs/src/router.ts",
+        "locale_lib": "apps/docs/src/lib/recipe-display-zh.ts"
+      }
+    },
+    {
+      "id": "version-0-3-0-release",
+      "category": "release",
+      "priority": "P0",
+      "description": "完成 0.3.0 最终验证并发布 @statekit-vue/shared 和 @statekit-vue/vue 到 npm",
+      "steps": [
+        "运行 .\\verify.ps1 -Mode release（或 npm run verify:release）",
+        "确认 pack:check 输出包含的文件不带 *.test.ts 与 .vue 源码",
+        "确认 smoke:install 通过",
+        "人工浏览 /examples/onboarding-activation 和 examples/vite-vue-admin 确认 onboarding vs empty vs success 语义边界",
+        "spawn 独立子代理写 qa/version-0-3-0-release-evaluator-report.md，必须含 ## 控制台日志审查",
+        "npm publish @statekit-vue/shared",
+        "npm publish @statekit-vue/vue",
+        "确认 npm view @statekit-vue/shared version 和 npm view @statekit-vue/vue version 返回 0.3.0"
+      ],
+      "passes": false
+    },
+    {
+      "id": "scenario-gap-matrix",
+      "category": "planning",
+      "priority": "P1",
+      "description": "建立 category × 用户阶段的场景缺口矩阵，为下一批 recipe 扩展提供依据",
+      "verified_by": ["npm run verify:fast", "npm run test:ui", "Browser MCP QA"],
+      "passes": true,
+      "evaluator": "self-verified-by-builder@2026-05-08",
+      "unverified-legacy": true,
+      "evidence": {
+        "verify_log": "progress.md#2026-05-08-p1-场景矩阵与-docs-文案收口",
+        "matrix_doc": "docs/statekit-scenario-gap-matrix.md",
+        "screenshot_mobile": ".agent/docs-recipe-detail-mobile.png"
+      }
+    },
+    {
+      "id": "visual-regression-screenshots",
+      "category": "testing",
+      "priority": "P1",
+      "description": "为 error / permission / success 插图补截图测试，减少视觉回归对人工确认的依赖",
+      "steps": [
+        "在 apps/docs/tests/ 里新增截图比对 spec",
+        "覆盖 error cross 居中、permission lock 居中、success 无 shadow line 三个修复点",
+        "确认 CI 环境中截图比对可重复（屏蔽字体抗锯齿差异）",
+        "spawn 独立子代理出 qa/visual-regression-screenshots-evaluator-report.md"
+      ],
+      "passes": false
+    },
+    {
+      "id": "docs-handwritten-copy-reduction",
+      "category": "docs",
+      "priority": "P1",
+      "description": "减少 docs 站手写分类文案，让新增 recipe 时同步点进一步减少",
+      "verified_by": ["npm run verify:fast", "npm run test:ui", "Browser MCP QA"],
+      "passes": true,
+      "evaluator": "self-verified-by-builder@2026-05-08",
+      "unverified-legacy": true,
+      "evidence": {
+        "verify_log": "progress.md#2026-05-08-p1-场景矩阵与-docs-文案收口",
+        "lib": "apps/docs/src/lib/category-docs.ts",
+        "playwright": "apps/docs/tests/recipes-navigation.spec.ts"
+      }
+    },
+    {
+      "id": "harness-alignment",
+      "category": "harness",
+      "priority": "P0",
+      "description": "对齐 AI-Visualization harness 框架：补 docs/quality.md、docs/handoff.md、verify.ps1、contracts/、qa/、docs/runbooks/debug.md，重构 feature_list.json schema 与 AGENTS.md 入口地图",
+      "verified_by": ["docs review", "AGENTS.md 入口可读性"],
+      "passes": true,
+      "evaluator": "self-verified-by-builder@2026-05-14",
+      "evidence": {
+        "verify_log": "progress.md#2026-05-14-harness-alignment",
+        "quality_doc": "docs/quality.md",
+        "handoff_doc": "docs/handoff.md",
+        "verify_script": "verify.ps1",
+        "contracts_dir": "contracts/",
+        "qa_dir": "qa/",
+        "runbooks_debug": "docs/runbooks/debug.md"
+      }
+    }
+  ]
+}

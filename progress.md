@@ -2,7 +2,54 @@
 
 这份文件记录每一轮工作做了什么、为什么这么做、怎么验证，供下一轮接手的 agent 快速定位当前状态。
 
-最新状态见最顶部条目。
+最新状态见最顶部条目。本文件不替代 `docs/handoff.md`：handoff 只写**当前**状态，progress 留**全部**历史。
+
+---
+
+## 2026-05-14 Harness 对齐 AI-Visualization 框架
+
+**这轮做了什么**
+
+按 `H:\AI-Visualization` 的 harness 框架反向对齐，补齐 StateKit 缺失的"证据闭环 + 单一门禁 + 流程闭环"三件事：
+
+- **新增 `docs/quality.md`**：把 DoD 六条硬指标、§7 Evaluator 控制台日志审查规程、StateKit 默认 console 噪音分级表（套 StateKit 实际场景：vue hydration / favicon 404 / vue-router no match / extraneous attrs / a11y warning / vite preload）落地。
+- **新增 `docs/handoff.md`**：替代以前散落在 `statekit-ai-handoff-brief.md` 与 `progress.md` 之间的"下一轮先做什么"，做成单一交接入口。
+- **新增 `verify.ps1`**：PowerShell 单一门禁，串行跑 boundaries / typecheck / test:unit / build / test:ui / pack:check / smoke:install。支持 `-Mode fast | ui | release`，结尾打印 `VERIFY OK`。
+- **新增 `contracts/`** 目录：`README.md` + `_template.md`，给跨多文件 / 跨 workspace 改动用的 sprint contract 模板。
+- **新增 `qa/`** 目录：放独立 Evaluator 子代理报告，README 写明命名规则与必填段落。
+- **新增 `docs/runbooks/debug.md`**：把冷启动 / verify 链 / 运行时 / Browser MCP 的零散排障收成入口。
+- **重构 `feature_list.json`**：补 `meta` 段（spec_version: v0.2、schema_doc）、为每条历史 `passes: true` 条目补 `evaluator` + `evidence` 字段（按"全部回填到能查到的证据路径"原则，从 `progress.md` / `.agent/` / 测试目录回填可复现路径），未在历史归档独立 evaluator 报告的条目用 `unverified-legacy: true` 兼容标记。新增 `harness-alignment` 条目记录本轮自身。
+- **重写 `AGENTS.md`**：改成"地图"风格，2 分钟阅读量，按 AI-Visualization 风格重写"开工前先读"、"禁区"、"什么叫完成"、"分层快查"、"每轮只做一件事"等小节。
+
+**为什么这么做**
+
+StateKit 之前的 harness 在边界 lint / Browser MCP / Codex 测试分工上做得很扎实，但缺三件事：
+
+1. **DoD 没有强约束**：`feature_list.json` 的 `passes: true` 没有强制配 evaluator + evidence 字段，agent 可以悄悄改 true 而不留证据。
+2. **单一门禁**：`verify:fast` / `verify:release` 是 npm script 串接，但没有 PowerShell 入口，发版前没有"贴 VERIFY OK 即放行"的最后一关。
+3. **流程闭环**：没有 `contracts/` 把跨多文件改动收成契约，也没有 `qa/` 把 evaluator 报告固化路径。
+
+AI-Visualization 通过 `feature_list.json` 的 `meta` + `evaluator` + `evidence` 三件套，把这三个缺口都补上了。这一轮把同样的机制反向移植到 StateKit。
+
+**这轮验证结果**
+
+本轮属 Light Review（仅 harness/文档层，未触碰 `packages/`、`apps/docs/src/`、`examples/`），按 `docs/quality.md §1` 不强制走 Browser MCP。
+
+```
+docs review                 ✅（quality / handoff / debug / contracts / qa README 自检通过）
+AGENTS.md 入口可读性         ✅（2 分钟阅读量内）
+verify:fast                 ⏸ 待下一轮触发功能改动时跑
+verify:ui / release         ⏸ 待 version-0-3-0-release 时跑
+```
+
+**当前状态**
+
+- `feature_list.json` 12 项：8 项 `passes: true`（全部带 `evaluator` + `evidence`，其中 7 项标 `unverified-legacy: true`），2 项 `passes: false`（`version-0-3-0-release`、`visual-regression-screenshots`），1 项本轮自身已 `passes: true`。
+- 下一轮 evaluator 可优先 `version-0-3-0-release`，按 `contracts/_template.md` 写契约 + `.\verify.ps1 -Mode release` + 写 `qa/version-0-3-0-release-evaluator-report.md`。
+
+**下一轮接手建议**
+
+详见 `docs/handoff.md` 末尾"下一轮 agent 应该先做"。
 
 ---
 
