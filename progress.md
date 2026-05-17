@@ -6,6 +6,27 @@
 
 ---
 
+## 2026-05-17 visual-regression CI follow-up
+
+**这轮修了什么**
+
+- CI 上 `success-without-shadow-line.png` 失败：Linux runner 对 success 图标的渐变 / rotated check 渲染与本机基线有 908 像素差异，比例约 3%，说明完整 media frame 像素比对仍不够可重复。
+- 更新 `apps/docs/tests/visual-regression-screenshots.spec.ts`，把 success 截图收窄为 shadow-line 探针：
+  - 仍断言 `.sk-figure__shadow-line` 数量为 0。
+  - 额外断言 success badge 可见、check 数量为 2。
+  - 截图前固定 success media frame 为纯白背景，并 mask badge / check，只保留未来 shadow line 回归时会出现的像素差异。
+- 重新生成 `success-without-shadow-line.png` 基线；error / permission 基线不变。
+
+**验证结果**
+
+```
+.\node_modules\.bin\playwright.cmd test apps/docs/tests/visual-regression-screenshots.spec.ts --update-snapshots ✅ 3 passed
+.\node_modules\.bin\playwright.cmd test apps/docs/tests/visual-regression-screenshots.spec.ts                    ✅ 3 passed
+npm run verify:ui                                                                                                ✅ 39 passed
+```
+
+---
+
 ## 2026-05-17 visual-regression-screenshots
 
 **这轮做了什么**

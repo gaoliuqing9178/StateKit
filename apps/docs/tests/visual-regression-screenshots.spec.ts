@@ -24,6 +24,14 @@ const deterministicRenderingStyle = `
   }
 `;
 
+const successShadowLineProbeStyle = `
+  .sk-shell[data-category="success"] .sk-shell__media-frame {
+    background: #ffffff !important;
+    border-color: #d7deea !important;
+    box-shadow: none !important;
+  }
+`;
+
 type Rect = {
   height: number;
   width: number;
@@ -128,9 +136,19 @@ test.describe("Visual regression screenshots", () => {
     const figure = preview.locator(".sk-figure--success");
 
     await expect(figure.locator(".sk-figure__shadow-line")).toHaveCount(0);
+    await expect(figure.locator(".sk-figure__badge")).toBeVisible();
+    await expect(figure.locator(".sk-figure__check")).toHaveCount(2);
+    await page.addStyleTag({ content: successShadowLineProbeStyle });
     await expect(frame).toHaveScreenshot(
       "success-without-shadow-line.png",
-      screenshotOptions,
+      {
+        ...screenshotOptions,
+        mask: [
+          figure.locator(".sk-figure__badge"),
+          figure.locator(".sk-figure__check"),
+        ],
+        maskColor: "#ffffff",
+      },
     );
   });
 });

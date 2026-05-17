@@ -8,7 +8,7 @@
   "meta": {
     "project": "StateKit",
     "spec_version": "v0.2",
-    "last_updated": "2026-05-17-visual-regression-screenshots",
+    "last_updated": "2026-05-17-version-0-3-0-release-evidence",
     "schema_doc": "docs/quality.md#4-evidence-格式",
     "instructions": "passes 改为 true 时必须同时填 evaluator + evidence；evidence 路径必须可复现。禁止删减 steps / verified_by。"
   },
@@ -136,7 +136,21 @@
         "npm publish @statekit-vue/vue",
         "确认 npm view @statekit-vue/shared version 和 npm view @statekit-vue/vue version 返回 0.3.0"
       ],
-      "passes": false
+      "verified_by": ["npm view @statekit-vue/shared versions", "npm view @statekit-vue/vue versions"],
+      "passes": true,
+      "evaluator": "user-authorized-npm-view@2026-05-17",
+      "evidence": {
+        "npm_view_shared_versions": {
+          "command": "npm view @statekit-vue/shared versions",
+          "output": "[ '0.1.0', '0.1.1', '0.1.2', '0.2.0', '0.2.1', '0.3.0' ]",
+          "latest": "0.3.0"
+        },
+        "npm_view_vue_versions": {
+          "command": "npm view @statekit-vue/vue versions",
+          "output": "[ '0.1.0', '0.1.1', '0.1.2', '0.2.0', '0.2.1', '0.3.0' ]",
+          "latest": "0.3.0"
+        }
+      }
     },
     {
       "id": "scenario-gap-matrix",
@@ -174,7 +188,7 @@
         "playwright_config": "playwright.config.ts",
         "screenshot_error": "apps/docs/tests/__screenshots__/visual-regression-screenshots.spec.ts/error-cross-centered.png",
         "screenshot_permission": "apps/docs/tests/__screenshots__/visual-regression-screenshots.spec.ts/permission-lock-centered.png",
-        "screenshot_success": "apps/docs/tests/__screenshots__/visual-regression-screenshots.spec.ts/success-without-shadow-line.png"
+        "screenshot_success_shadow_line_probe": "apps/docs/tests/__screenshots__/visual-regression-screenshots.spec.ts/success-without-shadow-line.png"
       }
     },
     {
