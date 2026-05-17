@@ -6,6 +6,52 @@
 
 ---
 
+## 2026-05-17 visual-regression-screenshots
+
+**这轮做了什么**
+
+- 新增 `apps/docs/tests/visual-regression-screenshots.spec.ts`，覆盖三个已知视觉回归点：
+  - `/recipes/page-error-state`：error cross 两条线相对 `.sk-figure--error` X/Y 居中，并截图比对 `error-cross-centered.png`。
+  - `/recipes/no-permission-state`：permission lock body / arch 相对 `.sk-figure--permission` X 轴居中，arch 与 body 连接关系合理，并截图比对 `permission-lock-centered.png`。
+  - `/recipes/task-success-state`：success figure 不再渲染 `.sk-figure__shadow-line`，并截图比对 `success-without-shadow-line.png`。
+- 新增三张截图基线到 `apps/docs/tests/__screenshots__/visual-regression-screenshots.spec.ts/`。
+- 更新 `playwright.config.ts` 的 `snapshotPathTemplate`，去掉平台后缀，避免本机和 CI 生成不同 snapshot 文件名。
+- 更新 `.gitignore`，继续默认忽略普通 PNG，但允许提交 `apps/docs/tests/__screenshots__/**/*.png` 这类 Playwright 基线。
+- 独立 Evaluator 已写 `qa/visual-regression-screenshots-evaluator-report.md`，结论 PASS，并包含控制台日志审查。
+- `feature_list.json` 中 `visual-regression-screenshots` 已补 `passes: true`、`evaluator` 和 `evidence`。
+
+**为什么这么做**
+
+这轮目标不是重做视觉样式，而是把 error / permission / success 三处插图修复点固定成 CI 可重复的回归保护。测试只截 `.sk-shell__media-frame`，截图里没有正文文本，配合固定 viewport、禁用动画/caret、等待 `document.fonts.ready`、`scale: "css"` 和有限像素容忍，降低字体抗锯齿和页面布局差异带来的误报。
+
+**这轮验证结果**
+
+```
+.\node_modules\.bin\playwright.cmd test apps/docs/tests/visual-regression-screenshots.spec.ts --update-snapshots ✅ 3 passed
+.\node_modules\.bin\playwright.cmd test apps/docs/tests/visual-regression-screenshots.spec.ts                    ✅ 3 passed
+npm run verify:fast                                                                                              ✅
+npm run verify:ui                                                                                                ✅ 39 passed
+Evaluator: .\node_modules\.bin\playwright.cmd test apps/docs/tests/visual-regression-screenshots.spec.ts         ✅ 3 passed
+Evaluator: npm run verify:ui                                                                                     ✅ 39 passed
+```
+
+**控制台日志审查 / Browser QA 记录**
+
+按 `docs/statekit-agent-harness.md`，Builder 本轮没有自己宣称 Browser MCP 通过；独立 Evaluator 用 Playwright `page.on("console")` / `page.on("pageerror")` 抽查了三条目标路由：
+
+| 路由 | console error | console warning | pageerror | 结论 |
+| --- | ---: | ---: | ---: | --- |
+| `/recipes/page-error-state` | 0 | 0 | 0 | PASS |
+| `/recipes/no-permission-state` | 0 | 0 | 0 | PASS |
+| `/recipes/task-success-state` | 0 | 0 | 0 | PASS |
+
+**当前状态**
+
+- `visual-regression-screenshots` 已完成。
+- 用户本轮说明 `v0.3.0` 已经发版；本轮没有追溯 release 证据，也没有把 `version-0-3-0-release` 改成 true。下一轮如果要关闭该条目，应只补 evidence / evaluator，不要重复 publish。
+
+---
+
 ## 2026-05-17 Docs 交接清理
 
 **这轮做了什么**

@@ -16,3 +16,4 @@ docs-onboarding-mobile.png
 example-onboarding-fixed-desktop.png
 example-onboarding-fixed-section.png
 *.png
+!apps/docs/tests/__screenshots__/**/*.png

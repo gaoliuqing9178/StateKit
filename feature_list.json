@@ -8,7 +8,7 @@
   "meta": {
     "project": "StateKit",
     "spec_version": "v0.2",
-    "last_updated": "2026-05-14-harness-alignment",
+    "last_updated": "2026-05-17-visual-regression-screenshots",
     "schema_doc": "docs/quality.md#4-evidence-格式",
     "instructions": "passes 改为 true 时必须同时填 evaluator + evidence；evidence 路径必须可复现。禁止删减 steps / verified_by。"
   },
@@ -164,7 +164,18 @@
         "确认 CI 环境中截图比对可重复（屏蔽字体抗锯齿差异）",
         "spawn 独立子代理出 qa/visual-regression-screenshots-evaluator-report.md"
       ],
-      "passes": false
+      "verified_by": ["npm run verify:fast", "npm run verify:ui", "Evaluator console audit"],
+      "passes": true,
+      "evaluator": "worker-evaluator@2026-05-17",
+      "evidence": {
+        "qa_report": "qa/visual-regression-screenshots-evaluator-report.md",
+        "verify_log": "progress.md#2026-05-17-visual-regression-screenshots",
+        "playwright": "apps/docs/tests/visual-regression-screenshots.spec.ts",
+        "playwright_config": "playwright.config.ts",
+        "screenshot_error": "apps/docs/tests/__screenshots__/visual-regression-screenshots.spec.ts/error-cross-centered.png",
+        "screenshot_permission": "apps/docs/tests/__screenshots__/visual-regression-screenshots.spec.ts/permission-lock-centered.png",
+        "screenshot_success": "apps/docs/tests/__screenshots__/visual-regression-screenshots.spec.ts/success-without-shadow-line.png"
+      }
     },
     {
       "id": "docs-handwritten-copy-reduction",

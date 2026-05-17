@@ -9,6 +9,7 @@ export default defineConfig({
   expect: {
     timeout: 5_000,
   },
+  snapshotPathTemplate: "{testDir}/__screenshots__/{testFilePath}/{arg}{ext}",
   fullyParallel: true,
   use: {
     baseURL: "http://127.0.0.1:4173",
