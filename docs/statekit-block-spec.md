@@ -51,8 +51,8 @@ interface StateAction {
 
 ## Block 清单
 
-下表描述当前 19 个已实现 Block 的用途与默认形态。
-当前 public API 已开始收敛到七个按类别统一的入口：`EmptyState`、`OnboardingState`、`LoadingState`、`ErrorState`、`PermissionState`、`UpgradeState`、`SuccessState`。表里的 19 个 Block 继续作为 preset recipe 保留，用于提供默认文案、布局和 CTA 参考。
+下表描述当前 21 个 preset recipe 的用途与默认形态。
+当前 public API 已收敛到七个按类别统一的入口：`EmptyState`、`OnboardingState`、`LoadingState`、`ErrorState`、`PermissionState`、`UpgradeState`、`SuccessState`。表里的 21 个 recipe 用于提供默认文案、布局和 CTA 参考。
 
 | Block ID | Vue 组件 | 类别 | 默认布局 | 支持布局 | 用途 | 优先级 |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -60,6 +60,8 @@ interface StateAction {
 | `empty-search` | `EmptyState` | `empty` | `panel` | `inline`, `panel`, `page` | 搜索或筛选结果为空 | `launch` |
 | `first-project` | `EmptyState` | `empty` | `page` | `panel`, `page` | 工作区已存在，但还没有首个项目 | `launch` |
 | `onboarding-workspace` | `OnboardingState` | `onboarding` | `page` | `panel`, `page` | 首次进入产品，需要先创建工作区 | `launch` |
+| `onboarding-members` | `OnboardingState` | `onboarding` | `panel` | `panel`, `page` | 工作区创建后，邀请团队成员进入协作 | `launch` |
+| `onboarding-integration` | `OnboardingState` | `onboarding` | `panel` | `panel`, `page` | 首次激活流程中连接关键集成 | `launch` |
 | `loading-table` | `LoadingState` | `loading` | `inline` | `inline`, `panel` | 表格或列表骨架加载 | `backlog` |
 | `loading-workspace` | `LoadingState` | `loading` | `page` | `panel`, `page` | 工作区、编辑器或主画布准备中 | `backlog` |
 | `loading-import` | `LoadingState` | `loading` | `panel` | `inline`, `panel`, `page` | 导入、同步、批处理进行中 | `backlog` |

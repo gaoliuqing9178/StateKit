@@ -30,24 +30,22 @@ StateKit 是一个面向 SaaS 产品的 category-first 状态界面组件库。�
 6. [statekit-docs-site-and-qa-spec.md](./statekit-docs-site-and-qa-spec.md)  
    用于维护 `apps/docs` 的信息架构、页面要求、自动化 QA 和 Browser MCP 交互检查项。
 7. [statekit-launch-checklist.md](./statekit-launch-checklist.md)  
-   用于正式发布前的收口与自检。
-8. [statekit-ai-handoff-brief.md](./statekit-ai-handoff-brief.md)  
-   用于把当前项目状态快速交接给新成员或 AI 协作者。
-9. [statekit-agent-harness.md](./statekit-agent-harness.md)
+   用于 0.3.0 发版前的人工 release 检查；若本轮已有 contract，以 `contracts/<sprint-id>.md` 为准。
+8. [statekit-agent-harness.md](./statekit-agent-harness.md)
    用于说明 agent 接手仓库时的入口地图、验证命令、Codex 测试分工、工作循环和当前 harness 缺口。
-10. [decision-log.md](./decision-log.md)
+9. [decision-log.md](./decision-log.md)
     记录影响架构、公开 API 和产品边界的关键决策，防止后续 agent 反复推翻已有决定。
-11. [agent-review-loop.md](./agent-review-loop.md)
+10. [agent-review-loop.md](./agent-review-loop.md)
     用于定义 Builder Agent 与 Reviewer Agent 的审查闭环、review level 和状态流转。
-12. [agent-review-template.md](./agent-review-template.md)
+11. [agent-review-template.md](./agent-review-template.md)
     用于给 Reviewer Agent 提供稳定审查提示词和输出格式。
-13. [agent-task-template.md](./agent-task-template.md)
+12. [agent-task-template.md](./agent-task-template.md)
     用于复杂任务开始前记录目标、范围、验证命令和 Browser MCP QA 证据。
-14. [quality.md](./quality.md)
+13. [quality.md](./quality.md)
     定义 DoD 六条硬指标、Evaluator 控制台日志审查规程、StateKit 默认 console 噪音分级表。
-15. [handoff.md](./handoff.md)
+14. [handoff.md](./handoff.md)
     每一轮交付前必须更新；下一轮 agent 拿到仓库的第一份指引（`AGENTS.md` 入口顺序的第 3 步）。
-16. [runbooks/debug.md](./runbooks/debug.md)
+15. [runbooks/debug.md](./runbooks/debug.md)
     冷启动 / verify 链 / 运行时 / Browser MCP 排障入口。
 
 ## 文档约束
@@ -60,7 +58,8 @@ StateKit 是一个面向 SaaS 产品的 category-first 状态界面组件库。�
   - `README.zh-CN.md`
   - `CHANGELOG.md`
   - `docs/statekit-block-spec.md`
-  - `docs/statekit-ai-handoff-brief.md`
+  - `docs/handoff.md`
+  - `feature_list.json`
   - `docs/statekit-launch-checklist.md`
 - 如果你改的是 docs 示例或 recipe 详情页说明，记得一起检查：
   - `apps/docs/src/lib/recipe-components.ts`

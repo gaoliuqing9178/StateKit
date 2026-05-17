@@ -12,7 +12,8 @@ Read these files first:
 2. [`docs/README.md`](./docs/README.md)
 3. [`docs/statekit-block-spec.md`](./docs/statekit-block-spec.md)
 4. [`docs/statekit-v1-product-plan.md`](./docs/statekit-v1-product-plan.md)
-5. [`docs/statekit-launch-checklist.md`](./docs/statekit-launch-checklist.md)
+5. [`feature_list.json`](./feature_list.json)
+6. [`docs/handoff.md`](./docs/handoff.md)
 
 If implementation and docs disagree, treat the source code in `packages/shared` as the source of truth first, then bring the docs back into alignment.
 
@@ -39,6 +40,7 @@ docs
 The main public API is now:
 
 - `EmptyState`
+- `OnboardingState`
 - `LoadingState`
 - `ErrorState`
 - `PermissionState`
@@ -49,7 +51,7 @@ The older scenario-specific names such as `EmptySearchState`, `PageErrorState`, 
 
 ### 2. Treat preset recipes as metadata-first
 
-StateKit still keeps 18 preset recipes. Those recipes live in shared metadata and define default:
+StateKit keeps 21 preset recipes. Those recipes live in shared metadata and define default:
 
 - `title`
 - `description`
@@ -83,7 +85,7 @@ Unless the roadmap changes explicitly, avoid contributions that:
 - add a complex slot system
 - imply React or multi-framework support
 - turn StateKit into a highly flexible page builder
-- split onboarding into a separate category without strong product justification
+- add another category without strong product justification
 
 ## Local Setup
 
@@ -184,7 +186,8 @@ Most common sync targets:
 - [`CHANGELOG.md`](./CHANGELOG.md)
 - [`docs/README.md`](./docs/README.md)
 - [`docs/statekit-block-spec.md`](./docs/statekit-block-spec.md)
-- [`docs/statekit-ai-handoff-brief.md`](./docs/statekit-ai-handoff-brief.md)
+- [`docs/handoff.md`](./docs/handoff.md)
+- [`feature_list.json`](./feature_list.json)
 - [`docs/statekit-launch-checklist.md`](./docs/statekit-launch-checklist.md)
 
 If you change example usage or block guidance, make sure docs examples and block detail pages stay aligned with the real API surface.

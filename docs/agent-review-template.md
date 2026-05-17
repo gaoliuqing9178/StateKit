@@ -10,8 +10,9 @@
 1. AGENTS.md
 2. docs/statekit-agent-harness.md
 3. docs/agent-review-loop.md
-4. docs/statekit-ai-handoff-brief.md
-5. 与本次改动相关的源码、测试和文档
+4. feature_list.json
+5. docs/handoff.md
+6. 与本次改动相关的源码、测试和文档
 
 任务目标：
 

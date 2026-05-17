@@ -6,6 +6,34 @@
 
 ---
 
+## 2026-05-17 Docs 交接清理
+
+**这轮做了什么**
+
+- 删除 `docs/statekit-ai-handoff-brief.md`，因为当前交接职责已经由 `docs/handoff.md`、`feature_list.json` 和 `progress.md` 承担。
+- 保留 `docs/交接/TODO.md` 的删除状态，并把仍指向它的 review / harness / AGENTS 引用改到 `feature_list.json` 与 `docs/handoff.md`。
+- 更新 `docs/README.md`、`docs/statekit-agent-harness.md`、`docs/agent-review-loop.md`、`docs/agent-review-template.md`、`AGENTS.md`、`CONTRIBUTING.md` 和 `docs/statekit-launch-checklist.md` 的旧交接口径。
+- 修正 `docs/statekit-block-spec.md` 中 19 个旧 Block 的过期描述，改为当前 21 个 preset recipe，并补齐 `onboarding-members` 与 `onboarding-integration`。
+
+**为什么这么做**
+
+`feature_list.json` 已经是功能状态和验收 evidence 的结构化事实来源，`docs/handoff.md` 只保留当前轮次状态，`progress.md` 保留历史。继续保留旧 handoff brief 和 TODO 会让下一轮 agent 同时看到多套互相冲突的交接入口。
+
+**这轮验证结果**
+
+```
+引用残留搜索              ✅ 仅剩 handoff 中的清理说明，以及 CHANGELOG 里的历史 0.2.0 记录
+npm run verify:fast       ✅
+```
+
+**当前状态**
+
+- `version-0-3-0-release` 仍是 `feature_list.json` 中第一个 `passes: false` 的条目。
+- `visual-regression-screenshots` 仍是第二个 `passes: false` 的条目。
+- `docs/statekit-launch-checklist.md` 暂时保留为 release 辅助清单；如果下一轮创建 `contracts/version-0-3-0-release.md`，应把 checklist 中未完成的人工检查项映射进 contract。
+
+---
+
 ## 2026-05-14 Harness 对齐 AI-Visualization 框架
 
 **这轮做了什么**

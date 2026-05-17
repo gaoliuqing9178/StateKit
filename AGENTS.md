@@ -87,7 +87,7 @@ examples/vite-vue-admin  真实消费者示例（只走 @statekit-vue/vue 公开
 2. 再改 `packages/vue`（组件实现 / 默认样式）
 3. 再改 `apps/docs`（文档站）
 4. 再改 `examples/vite-vue-admin`（真实集成）
-5. 最后同步 README、`packages/*/README.md`、`docs/交接/CHANGELOG.md`、`docs/交接/TODO.md`、`docs/handoff.md`、`docs/statekit-launch-checklist.md`
+5. 最后同步 README、`packages/*/README.md`、`docs/交接/CHANGELOG.md`、`docs/handoff.md`、`feature_list.json`、`docs/statekit-launch-checklist.md`
 
 不要倒过来先改 docs 文案，再回头猜实现应该是什么。
 

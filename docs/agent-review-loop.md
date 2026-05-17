@@ -92,7 +92,8 @@ npm run verify:ui
 
 - Standard Review 的全部材料。
 - `docs/交接/CHANGELOG.md`。
-- `docs/交接/TODO.md`。
+- `feature_list.json`。
+- `docs/handoff.md`。
 - `docs/statekit-launch-checklist.md`。
 - `npm run verify:release` 结果。
 - 如果 release 改动影响页面、docs、example 或视觉语义，附 Browser MCP 交互 QA 记录和截图路径。

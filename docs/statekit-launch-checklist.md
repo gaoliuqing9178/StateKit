@@ -20,9 +20,9 @@
 ## 3. 文档准备
 
 - [x] README 与 package README 已反映 category-first API
-- [x] 交接文档当前维护在 `docs/交接/`
+- [x] 当前交接入口维护在 `docs/handoff.md`，历史轮次维护在 `progress.md`
 - [x] release-facing `CHANGELOG.md` 已可访问
-- [x] handoff brief 和 launch checklist 已更新到当前版本状态
+- [x] `feature_list.json`、handoff 和 launch checklist 已更新到当前版本状态
 
 ## 4. Docs 站准备
 

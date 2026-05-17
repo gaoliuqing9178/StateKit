@@ -31,12 +31,14 @@ StateKit 当前事实来源按优先级分层：
    公开类型、category、recipe metadata 的源码事实。
 2. `packages/vue/src/base/StatePresetBlock.vue` 和 `packages/vue/src/base/StateBlockShell.vue`
    Vue 渲染合同、fallback、action 合并、shell 布局事实。
-3. `docs/README.md`
+3. `feature_list.json`
+   功能清单、验收状态、evaluator 与 evidence 的结构化事实。
+4. `docs/handoff.md`
+   当前轮次交接、下一轮优先事项和已知风险。
+5. `progress.md`
+   历史轮次记录、验证记录和 Browser MCP 证据线索。
+6. `docs/README.md`
    文档目录和阅读顺序。
-4. `docs/statekit-ai-handoff-brief.md`
-   当前状态、已完成事项、下一步方向。
-5. `docs/交接/`
-   交接 changelog、剩余事项和可执行 TODO。
 
 如果文档和源码冲突，先以源码为准，再同步文档。
 
@@ -161,12 +163,12 @@ Browser MCP 交互 QA 用来覆盖自动化断言之外的真实浏览器感知�
 - `packages/vue/README.md`
 - `packages/shared/README.md`
 - `docs/README.md`
-- `docs/statekit-ai-handoff-brief.md`
+- `docs/handoff.md`
+- `feature_list.json`
 - `docs/statekit-launch-checklist.md`
 - `docs/交接/CHANGELOG.md`
-- `docs/交接/TODO.md`
 
-如果只是内部 harness 文档或验证脚本变化，不要把它写成产品功能发布；可以同步 `docs/README.md` 和 handoff brief，让后续 agent 能发现。
+如果只是内部 harness 文档或验证脚本变化，不要把它写成产品功能发布；可以同步 `docs/README.md`、`docs/handoff.md` 和 `progress.md`，让后续 agent 能发现。
 
 ## Agent 工作循环
 
