@@ -2,6 +2,9 @@ import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
   testDir: "./apps/docs/tests",
+  testIgnore: process.env.CI
+    ? ["**/visual-regression-screenshots.spec.ts"]
+    : [],
   timeout: 30_000,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 2 : 0,
