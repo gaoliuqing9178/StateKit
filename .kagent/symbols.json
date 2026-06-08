@@ -1,0 +1,136 @@
+{
+  "symbols": {
+    ".gitnexus/lbug.wal": {
+      "ipo_ts": 1780758545368,
+      "edit_count": 1,
+      "last_lines": 54,
+      "last_ts": 1780758545368,
+      "delisted": true,
+      "last_source": "onEdit",
+      "last_content_hash": "4f37f904",
+      "delisted_at": 1780930343120,
+      "delist_rounds": 0
+    },
+    ".gitnexus/csv/relations.csv": {
+      "ipo_ts": 1780758560625,
+      "edit_count": 1,
+      "last_lines": 1392,
+      "last_ts": 1780758560625,
+      "delisted": true,
+      "last_source": "onEdit",
+      "last_content_hash": "dc2a6870",
+      "delisted_at": 1780930343120,
+      "delist_rounds": 0
+    },
+    ".gitnexus/csv/annotation.csv": {
+      "ipo_ts": 1780758560643,
+      "edit_count": 1,
+      "last_lines": 1,
+      "last_ts": 1780758560643,
+      "delisted": true,
+      "last_source": "onEdit",
+      "last_content_hash": "0",
+      "delisted_at": 1780930343120,
+      "delist_rounds": 0
+    },
+    ".gitnexus/.gitignore": {
+      "ipo_ts": 1780758562983,
+      "edit_count": 1,
+      "last_lines": 1,
+      "last_ts": 1780758562983,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "520"
+    },
+    ".gitnexus/meta.json": {
+      "ipo_ts": 1780758562999,
+      "edit_count": 1,
+      "last_lines": 169,
+      "last_ts": 1780758562999,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "66113b18"
+    },
+    ".claude/skills/gitnexus/gitnexus-cli/SKILL.md": {
+      "ipo_ts": 1780758563202,
+      "edit_count": 1,
+      "last_lines": 83,
+      "last_ts": 1780758563202,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "9a7b6545"
+    },
+    ".claude/skills/gitnexus/gitnexus-debugging/SKILL.md": {
+      "ipo_ts": 1780758563213,
+      "edit_count": 1,
+      "last_lines": 89,
+      "last_ts": 1780758563213,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "2e5368f9"
+    },
+    ".claude/skills/gitnexus/gitnexus-exploring/SKILL.md": {
+      "ipo_ts": 1780758563223,
+      "edit_count": 1,
+      "last_lines": 78,
+      "last_ts": 1780758563223,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "4fe01766"
+    },
+    ".claude/skills/gitnexus/gitnexus-guide/SKILL.md": {
+      "ipo_ts": 1780758563232,
+      "edit_count": 1,
+      "last_lines": 64,
+      "last_ts": 1780758563232,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "2d2a7337"
+    },
+    ".claude/skills/gitnexus/gitnexus-impact-analysis/SKILL.md": {
+      "ipo_ts": 1780758563243,
+      "edit_count": 1,
+      "last_lines": 97,
+      "last_ts": 1780758563243,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "81e0fdbb"
+    },
+    ".claude/skills/gitnexus/gitnexus-refactoring/SKILL.md": {
+      "ipo_ts": 1780758563253,
+      "edit_count": 1,
+      "last_lines": 121,
+      "last_ts": 1780758563253,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "8b026b5b"
+    },
+    "CLAUDE.md": {
+      "ipo_ts": 1780758563263,
+      "edit_count": 1,
+      "last_lines": 43,
+      "last_ts": 1780758563263,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "901c6ef9"
+    },
+    ".gitnexus/lbug": {
+      "ipo_ts": 1780758563474,
+      "edit_count": 2,
+      "last_lines": 28422,
+      "last_ts": 1780759638631,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "6bf6554d"
+    },
+    ".codegraph/daemon.pid": {
+      "ipo_ts": 1780930350039,
+      "edit_count": 1,
+      "last_lines": 6,
+      "last_ts": 1780930350039,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "54419f6f"
+    }
+  }
+}
