@@ -49,7 +49,7 @@ npx playwright install chromium
 
 - `apps/docs/src` 直接 import `packages/vue/src/...` → 改成走 `@statekit-vue/vue` 公开入口。
 - `examples/vite-vue-admin/src` 直接 import `packages/shared/src/...` → 改成走 `@statekit-vue/vue`（example 像真实消费者）。
-- `packages/shared/src` 引入 Vue → 框架中立层不允许，要么挪到 `packages/vue`，要么放 `apps/docs/src/lib`。
+- `packages/shared/src` 引入 Vue / React → 框架中立层不允许，要么挪到对应 adapter（`packages/vue` / `packages/react`），要么放 `apps/docs/src/lib`。
 
 ### `typecheck` 报错
 
@@ -59,7 +59,7 @@ npx playwright install chromium
 
 - 不要用 `any` 或 `@ts-ignore`（lint 会再红一次）。
 - recipe metadata 的真理在 `packages/shared/src/types.ts`。
-- Vue 组件 props 类型对不上时，先看 `packages/vue/src/base/StatePresetBlock.vue` 的 props 定义。
+- Vue 组件 props 类型对不上时，先看 `packages/vue/src/base/StatePresetBlock.vue` 的 props 定义；React 组件 props 类型对不上时，先看 `packages/react/src/base/StatePresetBlock.tsx` 和 `packages/react/src/types.ts`。
 
 ### `test:unit` 报错
 

@@ -1,11 +1,11 @@
 # StateKit Launch Checklist
 
-这份清单用于 StateKit 对外发布前的最后收口。当前这一版按 `0.3.0` minor 发版准备状态更新。
+这份清单用于 StateKit 对外发布前的最后收口。当前这一版按 `0.4.0` minor 发版准备状态更新。
 
 ## 1. 产品范围确认
 
 - [x] 一句话定位保持为"面向 SaaS 产品的 category-first 状态 UI 组件库"
-- [x] 当前只对外承诺 Vue 3 支持，不暗示 React 或多框架
+- [x] 当前对外承诺 Vue 3 与 React adapter 支持，但不暗示无限多框架路线
 - [x] 公开主入口已经扩到 7 个 category-first 组件
 - [x] onboarding 已作为独立类别引入，不再默认混在 empty 里
 
@@ -13,8 +13,10 @@
 
 - [x] `@statekit-vue/shared` 的导出、类型入口和构建脚本正确
 - [x] `@statekit-vue/vue` 的导出、样式入口和 peerDependencies 正确
-- [x] `@statekit-vue/vue` 对 `@statekit-vue/shared` 的依赖已同步到 `0.3.0`
-- [x] `apps/docs` 和 `examples/vite-vue-admin` 已对齐到 `0.3.0`
+- [x] `@statekit-vue/vue` 对 `@statekit-vue/shared` 的依赖已同步到 `0.4.0`
+- [x] `@statekit-vue/react` 的导出、样式入口和 peerDependencies 正确
+- [x] `@statekit-vue/react` 对 `@statekit-vue/shared` 的依赖已同步到 `0.4.0`
+- [x] `apps/docs` 和 `examples/vite-vue-admin` 已对齐到 `0.4.0`
 - [x] 构建产物已排除 `*.test.ts`，tarball 不含测试产物
 
 ## 3. 文档准备
@@ -55,19 +57,22 @@
 - [x] `npm run test:unit`
 - [x] `npm run test:ui`
 - [x] `npm run pack:check`
-- [ ] `npm run smoke:install`（需在下一次发版口径定稿后再补跑）
+- [x] `npm run smoke:install`（2026-06-20 已同时覆盖 Vue 与 React 外部消费者）
 
 ## 8. npm 发布状态
 
-- [x] npm 上最新已发布版本仍是 `0.2.1`
-- [x] 本地 workspace 已切到 `0.3.0` release-prep 版本线
-- [x] onboarding category pilot 已决定按 `0.3.0` minor 发布
-- [ ] 发布包含 onboarding category 的下一次版本
-- [ ] 发布后确认两个包的 `latest` dist-tag 指向新的版本号
+- [x] npm 上 `@statekit-vue/shared` / `@statekit-vue/vue` 最新已发布版本为 `0.3.0`
+- [x] 本地 workspace 已切到 `0.4.0` 版本线
+- [x] `@statekit-vue/react` 已纳入 `0.4.0` 发布线
+- [ ] 发布 `@statekit-vue/shared@0.4.0`
+- [ ] 发布 `@statekit-vue/vue@0.4.0`
+- [ ] 发布 `@statekit-vue/react@0.4.0`
+- [ ] 发布后确认三个包的 `latest` dist-tag 指向目标版本号
 
 ## 9. 发布后跟进
 
 - [ ] `npm view @statekit-vue/shared version`
 - [ ] `npm view @statekit-vue/vue version`
+- [ ] `npm view @statekit-vue/react version`
 - [ ] 更新交接文档里的"已发布状态"
 - [ ] 继续补视觉回归或截图测试（优先：onboarding、error、permission、success 图形）

@@ -1,0 +1,12 @@
+// StateKit React 包开发时类型配置
+// 1. 作用：为 TSX 和 Vite 客户端类型提供开发时 IDE 支持。
+// 2. 只用于 typecheck 和编辑器推断，不用于构建输出（构建走 tsconfig.build.json）。
+// 3. 维护要点：React JSX runtime 通过 react-jsx 生成，构建产物路径在 tsconfig.build.json 中管理。
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "types": ["node", "vite/client"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "vite.config.ts"]
+}

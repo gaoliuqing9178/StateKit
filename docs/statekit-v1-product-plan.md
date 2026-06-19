@@ -21,7 +21,7 @@ StateKit 的解法是 scenario-first：先定义场景，再给出预制 Block�
 
 StateKit V1 优先服务以下团队：
 
-- 使用 Vue 3 开发 SaaS 后台、工作台、管理端或协作产品的前端团队。
+- 使用 Vue 3 或 React 开发 SaaS 后台、工作台、管理端或协作产品的前端团队。
 - 有设计要求，但没有完整设计系统沉淀的创业团队或小团队。
 - 已经有设计系统，但缺少"状态页/状态块"这一层抽象的中大型团队。
 - 需要快速补齐产品质感，而不想在每个业务页面重复造轮子的团队。
@@ -61,9 +61,9 @@ V1 只解决一件事：让团队能以低决策成本交付一套统一、可�
 
 ### 2. 平台范围
 
-- V1 只正式面向 Vue 3。
+- V1 当前提供 Vue 3 adapter 与 React adapter；docs 站和真实 example 仍以 Vue 路径为主验证面。
 - API 已收敛到按类别统一的组件入口，例如 `EmptyState`、`OnboardingState`、`PermissionState`、`UpgradeState`；21 个 preset recipe 继续保留作为默认场景参考。
-- 样式通过 `@statekit-vue/vue/styles.css` 引入。
+- 样式通过 `@statekit-vue/vue/styles.css` 或 `@statekit-vue/react/styles.css` 引入。
 
 ### 3. 文档与示例范围
 
@@ -82,7 +82,7 @@ V1 只解决一件事：让团队能以低决策成本交付一套统一、可�
 
 如果一个第一次接触 StateKit 的 Vue 团队能在 10 分钟内完成以下事情，V1 就达标：
 
-- 安装 `@statekit-vue/vue`。
+- Vue 项目安装 `@statekit-vue/vue`，React 项目安装 `@statekit-vue/react`。
 - 引入默认样式。
 - 选择一个已经定义好的状态组件。
 - 用自定义的标题、描述和动作按钮覆盖默认文案。
@@ -100,7 +100,7 @@ V1 只解决一件事：让团队能以低决策成本交付一套统一、可�
 以下内容不在 V1 范围内：
 
 - 不做通用按钮、输入框、表格、Modal、Dropdown 等基础组件库。
-- 不做跨框架支持，React / Svelte 暂不进入 V1。
+- 不做无限多框架承诺；React 作为同级 adapter 已进入 V1，Svelte 等其它框架暂不进入 V1。
 - 不做高度可编排的低层 primitives；V1 优先可直接使用的成品 Block。
 - 不做复杂主题系统、Design Token 平台或运行时皮肤切换。
 - 不做业务逻辑层，例如鉴权、重试请求、订阅升级流程本身。
@@ -122,5 +122,5 @@ StateKit V1 的设计与实现需要始终遵守以下原则：
 - 扩展 onboarding / activation 的更多子场景（邀请成员、完成初始连接等），让 `OnboardingState` 覆盖完整 first-run 激活链路而不只停留在首个工作区入口。
 - 提供更丰富的插槽能力，而不只是覆盖文案和 CTA。
 - 支持更细的视觉变体，例如强调型升级态、极简加载态。
-- 提供 React 实现，同时继续复用 shared 元数据层。
+- 继续让 React adapter 复用 shared 元数据层，并保持 Vue / React 的 public API 语义一致。
 - 为 docs 和 examples 增加像素级视觉回归测试（当前已有路径和布局级回归）。

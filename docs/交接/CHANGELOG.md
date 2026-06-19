@@ -1,5 +1,38 @@
 # StateKit Changelog
 
+## 2026-06-20 Release Prep (0.4.0)
+
+### Changed
+
+- Prepared the `0.4.0` minor release line for the React adapter launch.
+- Bumped `@statekit-vue/shared` from `0.3.0` to `0.4.0`.
+- Bumped `@statekit-vue/vue` from `0.3.0` to `0.4.0` and aligned its dependency on `@statekit-vue/shared` to `0.4.0`.
+- Bumped `@statekit-vue/react` from `0.3.0` to `0.4.0` and aligned its dependency on `@statekit-vue/shared` to `0.4.0`.
+- Aligned `apps/docs` and `examples/vite-vue-admin` on the `0.4.0` workspace line for release verification.
+
+### Pending Publish
+
+- `npm publish --workspace @statekit-vue/shared`
+- `npm publish --workspace @statekit-vue/vue`
+- `npm publish --workspace @statekit-vue/react`
+
+## 2026-06-20 React Adapter (Unreleased)
+
+### Added
+
+- Added `@statekit-vue/react` as a React adapter package that reuses `@statekit-vue/shared` metadata and exports the same seven category-first entries as the Vue package.
+- Added React compatibility preset exports for the existing 21 recipes.
+- Added `@statekit-vue/react/styles.css` so React consumers can install the adapter without pulling in Vue runtime.
+- Added React unit coverage for shell action semantics, preset metadata merging, unsupported layout fallback, and category-first defaults.
+- Extended `pack:check`, `smoke:install`, `typecheck`, `build`, and `lint:boundaries` to include the React adapter.
+
+### Verified
+
+- `npm run typecheck --workspace @statekit-vue/react`
+- `npm run build --workspace @statekit-vue/react`
+- `npm run test:unit -- packages/react`
+- `npm run lint:boundaries`
+
 ## 2026-05-09 Onboarding Recipe Slot Examples (Unreleased)
 
 ### Added

@@ -5,7 +5,7 @@
 
 ## 这是什么
 
-StateKit 是一个面向 SaaS 产品的 **category-first** 状态 UI 组件库（Vue 3 monorepo），聚焦 empty / onboarding / loading / error / permission / upgrade / success 这 7 类状态页与流程节点，**不是**通用组件库或页面搭建器。
+StateKit 是一个面向 SaaS 产品的 **category-first** 状态 UI 组件库（shared metadata + Vue / React adapter monorepo），聚焦 empty / onboarding / loading / error / permission / upgrade / success 这 7 类状态页与流程节点，**不是**通用组件库或页面搭建器。
 
 ## 开工前先读（严格按序，别跳）
 
@@ -22,7 +22,7 @@ StateKit 是一个面向 SaaS 产品的 **category-first** 状态 UI 组件库�
 - 公开入口保持 7 个 category-first 组件：`EmptyState`、`OnboardingState`、`LoadingState`、`ErrorState`、`PermissionState`、`UpgradeState`、`SuccessState`。
 - 底层 preset recipe 当前 21 个，新增场景**优先扩 recipe，不优先新增顶层公开组件**。
 - 本地版本线 `0.3.0`（npm 已发布的最新是 `0.2.1`）。
-- `packages/shared` 是类型与 recipe metadata 的事实来源；`packages/vue` 是组件实现；`apps/docs` 是文档站 + Playwright 主测试目录；`examples/vite-vue-admin` 是真实集成示例。
+- `packages/shared` 是类型与 recipe metadata 的事实来源；`packages/vue` 和 `packages/react` 是 framework adapter；`apps/docs` 是文档站 + Playwright 主测试目录；`examples/vite-vue-admin` 是 Vue 真实集成示例。
 
 ## 常用命令
 
@@ -50,7 +50,7 @@ npm run review:bundle     # 生成 .agent/review-bundle.md 给 Reviewer
 - **禁止修改 `feature_list.json` 中已 `passes: true` 的验收标准**来让自己显得完成
 - **禁止删减或弱化 `steps` / `verified_by` 字段** —— 只允许补充更严格的验证
 - **禁止用 `any` 和 `@ts-ignore`**（lint 会直接报错）
-- **禁止跨 workspace 直接 import 源码** —— `apps/docs` / `examples/` 必须走 `@statekit-vue/vue` 公开入口；`packages/shared` 框架中立，不依赖 Vue
+- **禁止跨 workspace 直接 import 源码** —— `apps/docs` / `examples/vite-vue-admin` 必须走 `@statekit-vue/vue` 公开入口；`packages/react` 必须走 `@statekit-vue/shared`，不能依赖 Vue；`packages/shared` 框架中立，不依赖 Vue / React
 - **禁止 `console.log`、`debugger` 留在 `packages/`、`apps/docs/src/`、`examples/`**（测试和脚本例外）
 - **禁止"我改好了"却不跑 verify 就说完成**
 - **禁止绕过 Evaluator 子代理**直接把 `passes` 改成 `true`
@@ -75,18 +75,19 @@ npm run review:bundle     # 生成 .agent/review-bundle.md 给 Reviewer
 ```
 packages/shared       共享类型 + recipe metadata（框架中立）
 packages/vue          Vue 组件层（StatePresetBlock / StateBlockShell + 7 个 category 入口）
+packages/react        React 组件层（StatePresetBlock / StateBlockShell + 7 个 category 入口）
 apps/docs             文档站（Playwright 主测试目录）
 examples/vite-vue-admin  真实消费者示例（只走 @statekit-vue/vue 公开入口）
 ```
 
-依赖方向：`shared → vue → docs / examples`，反向禁止，跨 workspace 源码穿透禁止。`npm run lint:boundaries` 机械检查这些规则。
+依赖方向：`shared → vue → docs / examples` 与 `shared → react` 两条适配线，反向禁止，跨 workspace 源码穿透禁止。`npm run lint:boundaries` 机械检查这些规则。
 
 ## 推荐修改顺序
 
 1. 先改 `packages/shared`（类型 / recipe metadata）
-2. 再改 `packages/vue`（组件实现 / 默认样式）
+2. 再改具体 adapter：`packages/vue` 或 `packages/react`（组件实现 / 默认样式）
 3. 再改 `apps/docs`（文档站）
-4. 再改 `examples/vite-vue-admin`（真实集成）
+4. 再改 `examples/vite-vue-admin`（Vue 真实集成）
 5. 最后同步 README、`packages/*/README.md`、`docs/交接/CHANGELOG.md`、`docs/handoff.md`、`feature_list.json`、`docs/statekit-launch-checklist.md`
 
 不要倒过来先改 docs 文案，再回头猜实现应该是什么。
@@ -112,24 +113,24 @@ npm run review:bundle
 <!-- gitnexus:start -->
 # GitNexus — Code Intelligence
 
-This project is indexed by GitNexus as **StateKit-Vue** (1027 symbols, 1382 relationships, 14 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
+This project is indexed by GitNexus as **StateKit-Vue** (1145 symbols, 1663 relationships, 47 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
 
-> If any GitNexus tool warns the index is stale, run `npx gitnexus analyze` in terminal first.
+> Index stale? Run `node .gitnexus/run.cjs analyze` from the project root — it auto-selects an available runner. No `.gitnexus/run.cjs` yet? `npx gitnexus analyze` (npm 11 crash → `npm i -g gitnexus`; #1939).
 
 ## Always Do
 
-- **MUST run impact analysis before editing any symbol.** Before modifying a function, class, or method, run `gitnexus_impact({target: "symbolName", direction: "upstream"})` and report the blast radius (direct callers, affected processes, risk level) to the user.
-- **MUST run `gitnexus_detect_changes()` before committing** to verify your changes only affect expected symbols and execution flows.
+- **MUST run impact analysis before editing any symbol.** Before modifying a function, class, or method, run `impact({target: "symbolName", direction: "upstream"})` and report the blast radius (direct callers, affected processes, risk level) to the user.
+- **MUST run `detect_changes()` before committing** to verify your changes only affect expected symbols and execution flows. For regression review, compare against the default branch: `detect_changes({scope: "compare", base_ref: "main"})`.
 - **MUST warn the user** if impact analysis returns HIGH or CRITICAL risk before proceeding with edits.
-- When exploring unfamiliar code, use `gitnexus_query({query: "concept"})` to find execution flows instead of grepping. It returns process-grouped results ranked by relevance.
-- When you need full context on a specific symbol — callers, callees, which execution flows it participates in — use `gitnexus_context({name: "symbolName"})`.
+- When exploring unfamiliar code, use `query({query: "concept"})` to find execution flows instead of grepping. It returns process-grouped results ranked by relevance.
+- When you need full context on a specific symbol — callers, callees, which execution flows it participates in — use `context({name: "symbolName"})`.
 
 ## Never Do
 
-- NEVER edit a function, class, or method without first running `gitnexus_impact` on it.
+- NEVER edit a function, class, or method without first running `impact` on it.
 - NEVER ignore HIGH or CRITICAL risk warnings from impact analysis.
-- NEVER rename symbols with find-and-replace — use `gitnexus_rename` which understands the call graph.
-- NEVER commit changes without running `gitnexus_detect_changes()` to check affected scope.
+- NEVER rename symbols with find-and-replace — use `rename` which understands the call graph.
+- NEVER commit changes without running `detect_changes()` to check affected scope.
 
 ## Resources
 

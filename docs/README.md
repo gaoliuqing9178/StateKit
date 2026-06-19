@@ -6,7 +6,7 @@ StateKit 是一个面向 SaaS 产品的 category-first 状态界面组件库。�
 
 ## 当前代码范围
 
-- 仓库是一个 monorepo，当前包含 `@statekit-vue/shared`、`@statekit-vue/vue`、`@statekit/docs` 和 `@statekit/example-vite-vue-admin` 四个主要 workspace。
+- 仓库是一个 monorepo，当前包含 `@statekit-vue/shared`、`@statekit-vue/vue`、`@statekit-vue/react`、`@statekit/docs` 和 `@statekit/example-vite-vue-admin` 五个主要 workspace。
 - V1 当前对外主路径是 7 个按类别统一的组件入口：`EmptyState`、`OnboardingState`、`LoadingState`、`ErrorState`、`PermissionState`、`UpgradeState`、`SuccessState`。
 - 底层保留 21 个 preset recipe，覆盖 7 个类别：`empty`、`onboarding`、`loading`、`error`、`permission`、`upgrade`、`success`。
 - 旧的场景名导出仍然存在，但只作为 deprecated compatibility exports 保留，不再是推荐的公开 API 主路径。
@@ -30,7 +30,7 @@ StateKit 是一个面向 SaaS 产品的 category-first 状态界面组件库。�
 6. [statekit-docs-site-and-qa-spec.md](./statekit-docs-site-and-qa-spec.md)  
    用于维护 `apps/docs` 的信息架构、页面要求、自动化 QA 和 Browser MCP 交互检查项。
 7. [statekit-launch-checklist.md](./statekit-launch-checklist.md)  
-   用于 0.3.0 发版前的人工 release 检查；若本轮已有 contract，以 `contracts/<sprint-id>.md` 为准。
+   用于 0.4.0 发版前的人工 release 检查；若本轮已有 contract，以 `contracts/<sprint-id>.md` 为准。
 8. [statekit-agent-harness.md](./statekit-agent-harness.md)
    用于说明 agent 接手仓库时的入口地图、验证命令、Codex 测试分工、工作循环和当前 harness 缺口。
 9. [decision-log.md](./decision-log.md)
@@ -51,7 +51,7 @@ StateKit 是一个面向 SaaS 产品的 category-first 状态界面组件库。�
 ## 文档约束
 
 - 文档必须以源码为准，尤其以 `packages/shared/src/types.ts` 和 `packages/shared/src/block-meta.ts` 作为 recipe 规格的事实来源。
-- 如果实现与文档不一致，先确认 shared 层的真实状态，再把 Vue、docs、README 和交接文档同步回来。
+- 如果实现与文档不一致，先确认 shared 层的真实状态，再把 Vue / React adapter、docs、README 和交接文档同步回来。
 - 文档必须明确区分“公开类别入口”和“底层 preset recipe”，不要再把 21 个 recipe 写成唯一的公开 API。
 - 如果你修改了公开行为，至少同步这些文件：
   - `README.md`
@@ -72,7 +72,7 @@ StateKit 是一个面向 SaaS 产品的 category-first 状态界面组件库。�
 建议按这个顺序工作：
 
 1. 先改 `packages/shared` 中的类型或元数据。
-2. 再改 `packages/vue` 中的类别组件、兼容导出或共享渲染层。
+2. 再改具体 adapter：`packages/vue` 或 `packages/react` 中的类别组件、兼容导出或共享渲染层。
 3. 再改 `apps/docs` 和 `examples/vite-vue-admin`。
 4. 最后补 README、changelog、handoff 和 checklist。
 

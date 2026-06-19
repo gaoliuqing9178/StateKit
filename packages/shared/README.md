@@ -37,7 +37,7 @@ console.log(priorityStateBlocks.map((block) => block.id));
 - Drive analytics or routing from stable recipe ids and slugs
 - Create custom wrappers around StateKit presets while keeping shared type safety
 
-If you only want ready-to-use Vue components, install `@statekit-vue/vue` instead.
+If you only want ready-to-use components, install `@statekit-vue/vue` for Vue apps or `@statekit-vue/react` for React apps instead.
 
 ## Links
 

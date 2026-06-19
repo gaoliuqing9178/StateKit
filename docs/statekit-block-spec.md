@@ -12,7 +12,7 @@ StateKit 的 Block 不是“一个带图标的容器”，而是对具体产品�
 
 ## 通用 API 合同
 
-每个 Vue Block 都围绕同一组 props 展开。统一类别入口会带着默认值直接落到 `StateBlockShell`，旧场景包装组件则通过 `StatePresetBlock` 桥接 shared 元数据。
+每个 Vue / React Block 都围绕同一组 props 展开。统一类别入口会带着默认值直接落到 `StateBlockShell`，旧场景包装组件则通过 `StatePresetBlock` 桥接 shared 元数据。
 
 | Prop | 类型 | 说明 |
 | --- | --- | --- |
@@ -52,7 +52,7 @@ interface StateAction {
 ## Block 清单
 
 下表描述当前 21 个 preset recipe 的用途与默认形态。
-当前 public API 已收敛到七个按类别统一的入口：`EmptyState`、`OnboardingState`、`LoadingState`、`ErrorState`、`PermissionState`、`UpgradeState`、`SuccessState`。表里的 21 个 recipe 用于提供默认文案、布局和 CTA 参考。
+当前 public API 在 Vue 与 React adapter 中都收敛到七个按类别统一的入口：`EmptyState`、`OnboardingState`、`LoadingState`、`ErrorState`、`PermissionState`、`UpgradeState`、`SuccessState`。表里的 21 个 recipe 用于提供默认文案、布局和 CTA 参考。
 
 | Block ID | Vue 组件 | 类别 | 默认布局 | 支持布局 | 用途 | 优先级 |
 | --- | --- | --- | --- | --- | --- | --- |

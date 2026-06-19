@@ -83,7 +83,7 @@ examples/vite-vue-admin（消费者示例，只走公开包入口）
 - 把 onboarding recipes 塞进 empty category 用 recipe prop 区分：语义混淆，首次使用者无法直觉选对 category。
 - 新增多个独立 onboarding 组件名：回到 D-001 被排除的场景名膨胀路径。
 
-**当前状态**：已落地，版本线 0.3.0，等待发版。7 个 category 是当前上限，后续新增必须经过明确讨论。
+**当前状态**：已随 0.3.0 落地；0.4.0 继续沿用 7 个 category 作为当前上限，后续新增必须经过明确讨论。
 
 ---
 
@@ -127,11 +127,39 @@ examples/vite-vue-admin（消费者示例，只走公开包入口）
 - 不做通用按钮、表单控件、弹窗等通用 UI 组件。
 - 不引入复杂 slot 系统或高度自由的页面搭建能力。
 - 不新增第三个 CTA。
-- 不对外暗示 React 或多框架支持（当前只有 Vue 3）。
+- 不把 React 适配继续扩张成无限多框架承诺；新增框架适配必须复用 shared 元数据并通过独立 adapter 边界进入。
 - 不为每个新增 recipe 单独暴露一个新的顶层公开组件名。
 - 不把所有知识塞进 `AGENTS.md`。
 
 **当前状态**：持续约束。任何触碰这些边界的 PR 应在 Review 阶段被阻断。
+
+---
+
+## D-007 React adapter 作为同级 framework adapter 接入
+
+**时间**：2026-06-20
+
+**背景**
+
+用户明确要求补全组件库对 React 的适配。仓库此前的事实源已经拆成 `packages/shared` 元数据层和 `packages/vue` adapter，因此 React 支持不应该通过复制 recipe 数据或让 React 包依赖 Vue runtime 实现。
+
+**决策**
+
+新增 `@statekit-vue/react` workspace，作为与 `@statekit-vue/vue` 同级的 framework adapter：
+
+- `packages/shared` 继续是类型、recipe metadata 和默认文案的唯一事实来源。
+- React adapter 导出同样 7 个 category-first 入口和 21 个兼容 preset。
+- React adapter 通过 `media` / `actions` props 对应 Vue adapter 的 `#media` / `#actions` slot。
+- React adapter 自带 `@statekit-vue/react/styles.css`，不要求消费者安装 Vue 包或 Vue runtime。
+- `lint:boundaries`、`typecheck`、`build`、`pack:check` 和 `smoke:install` 都必须覆盖 React adapter。
+
+**排除的替代方案**
+
+- 让 React 包依赖 `@statekit-vue/vue` 只复用 CSS：会把 Vue runtime 间接带进 React 消费者依赖图。
+- 把 recipe metadata 复制到 React 包：会制造第二套事实源。
+- 把 StateKit 改成通用多框架抽象层：超出当前 category-first 状态组件库边界。
+
+**当前状态**：已落地为 `packages/react`，后续新增 recipe 时需要同步检查 Vue 与 React 两个 adapter 的 preset wrapper、测试和包产物。
 
 ---
 

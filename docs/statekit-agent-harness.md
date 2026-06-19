@@ -29,15 +29,17 @@ StateKit 当前事实来源按优先级分层：
 
 1. `packages/shared/src/types.ts` 和 `packages/shared/src/block-meta.ts`
    公开类型、category、recipe metadata 的源码事实。
-2. `packages/vue/src/base/StatePresetBlock.vue` 和 `packages/vue/src/base/StateBlockShell.vue`
-   Vue 渲染合同、fallback、action 合并、shell 布局事实。
-3. `feature_list.json`
+2. `packages/vue/src/base/StatePresetBlock.vue` / `packages/react/src/base/StatePresetBlock.tsx`
+   Vue / React preset 合并合同、fallback 和 layout 兜底事实。
+3. `packages/vue/src/base/StateBlockShell.vue` / `packages/react/src/base/StateBlockShell.tsx`
+   Vue / React shell 渲染、action 合并、媒体区和布局事实。
+4. `feature_list.json`
    功能清单、验收状态、evaluator 与 evidence 的结构化事实。
-4. `docs/handoff.md`
+5. `docs/handoff.md`
    当前轮次交接、下一轮优先事项和已知风险。
-5. `progress.md`
+6. `progress.md`
    历史轮次记录、验证记录和 Browser MCP 证据线索。
-6. `docs/README.md`
+7. `docs/README.md`
    文档目录和阅读顺序。
 
 如果文档和源码冲突，先以源码为准，再同步文档。
@@ -105,7 +107,7 @@ npm run verify:release
 **什么情况下编码 agent 可以自己验证：**
 
 - 只改内部文档或 harness 脚本（Light Review）
-- 只改 `packages/shared` 或 `packages/vue` 逻辑（`npm run verify:fast` 足够）
+- 只改 `packages/shared`、`packages/vue` 或 `packages/react` 逻辑（`npm run verify:fast` 足够）
 - 运行 `npm run test:ui`（Playwright 自动化，不依赖宿主 browser 进程）
 
 ### 5. 运行时可读性
@@ -133,17 +135,18 @@ Browser MCP 交互 QA 用来覆盖自动化断言之外的真实浏览器感知�
 默认修改顺序是：
 
 1. `packages/shared`
-2. `packages/vue`
+2. `packages/vue` / `packages/react`
 3. `apps/docs`
 4. `examples/vite-vue-admin`
 5. README、package README、交接文档和 checklist
 
-新增场景时优先扩 `packages/shared/src/block-meta.ts` 中的 recipe，再同步 Vue、docs 和 example。只有当多个高频场景都明显不适合现有 7 个 category 时，才讨论新增第 8 类入口。
+新增场景时优先扩 `packages/shared/src/block-meta.ts` 中的 recipe，再同步 Vue、React、docs 和 example。只有当多个高频场景都明显不适合现有 7 个 category 时，才讨论新增第 8 类入口。
 
 `npm run lint:boundaries` 会机械检查这些依赖方向：
 
-- `packages/shared/src` 保持框架中立，不依赖 Vue、Vue Router、Vue 测试工具、Vue package、docs 或 example。
-- `packages/vue/src` 可以依赖 `@statekit-vue/shared` 和 Vue，但不能依赖 docs 或 example。
+- `packages/shared/src` 保持框架中立，不依赖 Vue、React、Vue Router、Vue 测试工具、framework package、docs 或 example。
+- `packages/vue/src` 可以依赖 `@statekit-vue/shared` 和 Vue，但不能依赖 React、docs 或 example。
+- `packages/react/src` 可以依赖 `@statekit-vue/shared` 和 React，但不能依赖 Vue、docs 或 example。
 - `apps/docs/src` 通过公开包入口依赖 shared 和 Vue package，不能依赖 example 或直接穿透 workspace 源码路径。
 - `examples/vite-vue-admin/src` 像真实消费者一样只通过 `@statekit-vue/vue` 使用 StateKit，不能直接依赖 shared、docs 或 workspace 源码路径。
 
@@ -161,6 +164,7 @@ Browser MCP 交互 QA 用来覆盖自动化断言之外的真实浏览器感知�
 - `README.md`
 - `README.zh-CN.md`
 - `packages/vue/README.md`
+- `packages/react/README.md`
 - `packages/shared/README.md`
 - `docs/README.md`
 - `docs/handoff.md`

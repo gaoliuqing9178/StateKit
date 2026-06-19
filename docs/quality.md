@@ -178,7 +178,7 @@
 | 场景 | 最低验证 |
 |------|----------|
 | 只改 `docs/`、`AGENTS.md`、harness 文件 | `npm run verify:fast` 抽样验证（typecheck + boundaries + build） |
-| 改 `packages/shared` 或 `packages/vue` | `npm run verify:fast` |
+| 改 `packages/shared`、`packages/vue` 或 `packages/react` | `npm run verify:fast` |
 | 改 `apps/docs` 或 `examples/vite-vue-admin`（含路由 / 响应式 / onboarding 视觉） | `npm run verify:fast` + `npm run verify:ui` + Browser MCP 交互 QA |
 | 发版 / 公开 API / 包内容 / README 口径 | `npm run verify:release` + Browser MCP + `pack:check` + `smoke:install` |
 

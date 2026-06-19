@@ -14,7 +14,8 @@ H:\StateKit
 │  └─ vite-vue-admin           # onboarding-to-completion 流程示例工程
 ├─ packages
 │  ├─ shared                   # 类型、元数据、Block 清单与事实来源
-│  └─ vue                      # Vue 组件实现与样式
+│  ├─ vue                      # Vue 组件实现与样式
+│  └─ react                    # React 组件实现与样式
 └─ docs                        # 当前这组产品/实现/发布文档
 ```
 
@@ -44,6 +45,21 @@ H:\StateKit
 - 绝大多数 Block 组件都只是很薄的一层 preset wrapper。
 - 真正决定默认内容的是 shared 元数据。
 - 真正决定视觉结构的是 `StateBlockShell` 和 CSS。
+
+### `packages/react`
+
+职责：
+
+- 提供对外可直接导入的 React 组件。
+- 使用 `StatePresetBlock` 将 shared 层的元数据映射到统一的 `StateBlockShell`。
+- 提供默认样式文件 `@statekit-vue/react/styles.css`。
+- 通过 `media` 和 `actions` props 对应 Vue 包里的 `#media` / `#actions` slot。
+
+当前实现特点：
+
+- 复用 shared 层的 21 个 preset recipe 与 7 个 category-first 入口语义。
+- 不依赖 Vue runtime，也不要求 React 消费者安装 `@statekit-vue/vue`。
+- CSS class contract 与 Vue adapter 保持一致，方便两端视觉行为对齐。
 
 ### `apps/docs`
 
@@ -82,8 +98,8 @@ H:\StateKit
 
 1. `packages/shared/src/types.ts` 定义基础类型。
 2. `packages/shared/src/block-meta.ts` 定义 Block 元数据与默认值。
-3. `packages/vue/src/base/StatePresetBlock.vue` 根据 `blockId` 合并默认值和外部 props。
-4. `packages/vue/src/base/StateBlockShell.vue` 负责最终结构和样式语义。
+3. `packages/vue/src/base/StatePresetBlock.vue` / `packages/react/src/base/StatePresetBlock.tsx` 根据 `blockId` 合并默认值和外部 props。
+4. `packages/vue/src/base/StateBlockShell.vue` / `packages/react/src/base/StateBlockShell.tsx` 负责最终结构和样式语义。
 5. `apps/docs` 直接消费 shared 元数据和 Vue 组件，生成列表、详情和代码片段。
 
 这意味着 StateKit 当前是"元数据驱动的 preset 组件库"，不是一组彼此完全独立、逐个精细绘制的组件。
@@ -95,6 +111,9 @@ H:\StateKit
 - `packages/vue/src/base/StatePresetBlock.vue`
 - `packages/vue/src/base/StateBlockShell.vue`
 - `packages/vue/src/index.ts`
+- `packages/react/src/base/StatePresetBlock.tsx`
+- `packages/react/src/base/StateBlockShell.tsx`
+- `packages/react/src/index.ts`
 - `apps/docs/src/lib/recipe-docs.ts`
 - `apps/docs/src/lib/recipe-components.ts`
 - `apps/docs/src/router.ts`
@@ -112,10 +131,10 @@ H:\StateKit
 - 指定 `slug`、`componentName`、`summary`、`supportedLayouts` 和 `defaults`。
 - 根据上线计划决定是否加入 `priorityStateBlockIds`。
 
-### 2. 在 Vue 层暴露组件
+### 2. 在 adapter 层暴露组件
 
-- 新建对应的 wrapper 组件，通常只需要把 `block-id` 传给 `StatePresetBlock`。
-- 在 `packages/vue/src/index.ts` 中导出该组件。
+- Vue：新建对应的 wrapper 组件，通常只需要把 `block-id` 传给 `StatePresetBlock`，并在 `packages/vue/src/index.ts` 中导出。
+- React：通过 `packages/react/src/blocks/preset-components.tsx` 增加对应 preset wrapper，并在 `packages/react/src/index.ts` 中导出。
 
 ### 3. 在 docs 站接入
 

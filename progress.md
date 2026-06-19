@@ -6,6 +6,75 @@
 
 ---
 
+## 2026-06-20 React adapter
+
+**这轮做了什么**
+
+- 新增 `packages/react` workspace，包名为 `@statekit-vue/react`，版本线跟随 `0.3.0`。
+- React adapter 复用 `@statekit-vue/shared` 的类型和 `stateBlockMetaById`，没有复制 recipe metadata，也不依赖 Vue runtime。
+- 新增 React 版：
+  - `StateBlockShell`
+  - `StatePresetBlock`
+  - 7 个 category-first 入口：`EmptyState`、`OnboardingState`、`LoadingState`、`ErrorState`、`PermissionState`、`UpgradeState`、`SuccessState`
+  - 21 个 preset recipe 对应的兼容导出
+  - `@statekit-vue/react/styles.css`
+- React 的 `media` / `actions` props 对应 Vue adapter 的 `#media` / `#actions` slot。
+- 把 React adapter 纳入根命令：
+  - `npm run typecheck`
+  - `npm run build`
+  - `npm run test:unit`
+  - `npm run pack:check`
+  - `npm run smoke:install`
+  - `npm run lint:boundaries`
+- 更新 `scripts/check-boundaries.mjs`，把 `packages/react/src` 纳入依赖边界检查，并禁止 React adapter 依赖 Vue/docs/example。
+- 更新 `scripts/smoke-install.mjs`，现在会同时生成外部 Vue consumer 和 React consumer，分别安装 tarball 后运行 typecheck + build。
+- 新增 React 单测覆盖 shell action 语义、preset merge/layout fallback、category-first defaults，以及 evaluator 指出的 onboarding 默认 action contract。
+- 同步 README、package README、内部 docs、decision log、launch checklist、feature list 和 handoff。
+
+**为什么这么做**
+
+用户要求“generator agent 现在补全该组件库对 react 的适配”。仓库原本已经有 `packages/shared` 作为框架中立事实源，所以 React 适配不应该复制 recipe 数据，也不应该通过 Vue 包间接复用组件。最终方案是新增一个与 `packages/vue` 同级的 React adapter：shared 继续负责 metadata，Vue / React 各自负责 framework rendering。
+
+**Evaluator 发现与修复**
+
+- 独立 evaluator 第一轮结论为 FAIL，指出两个 Major：
+  - `OnboardingState` 默认 actions 绕过了 `StateBlockShell` 的 action 归一化，导致默认 onboarding media 场景下 `onClick`、`loading`、`disabled` 等语义不生效。
+  - truth files 没有闭环，`feature_list.json`、`progress.md`、`docs/handoff.md` 仍停在旧轮次。
+- 已修复 `packages/react/src/blocks/category-components.tsx`：React `OnboardingState` 默认 media 保留，但默认 actions 不再自定义渲染，改回交给 `StateBlockShell` 统一处理。
+- 已新增回归测试：`packages/react/src/blocks/CategoryEntries.test.tsx` 覆盖 `OnboardingState` 默认 actions 的 `loadingLabel`、`aria-busy`、`aria-disabled`、`disabled` 和不可点击语义。
+
+**验证结果**
+
+```
+npm install                                                        ✅ 依赖与 package-lock 已更新；npm audit 报 8 个既有漏洞，未在本轮擅自升级
+npm run typecheck --workspace @statekit-vue/react                  ✅
+npm run build --workspace @statekit-vue/react                      ✅
+npm run test:unit -- packages/react                                ✅ 3 files / 22 tests passed
+npm run lint:boundaries                                            ✅ Checked 72 files, 242 imports, and 5 manifests
+npm run verify:fast                                                ✅ 8 test files / 50 tests passed；shared/vue/react/docs/example build 全过
+npm run pack:check                                                 ✅ shared/vue/react dry-run tarball 均通过；React tarball entryCount 18，无 test-utils / test files
+npm run smoke:install                                              ✅ external Vue and React consumer builds passed
+npm run review:bundle                                              ✅ 写入 .agent/review-bundle.md
+```
+
+> Windows PATH 说明：当前 shell 中直接 `npm` 有时不可解析，实际验证使用 `C:\nvm4w\nodejs\npm.cmd` 执行等价 npm 命令。
+
+**控制台日志审查 / Browser QA 记录**
+
+- 本轮没有新增 docs 路由或 example app 可见页面，主要改动是 package adapter、构建链、tarball 和 smoke consumer。
+- Builder 未宣称 Browser MCP 通过；按 `docs/statekit-agent-harness.md`，如后续新增 React docs 路由或可见示例页，需要由独立 QA 终端补 Browser MCP。
+- 命令层 warning：
+  - Vitest 输出 `The CJS build of Vite's Node API is deprecated.`，属于现有 Vite/Vitest 工具链 deprecation warning，不影响本轮 React adapter 验证。
+  - `npm install` 报 8 个 audit vulnerabilities，本轮没有升级依赖树，避免把 React adapter 扩成安全升级任务。
+
+**当前状态**
+
+- `react-adapter` 已作为 `feature_list.json` 中新的 P0 条目闭环。
+- `qa/react-adapter-evaluator-report.md` 已由独立 evaluator 生成并复审。
+- `@statekit-vue/react` 尚未发布到 npm；本轮只完成本地 adapter、验证链和 truth files，不执行 publish。
+
+---
+
 ## 2026-05-17 visual-regression CI follow-up
 
 **这轮修了什么**

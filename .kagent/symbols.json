@@ -1,38 +1,5 @@
 {
   "symbols": {
-    ".gitnexus/lbug.wal": {
-      "ipo_ts": 1780758545368,
-      "edit_count": 1,
-      "last_lines": 54,
-      "last_ts": 1780758545368,
-      "delisted": true,
-      "last_source": "onEdit",
-      "last_content_hash": "4f37f904",
-      "delisted_at": 1780930343120,
-      "delist_rounds": 0
-    },
-    ".gitnexus/csv/relations.csv": {
-      "ipo_ts": 1780758560625,
-      "edit_count": 1,
-      "last_lines": 1392,
-      "last_ts": 1780758560625,
-      "delisted": true,
-      "last_source": "onEdit",
-      "last_content_hash": "dc2a6870",
-      "delisted_at": 1780930343120,
-      "delist_rounds": 0
-    },
-    ".gitnexus/csv/annotation.csv": {
-      "ipo_ts": 1780758560643,
-      "edit_count": 1,
-      "last_lines": 1,
-      "last_ts": 1780758560643,
-      "delisted": true,
-      "last_source": "onEdit",
-      "last_content_hash": "0",
-      "delisted_at": 1780930343120,
-      "delist_rounds": 0
-    },
     ".gitnexus/.gitignore": {
       "ipo_ts": 1780758562983,
       "edit_count": 1,
@@ -44,93 +11,1695 @@
     },
     ".gitnexus/meta.json": {
       "ipo_ts": 1780758562999,
-      "edit_count": 1,
-      "last_lines": 169,
-      "last_ts": 1780758562999,
+      "edit_count": 5,
+      "last_lines": 191,
+      "last_ts": 1781887291799,
       "delisted": false,
       "last_source": "onEdit",
-      "last_content_hash": "66113b18"
+      "last_content_hash": "c6a604b3"
     },
     ".claude/skills/gitnexus/gitnexus-cli/SKILL.md": {
       "ipo_ts": 1780758563202,
-      "edit_count": 1,
-      "last_lines": 83,
-      "last_ts": 1780758563202,
+      "edit_count": 2,
+      "last_lines": 85,
+      "last_ts": 1781885127897,
       "delisted": false,
       "last_source": "onEdit",
-      "last_content_hash": "9a7b6545"
+      "last_content_hash": "67a03c07"
     },
     ".claude/skills/gitnexus/gitnexus-debugging/SKILL.md": {
       "ipo_ts": 1780758563213,
-      "edit_count": 1,
+      "edit_count": 2,
       "last_lines": 89,
-      "last_ts": 1780758563213,
+      "last_ts": 1781885127909,
       "delisted": false,
       "last_source": "onEdit",
-      "last_content_hash": "2e5368f9"
+      "last_content_hash": "f11b21a1"
     },
     ".claude/skills/gitnexus/gitnexus-exploring/SKILL.md": {
       "ipo_ts": 1780758563223,
-      "edit_count": 1,
+      "edit_count": 2,
       "last_lines": 78,
-      "last_ts": 1780758563223,
+      "last_ts": 1781885127920,
       "delisted": false,
       "last_source": "onEdit",
-      "last_content_hash": "4fe01766"
+      "last_content_hash": "a2ddc7f6"
     },
     ".claude/skills/gitnexus/gitnexus-guide/SKILL.md": {
       "ipo_ts": 1780758563232,
-      "edit_count": 1,
-      "last_lines": 64,
-      "last_ts": 1780758563232,
+      "edit_count": 2,
+      "last_lines": 95,
+      "last_ts": 1781885127932,
       "delisted": false,
       "last_source": "onEdit",
-      "last_content_hash": "2d2a7337"
+      "last_content_hash": "d6267a6a"
     },
     ".claude/skills/gitnexus/gitnexus-impact-analysis/SKILL.md": {
       "ipo_ts": 1780758563243,
-      "edit_count": 1,
+      "edit_count": 2,
       "last_lines": 97,
-      "last_ts": 1780758563243,
+      "last_ts": 1781885127944,
       "delisted": false,
       "last_source": "onEdit",
-      "last_content_hash": "81e0fdbb"
+      "last_content_hash": "c4b3bdff"
     },
     ".claude/skills/gitnexus/gitnexus-refactoring/SKILL.md": {
       "ipo_ts": 1780758563253,
-      "edit_count": 1,
+      "edit_count": 2,
       "last_lines": 121,
-      "last_ts": 1780758563253,
+      "last_ts": 1781885127955,
       "delisted": false,
       "last_source": "onEdit",
-      "last_content_hash": "8b026b5b"
+      "last_content_hash": "548295e1"
     },
     "CLAUDE.md": {
       "ipo_ts": 1780758563263,
-      "edit_count": 1,
+      "edit_count": 3,
       "last_lines": 43,
-      "last_ts": 1780758563263,
+      "last_ts": 1781887292436,
       "delisted": false,
       "last_source": "onEdit",
-      "last_content_hash": "901c6ef9"
+      "last_content_hash": "424caa77"
     },
     ".gitnexus/lbug": {
       "ipo_ts": 1780758563474,
-      "edit_count": 2,
-      "last_lines": 28422,
-      "last_ts": 1780759638631,
+      "edit_count": 4,
+      "last_lines": 57075,
+      "last_ts": 1781887292396,
       "delisted": false,
       "last_source": "onEdit",
-      "last_content_hash": "6bf6554d"
+      "last_content_hash": "8054816a"
     },
     ".codegraph/daemon.pid": {
       "ipo_ts": 1780930350039,
-      "edit_count": 1,
+      "edit_count": 4,
       "last_lines": 6,
-      "last_ts": 1780930350039,
+      "last_ts": 1781884871561,
       "delisted": false,
       "last_source": "onEdit",
-      "last_content_hash": "54419f6f"
+      "last_content_hash": "d316f8c5"
+    },
+    "packages/shared/src/types.ts": {
+      "ipo_ts": 1780933314285,
+      "edit_count": 5,
+      "last_lines": 119,
+      "last_ts": 1780933353265,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "bfb799cc"
+    },
+    ".codegraph/codegraph.db-wal": {
+      "ipo_ts": 1780933326056,
+      "edit_count": 15,
+      "last_lines": 14221,
+      "last_ts": 1781887355972,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "928bda8c"
+    },
+    ".codegraph/codegraph.db": {
+      "ipo_ts": 1780933326093,
+      "edit_count": 15,
+      "last_lines": 4655,
+      "last_ts": 1781887355996,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "530f4197"
+    },
+    ".codegraph/daemon.log": {
+      "ipo_ts": 1780933344352,
+      "edit_count": 5,
+      "last_lines": 29,
+      "last_ts": 1781887125409,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "e9d32279"
+    },
+    "packages/vue/src/index.ts": {
+      "ipo_ts": 1780996608653,
+      "edit_count": 3,
+      "last_lines": 140,
+      "last_ts": 1780996633153,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "2e4890c5"
+    },
+    ".gitnexus/parsedfile-cache/fbcdce70805e38b497519198406f4efb04e01f7c7e55131e79b20eeec0539f32/fbcdce70805e38b497519198406f4efb04e01f7c7e55131e79b20eeec0539f32-w1-0.json": {
+      "ipo_ts": 1781885110943,
+      "edit_count": 1,
+      "last_lines": 1,
+      "last_ts": 1781885110943,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "c5ee52c2"
+    },
+    ".gitnexus/parse-cache.tmp/fbcdce70805e38b497519198406f4efb04e01f7c7e55131e79b20eeec0539f32.json": {
+      "ipo_ts": 1781885127546,
+      "edit_count": 1,
+      "last_lines": 1,
+      "last_ts": 1781885127546,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "31b4dfbb"
+    },
+    ".gitnexus/parse-cache.tmp/index.json": {
+      "ipo_ts": 1781885127557,
+      "edit_count": 2,
+      "last_lines": 1,
+      "last_ts": 1781887291810,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "8e9086cf"
+    },
+    ".gitnexus/run.cjs": {
+      "ipo_ts": 1781885127885,
+      "edit_count": 1,
+      "last_lines": 323,
+      "last_ts": 1781885127885,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "7a73c205"
+    },
+    "packages/react/src/styles/tokens.css": {
+      "ipo_ts": 1781885516701,
+      "edit_count": 1,
+      "last_lines": 7,
+      "last_ts": 1781885516701,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "54d7415a"
+    },
+    "packages/react/src/styles/base.css": {
+      "ipo_ts": 1781885516711,
+      "edit_count": 1,
+      "last_lines": 607,
+      "last_ts": 1781885516711,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "387f17d3"
+    },
+    "packages/react/src/styles/blocks.css": {
+      "ipo_ts": 1781885516721,
+      "edit_count": 1,
+      "last_lines": 7,
+      "last_ts": 1781885516721,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "729aafb1"
+    },
+    "packages/react/package.json": {
+      "ipo_ts": 1781885745626,
+      "edit_count": 2,
+      "last_lines": 60,
+      "last_ts": 1781888337894,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "4deafbb8"
+    },
+    "packages/react/tsconfig.json": {
+      "ipo_ts": 1781885746389,
+      "edit_count": 1,
+      "last_lines": 12,
+      "last_ts": 1781885746389,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "67b91df"
+    },
+    "packages/react/tsconfig.build.json": {
+      "ipo_ts": 1781885746510,
+      "edit_count": 2,
+      "last_lines": 23,
+      "last_ts": 1781886508333,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "ec29604"
+    },
+    "packages/react/vite.config.ts": {
+      "ipo_ts": 1781885746521,
+      "edit_count": 1,
+      "last_lines": 35,
+      "last_ts": 1781885746521,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "9cf77903"
+    },
+    "packages/react/src/styles/index.css": {
+      "ipo_ts": 1781885746636,
+      "edit_count": 1,
+      "last_lines": 11,
+      "last_ts": 1781885746636,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "423260f8"
+    },
+    "packages/react/src/types.ts": {
+      "ipo_ts": 1781885746646,
+      "edit_count": 1,
+      "last_lines": 33,
+      "last_ts": 1781885746646,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "be4393"
+    },
+    "packages/react/src/lib/merge-state-props.ts": {
+      "ipo_ts": 1781885746766,
+      "edit_count": 1,
+      "last_lines": 31,
+      "last_ts": 1781885746766,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "e4ed3c78"
+    },
+    "packages/react/src/base/StateBlockShell.tsx": {
+      "ipo_ts": 1781885746776,
+      "edit_count": 1,
+      "last_lines": 249,
+      "last_ts": 1781885746776,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "d6cd4601"
+    },
+    "packages/react/src/base/StatePresetBlock.tsx": {
+      "ipo_ts": 1781885746900,
+      "edit_count": 1,
+      "last_lines": 52,
+      "last_ts": 1781885746900,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "6c4a40a6"
+    },
+    "packages/react/src/blocks/category-components.tsx": {
+      "ipo_ts": 1781885746910,
+      "edit_count": 3,
+      "last_lines": 191,
+      "last_ts": 1781887334111,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "525665cf"
+    },
+    "packages/react/src/blocks/preset-components.tsx": {
+      "ipo_ts": 1781885747037,
+      "edit_count": 1,
+      "last_lines": 28,
+      "last_ts": 1781885747037,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "886788c4"
+    },
+    "packages/react/src/index.ts": {
+      "ipo_ts": 1781885747047,
+      "edit_count": 1,
+      "last_lines": 44,
+      "last_ts": 1781885747047,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "6688744b"
+    },
+    "packages/react/README.md": {
+      "ipo_ts": 1781885747201,
+      "edit_count": 1,
+      "last_lines": 89,
+      "last_ts": 1781885747201,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "1514137e"
+    },
+    ".codegraph/codegraph.lock": {
+      "ipo_ts": 1781885749212,
+      "edit_count": 1,
+      "last_lines": 1,
+      "last_ts": 1781885749212,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "301e95b"
+    },
+    "packages/react/src/test-utils.tsx": {
+      "ipo_ts": 1781885844903,
+      "edit_count": 2,
+      "last_lines": 63,
+      "last_ts": 1781886055900,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "ee85209e"
+    },
+    "packages/react/src/base/StateBlockShell.test.tsx": {
+      "ipo_ts": 1781885845040,
+      "edit_count": 2,
+      "last_lines": 162,
+      "last_ts": 1781885880780,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "9efedbe8"
+    },
+    "packages/react/src/base/StatePresetBlock.test.tsx": {
+      "ipo_ts": 1781885845050,
+      "edit_count": 1,
+      "last_lines": 97,
+      "last_ts": 1781885845050,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "6d85562f"
+    },
+    "packages/react/src/blocks/CategoryEntries.test.tsx": {
+      "ipo_ts": 1781885845165,
+      "edit_count": 2,
+      "last_lines": 206,
+      "last_ts": 1781887352851,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "23d8567a"
+    },
+    "package.json": {
+      "ipo_ts": 1781885869527,
+      "edit_count": 1,
+      "last_lines": 49,
+      "last_ts": 1781885869527,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "81127e66"
+    },
+    "node_modules/@types/prop-types/LICENSE": {
+      "ipo_ts": 1781885993854,
+      "edit_count": 1,
+      "last_lines": 21,
+      "last_ts": 1781885993854,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "a9693508"
+    },
+    "node_modules/@types/prop-types/README.md": {
+      "ipo_ts": 1781885993871,
+      "edit_count": 1,
+      "last_lines": 15,
+      "last_ts": 1781885993871,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "603eb3b"
+    },
+    "node_modules/@types/prop-types/index.d.ts": {
+      "ipo_ts": 1781885993896,
+      "edit_count": 1,
+      "last_lines": 131,
+      "last_ts": 1781885993896,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "4ba433b3"
+    },
+    "node_modules/@types/prop-types/package.json": {
+      "ipo_ts": 1781885993914,
+      "edit_count": 1,
+      "last_lines": 36,
+      "last_ts": 1781885993914,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "d036acfd"
+    },
+    "node_modules/js-tokens/CHANGELOG.md": {
+      "ipo_ts": 1781885993934,
+      "edit_count": 1,
+      "last_lines": 151,
+      "last_ts": 1781885993934,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "3ca937b2"
+    },
+    "node_modules/js-tokens/LICENSE": {
+      "ipo_ts": 1781885993950,
+      "edit_count": 1,
+      "last_lines": 21,
+      "last_ts": 1781885993950,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "11b05d8f"
+    },
+    "node_modules/js-tokens/README.md": {
+      "ipo_ts": 1781885993973,
+      "edit_count": 1,
+      "last_lines": 240,
+      "last_ts": 1781885993973,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "6991dfaa"
+    },
+    "node_modules/js-tokens/index.js": {
+      "ipo_ts": 1781885993996,
+      "edit_count": 1,
+      "last_lines": 23,
+      "last_ts": 1781885993996,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "b3bdb636"
+    },
+    "node_modules/js-tokens/package.json": {
+      "ipo_ts": 1781885994012,
+      "edit_count": 1,
+      "last_lines": 30,
+      "last_ts": 1781885994012,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "7b145892"
+    },
+    "node_modules/loose-envify/LICENSE": {
+      "ipo_ts": 1781885994028,
+      "edit_count": 1,
+      "last_lines": 21,
+      "last_ts": 1781885994028,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "44669dd9"
+    },
+    "node_modules/loose-envify/README.md": {
+      "ipo_ts": 1781885994046,
+      "edit_count": 1,
+      "last_lines": 45,
+      "last_ts": 1781885994046,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "9fb42bf8"
+    },
+    "node_modules/loose-envify/cli.js": {
+      "ipo_ts": 1781885994068,
+      "edit_count": 1,
+      "last_lines": 16,
+      "last_ts": 1781885994068,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "e2d0ab7d"
+    },
+    "node_modules/loose-envify/custom.js": {
+      "ipo_ts": 1781885994089,
+      "edit_count": 1,
+      "last_lines": 4,
+      "last_ts": 1781885994089,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "8daca80"
+    },
+    "node_modules/loose-envify/index.js": {
+      "ipo_ts": 1781885994107,
+      "edit_count": 1,
+      "last_lines": 3,
+      "last_ts": 1781885994107,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "745d4b36"
+    },
+    "node_modules/loose-envify/loose-envify.js": {
+      "ipo_ts": 1781885994127,
+      "edit_count": 1,
+      "last_lines": 36,
+      "last_ts": 1781885994127,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "cf01795a"
+    },
+    "node_modules/loose-envify/package.json": {
+      "ipo_ts": 1781885994144,
+      "edit_count": 1,
+      "last_lines": 36,
+      "last_ts": 1781885994144,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "20cc6b5"
+    },
+    "node_modules/loose-envify/replace.js": {
+      "ipo_ts": 1781885994169,
+      "edit_count": 1,
+      "last_lines": 65,
+      "last_ts": 1781885994169,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "697cdf48"
+    },
+    "node_modules/@types/react-dom/LICENSE": {
+      "ipo_ts": 1781885994187,
+      "edit_count": 1,
+      "last_lines": 21,
+      "last_ts": 1781885994187,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "a9693508"
+    },
+    "node_modules/@types/react-dom/README.md": {
+      "ipo_ts": 1781885994203,
+      "edit_count": 1,
+      "last_lines": 16,
+      "last_ts": 1781885994203,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "c7ffd797"
+    },
+    "node_modules/@types/react-dom/canary.d.ts": {
+      "ipo_ts": 1781885994225,
+      "edit_count": 1,
+      "last_lines": 185,
+      "last_ts": 1781885994225,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "8153db92"
+    },
+    "node_modules/@types/react-dom/client.d.ts": {
+      "ipo_ts": 1781885994237,
+      "edit_count": 1,
+      "last_lines": 72,
+      "last_ts": 1781885994237,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "fc6b9bfc"
+    },
+    "node_modules/@types/react-dom/experimental.d.ts": {
+      "ipo_ts": 1781885994256,
+      "edit_count": 1,
+      "last_lines": 36,
+      "last_ts": 1781885994256,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "439d915b"
+    },
+    "node_modules/@types/react-dom/index.d.ts": {
+      "ipo_ts": 1781885994276,
+      "edit_count": 1,
+      "last_lines": 150,
+      "last_ts": 1781885994276,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "3dab2c1f"
+    },
+    "node_modules/@types/react-dom/package.json": {
+      "ipo_ts": 1781885994292,
+      "edit_count": 1,
+      "last_lines": 88,
+      "last_ts": 1781885994292,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "32c5ec46"
+    },
+    "node_modules/@types/react-dom/server.d.ts": {
+      "ipo_ts": 1781885994312,
+      "edit_count": 1,
+      "last_lines": 131,
+      "last_ts": 1781885994312,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "bbd64ef4"
+    },
+    "node_modules/@types/react-dom/test-utils/index.d.ts": {
+      "ipo_ts": 1781885994336,
+      "edit_count": 1,
+      "last_lines": 402,
+      "last_ts": 1781885994336,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "9dec0db2"
+    },
+    "node_modules/scheduler/LICENSE": {
+      "ipo_ts": 1781885994350,
+      "edit_count": 1,
+      "last_lines": 21,
+      "last_ts": 1781885994350,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "16da6105"
+    },
+    "node_modules/scheduler/README.md": {
+      "ipo_ts": 1781885994364,
+      "edit_count": 1,
+      "last_lines": 9,
+      "last_ts": 1781885994364,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "67996b6e"
+    },
+    "node_modules/scheduler/cjs/scheduler-unstable_mock.development.js": {
+      "ipo_ts": 1781885994388,
+      "edit_count": 1,
+      "last_lines": 700,
+      "last_ts": 1781885994388,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "34704b93"
+    },
+    "node_modules/scheduler/cjs/scheduler-unstable_mock.production.min.js": {
+      "ipo_ts": 1781885994449,
+      "edit_count": 1,
+      "last_lines": 20,
+      "last_ts": 1781885994449,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "a65e1cef"
+    },
+    "node_modules/scheduler/cjs/scheduler-unstable_post_task.development.js": {
+      "ipo_ts": 1781885994477,
+      "edit_count": 1,
+      "last_lines": 207,
+      "last_ts": 1781885994477,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "b029ad41"
+    },
+    "node_modules/scheduler/cjs/scheduler-unstable_post_task.production.min.js": {
+      "ipo_ts": 1781885994504,
+      "edit_count": 1,
+      "last_lines": 14,
+      "last_ts": 1781885994504,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "61d8c92b"
+    },
+    "node_modules/scheduler/cjs/scheduler.development.js": {
+      "ipo_ts": 1781885994534,
+      "edit_count": 1,
+      "last_lines": 634,
+      "last_ts": 1781885994534,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "c9a2960b"
+    },
+    "node_modules/scheduler/cjs/scheduler.production.min.js": {
+      "ipo_ts": 1781885994569,
+      "edit_count": 1,
+      "last_lines": 19,
+      "last_ts": 1781885994569,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "df7083b1"
+    },
+    "node_modules/scheduler/index.js": {
+      "ipo_ts": 1781885994588,
+      "edit_count": 1,
+      "last_lines": 7,
+      "last_ts": 1781885994588,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "50cb1bea"
+    },
+    "node_modules/scheduler/package.json": {
+      "ipo_ts": 1781885994605,
+      "edit_count": 1,
+      "last_lines": 36,
+      "last_ts": 1781885994605,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "f664be2d"
+    },
+    "node_modules/scheduler/umd/scheduler-unstable_mock.development.js": {
+      "ipo_ts": 1781885994639,
+      "edit_count": 1,
+      "last_lines": 699,
+      "last_ts": 1781885994639,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "7f6f1420"
+    },
+    "node_modules/scheduler/umd/scheduler-unstable_mock.production.min.js": {
+      "ipo_ts": 1781885994675,
+      "edit_count": 1,
+      "last_lines": 19,
+      "last_ts": 1781885994675,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "73ad276f"
+    },
+    "node_modules/scheduler/umd/scheduler.development.js": {
+      "ipo_ts": 1781885994701,
+      "edit_count": 1,
+      "last_lines": 152,
+      "last_ts": 1781885994701,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "3c13c420"
+    },
+    "node_modules/scheduler/umd/scheduler.production.min.js": {
+      "ipo_ts": 1781885994726,
+      "edit_count": 1,
+      "last_lines": 146,
+      "last_ts": 1781885994726,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "5ed9afdd"
+    },
+    "node_modules/scheduler/umd/scheduler.profiling.min.js": {
+      "ipo_ts": 1781885994738,
+      "edit_count": 1,
+      "last_lines": 146,
+      "last_ts": 1781885994738,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "5ed9afdd"
+    },
+    "node_modules/scheduler/unstable_mock.js": {
+      "ipo_ts": 1781885994760,
+      "edit_count": 1,
+      "last_lines": 7,
+      "last_ts": 1781885994760,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "5fa7141a"
+    },
+    "node_modules/scheduler/unstable_post_task.js": {
+      "ipo_ts": 1781885994781,
+      "edit_count": 1,
+      "last_lines": 7,
+      "last_ts": 1781885994781,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "7aea5b10"
+    },
+    "node_modules/react-dom/LICENSE": {
+      "ipo_ts": 1781885994801,
+      "edit_count": 1,
+      "last_lines": 21,
+      "last_ts": 1781885994801,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "16da6105"
+    },
+    "node_modules/react-dom/client.js": {
+      "ipo_ts": 1781885994822,
+      "edit_count": 1,
+      "last_lines": 25,
+      "last_ts": 1781885994822,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "50b2915c"
+    },
+    "node_modules/react-dom/index.js": {
+      "ipo_ts": 1781885994847,
+      "edit_count": 1,
+      "last_lines": 38,
+      "last_ts": 1781885994847,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "289d8304"
+    },
+    "node_modules/react-dom/profiling.js": {
+      "ipo_ts": 1781885994871,
+      "edit_count": 1,
+      "last_lines": 38,
+      "last_ts": 1781885994871,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "bbff37e5"
+    },
+    "node_modules/react-dom/cjs/react-dom-server-legacy.browser.development.js": {
+      "ipo_ts": 1781885994910,
+      "edit_count": 1,
+      "last_lines": 7029,
+      "last_ts": 1781885994910,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "8fbf654f"
+    },
+    "node_modules/react-dom/cjs/react-dom-server-legacy.browser.production.min.js": {
+      "ipo_ts": 1781885994954,
+      "edit_count": 1,
+      "last_lines": 93,
+      "last_ts": 1781885994954,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "17053e9c"
+    },
+    "node_modules/react-dom/umd/react-dom-server-legacy.browser.production.min.js": {
+      "ipo_ts": 1781885994996,
+      "edit_count": 1,
+      "last_lines": 75,
+      "last_ts": 1781885994996,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "d9032955"
+    },
+    "node_modules/react/LICENSE": {
+      "ipo_ts": 1781885995006,
+      "edit_count": 1,
+      "last_lines": 21,
+      "last_ts": 1781885995006,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "16da6105"
+    },
+    "node_modules/react/index.js": {
+      "ipo_ts": 1781885995032,
+      "edit_count": 1,
+      "last_lines": 7,
+      "last_ts": 1781885995032,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "e7168e2"
+    },
+    "node_modules/react/jsx-dev-runtime.js": {
+      "ipo_ts": 1781885995051,
+      "edit_count": 1,
+      "last_lines": 7,
+      "last_ts": 1781885995051,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "50706b38"
+    },
+    "node_modules/react/jsx-runtime.js": {
+      "ipo_ts": 1781885995069,
+      "edit_count": 1,
+      "last_lines": 7,
+      "last_ts": 1781885995069,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "852591c8"
+    },
+    "node_modules/react-dom/umd/react-dom-server-legacy.browser.development.js": {
+      "ipo_ts": 1781885995164,
+      "edit_count": 1,
+      "last_lines": 7026,
+      "last_ts": 1781885995164,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "8605f83d"
+    },
+    "node_modules/react/cjs/react-jsx-dev-runtime.production.min.js": {
+      "ipo_ts": 1781885995203,
+      "edit_count": 1,
+      "last_lines": 10,
+      "last_ts": 1781885995203,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "93f6d3b0"
+    },
+    "node_modules/react/cjs/react-jsx-dev-runtime.profiling.min.js": {
+      "ipo_ts": 1781885995224,
+      "edit_count": 1,
+      "last_lines": 10,
+      "last_ts": 1781885995224,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "ca6543fb"
+    },
+    "node_modules/react/cjs/react-jsx-runtime.development.js": {
+      "ipo_ts": 1781885995252,
+      "edit_count": 1,
+      "last_lines": 1333,
+      "last_ts": 1781885995252,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "8be1edd9"
+    },
+    "node_modules/react/cjs/react-jsx-runtime.production.min.js": {
+      "ipo_ts": 1781885995271,
+      "edit_count": 1,
+      "last_lines": 11,
+      "last_ts": 1781885995271,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "93a11256"
+    },
+    "node_modules/react/cjs/react-jsx-runtime.profiling.min.js": {
+      "ipo_ts": 1781885995291,
+      "edit_count": 1,
+      "last_lines": 11,
+      "last_ts": 1781885995291,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "f739b911"
+    },
+    "node_modules/react/cjs/react.development.js": {
+      "ipo_ts": 1781885995319,
+      "edit_count": 1,
+      "last_lines": 2740,
+      "last_ts": 1781885995319,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "593e8838"
+    },
+    "node_modules/react/cjs/react-jsx-dev-runtime.development.js": {
+      "ipo_ts": 1781885995348,
+      "edit_count": 1,
+      "last_lines": 1315,
+      "last_ts": 1781885995348,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "d1276bb9"
+    },
+    "node_modules/react-dom/cjs/react-dom-server-legacy.node.production.min.js": {
+      "ipo_ts": 1781885995407,
+      "edit_count": 1,
+      "last_lines": 101,
+      "last_ts": 1781885995407,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "69c21033"
+    },
+    "node_modules/react-dom/cjs/react-dom-server.browser.development.js": {
+      "ipo_ts": 1781885995460,
+      "edit_count": 1,
+      "last_lines": 7014,
+      "last_ts": 1781885995460,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "ab0c44bb"
+    },
+    "node_modules/react-dom/cjs/react-dom-server.browser.production.min.js": {
+      "ipo_ts": 1781885995538,
+      "edit_count": 1,
+      "last_lines": 96,
+      "last_ts": 1781885995538,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "57b12f"
+    },
+    "node_modules/react-dom/umd/react-dom-server.browser.development.js": {
+      "ipo_ts": 1781885995678,
+      "edit_count": 1,
+      "last_lines": 7011,
+      "last_ts": 1781885995678,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "965ce91"
+    },
+    "node_modules/react-dom/umd/react-dom-server.browser.production.min.js": {
+      "ipo_ts": 1781885995737,
+      "edit_count": 1,
+      "last_lines": 76,
+      "last_ts": 1781885995737,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "1c6adb45"
+    },
+    "node_modules/react/README.md": {
+      "ipo_ts": 1781885995759,
+      "edit_count": 1,
+      "last_lines": 37,
+      "last_ts": 1781885995759,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "dc80869f"
+    },
+    "node_modules/react/cjs/react.production.min.js": {
+      "ipo_ts": 1781885995795,
+      "edit_count": 1,
+      "last_lines": 26,
+      "last_ts": 1781885995795,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "7d7433c4"
+    },
+    "node_modules/react/cjs/react.shared-subset.development.js": {
+      "ipo_ts": 1781885995819,
+      "edit_count": 1,
+      "last_lines": 20,
+      "last_ts": 1781885995819,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "f0ff13fb"
+    },
+    "node_modules/react/cjs/react.shared-subset.production.min.js": {
+      "ipo_ts": 1781885995840,
+      "edit_count": 1,
+      "last_lines": 10,
+      "last_ts": 1781885995840,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "2b41e738"
+    },
+    "node_modules/react/package.json": {
+      "ipo_ts": 1781885995858,
+      "edit_count": 1,
+      "last_lines": 47,
+      "last_ts": 1781885995858,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "8c3f7098"
+    },
+    "node_modules/react/react.shared-subset.js": {
+      "ipo_ts": 1781885995879,
+      "edit_count": 1,
+      "last_lines": 7,
+      "last_ts": 1781885995879,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "83acb06a"
+    },
+    "node_modules/react/umd/react.production.min.js": {
+      "ipo_ts": 1781885995909,
+      "edit_count": 1,
+      "last_lines": 31,
+      "last_ts": 1781885995909,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "e7c88f00"
+    },
+    "node_modules/react/umd/react.profiling.min.js": {
+      "ipo_ts": 1781885995935,
+      "edit_count": 1,
+      "last_lines": 31,
+      "last_ts": 1781885995935,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "21006141"
+    },
+    "node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js": {
+      "ipo_ts": 1781885995985,
+      "edit_count": 1,
+      "last_lines": 7093,
+      "last_ts": 1781885995985,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "90a2e7b3"
+    },
+    "node_modules/react/umd/react.development.js": {
+      "ipo_ts": 1781885996070,
+      "edit_count": 1,
+      "last_lines": 3343,
+      "last_ts": 1781885996070,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "222b67fe"
+    },
+    "node_modules/@types/react/README.md": {
+      "ipo_ts": 1781885996126,
+      "edit_count": 1,
+      "last_lines": 15,
+      "last_ts": 1781885996126,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "5b1b829f"
+    },
+    "node_modules/@types/react/canary.d.ts": {
+      "ipo_ts": 1781885996150,
+      "edit_count": 1,
+      "last_lines": 166,
+      "last_ts": 1781885996150,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "3f019037"
+    },
+    "node_modules/@types/react/experimental.d.ts": {
+      "ipo_ts": 1781885996172,
+      "edit_count": 1,
+      "last_lines": 132,
+      "last_ts": 1781885996172,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "e872294"
+    },
+    "node_modules/@types/react/global.d.ts": {
+      "ipo_ts": 1781885996184,
+      "edit_count": 1,
+      "last_lines": 161,
+      "last_ts": 1781885996184,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "3f2ec84b"
+    },
+    "node_modules/@types/react/index.d.ts": {
+      "ipo_ts": 1781885996210,
+      "edit_count": 1,
+      "last_lines": 4586,
+      "last_ts": 1781885996210,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "59e1a1e8"
+    },
+    "node_modules/@types/react/jsx-dev-runtime.d.ts": {
+      "ipo_ts": 1781885996228,
+      "edit_count": 1,
+      "last_lines": 33,
+      "last_ts": 1781885996228,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "4c9a0a86"
+    },
+    "node_modules/@types/react/jsx-runtime.d.ts": {
+      "ipo_ts": 1781885996246,
+      "edit_count": 1,
+      "last_lines": 24,
+      "last_ts": 1781885996246,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "2f2d02ba"
+    },
+    "node_modules/@types/react/package.json": {
+      "ipo_ts": 1781885996272,
+      "edit_count": 1,
+      "last_lines": 206,
+      "last_ts": 1781885996272,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "546d128b"
+    },
+    "node_modules/@types/react/ts5.0/canary.d.ts": {
+      "ipo_ts": 1781885996282,
+      "edit_count": 1,
+      "last_lines": 166,
+      "last_ts": 1781885996282,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "3f019037"
+    },
+    "node_modules/@types/react/ts5.0/experimental.d.ts": {
+      "ipo_ts": 1781885996293,
+      "edit_count": 1,
+      "last_lines": 132,
+      "last_ts": 1781885996293,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "e872294"
+    },
+    "node_modules/@types/react/ts5.0/global.d.ts": {
+      "ipo_ts": 1781885996304,
+      "edit_count": 1,
+      "last_lines": 161,
+      "last_ts": 1781885996304,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "3f2ec84b"
+    },
+    "node_modules/react-dom/cjs/react-dom-server.node.production.min.js": {
+      "ipo_ts": 1781885996347,
+      "edit_count": 1,
+      "last_lines": 102,
+      "last_ts": 1781885996347,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "863dc942"
+    },
+    "node_modules/react-dom/cjs/react-dom-test-utils.development.js": {
+      "ipo_ts": 1781885996380,
+      "edit_count": 1,
+      "last_lines": 1763,
+      "last_ts": 1781885996380,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "3ec8a948"
+    },
+    "node_modules/react-dom/cjs/react-dom-test-utils.production.min.js": {
+      "ipo_ts": 1781885996415,
+      "edit_count": 1,
+      "last_lines": 40,
+      "last_ts": 1781885996415,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "5eef7cc0"
+    },
+    "node_modules/react-dom/umd/react-dom-test-utils.development.js": {
+      "ipo_ts": 1781885996477,
+      "edit_count": 1,
+      "last_lines": 1759,
+      "last_ts": 1781885996477,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "21e63873"
+    },
+    "node_modules/react-dom/umd/react-dom-test-utils.production.min.js": {
+      "ipo_ts": 1781885996507,
+      "edit_count": 1,
+      "last_lines": 33,
+      "last_ts": 1781885996507,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "3cbb46da"
+    },
+    "node_modules/@types/react/LICENSE": {
+      "ipo_ts": 1781885996519,
+      "edit_count": 1,
+      "last_lines": 21,
+      "last_ts": 1781885996519,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "a9693508"
+    },
+    "node_modules/react-dom/cjs/react-dom-server.node.development.js": {
+      "ipo_ts": 1781885996572,
+      "edit_count": 1,
+      "last_lines": 7070,
+      "last_ts": 1781885996572,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "d5ce8529"
+    },
+    "node_modules/@types/react/ts5.0/jsx-dev-runtime.d.ts": {
+      "ipo_ts": 1781885996796,
+      "edit_count": 1,
+      "last_lines": 33,
+      "last_ts": 1781885996796,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "4c9a0a86"
+    },
+    "node_modules/@types/react/ts5.0/jsx-runtime.d.ts": {
+      "ipo_ts": 1781885996808,
+      "edit_count": 1,
+      "last_lines": 24,
+      "last_ts": 1781885996808,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "2f2d02ba"
+    },
+    "node_modules/@types/react/ts5.0/index.d.ts": {
+      "ipo_ts": 1781885996837,
+      "edit_count": 1,
+      "last_lines": 4572,
+      "last_ts": 1781885996837,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "773149a4"
+    },
+    "node_modules/react-dom/cjs/react-dom.development.js": {
+      "ipo_ts": 1781885997193,
+      "edit_count": 1,
+      "last_lines": 29923,
+      "last_ts": 1781885997193,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "854094c0"
+    },
+    "node_modules/react-dom/umd/react-dom.development.js": {
+      "ipo_ts": 1781885997371,
+      "edit_count": 1,
+      "last_lines": 29924,
+      "last_ts": 1781885997371,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "b8f9eb60"
+    },
+    "node_modules/.bin/loose-envify": {
+      "ipo_ts": 1781885998098,
+      "edit_count": 1,
+      "last_lines": 16,
+      "last_ts": 1781885998098,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "afebcd74"
+    },
+    "node_modules/.bin/loose-envify.cmd": {
+      "ipo_ts": 1781885998109,
+      "edit_count": 1,
+      "last_lines": 17,
+      "last_ts": 1781885998109,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "8ec6d8da"
+    },
+    "node_modules/.bin/loose-envify.ps1": {
+      "ipo_ts": 1781885998120,
+      "edit_count": 1,
+      "last_lines": 28,
+      "last_ts": 1781885998120,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "40450ada"
+    },
+    "node_modules/react-dom/README.md": {
+      "ipo_ts": 1781885998140,
+      "edit_count": 1,
+      "last_lines": 60,
+      "last_ts": 1781885998140,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "18c83017"
+    },
+    "node_modules/react-dom/cjs/react-dom.profiling.min.js": {
+      "ipo_ts": 1781885998201,
+      "edit_count": 1,
+      "last_lines": 366,
+      "last_ts": 1781885998201,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "7d8b0fdc"
+    },
+    "node_modules/react-dom/package.json": {
+      "ipo_ts": 1781885998220,
+      "edit_count": 1,
+      "last_lines": 62,
+      "last_ts": 1781885998220,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "57dde34e"
+    },
+    "node_modules/react-dom/server.browser.js": {
+      "ipo_ts": 1781885998241,
+      "edit_count": 1,
+      "last_lines": 17,
+      "last_ts": 1781885998241,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "8ac9a576"
+    },
+    "node_modules/react-dom/server.js": {
+      "ipo_ts": 1781885998260,
+      "edit_count": 1,
+      "last_lines": 3,
+      "last_ts": 1781885998260,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "3ac58fe2"
+    },
+    "node_modules/react-dom/server.node.js": {
+      "ipo_ts": 1781885998284,
+      "edit_count": 1,
+      "last_lines": 17,
+      "last_ts": 1781885998284,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "64e94fde"
+    },
+    "node_modules/react-dom/test-utils.js": {
+      "ipo_ts": 1781885998304,
+      "edit_count": 1,
+      "last_lines": 7,
+      "last_ts": 1781885998304,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "76e13390"
+    },
+    "node_modules/react-dom/umd/react-dom.production.min.js": {
+      "ipo_ts": 1781885998383,
+      "edit_count": 1,
+      "last_lines": 267,
+      "last_ts": 1781885998383,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "e77d16a2"
+    },
+    "node_modules/react-dom/umd/react-dom.profiling.min.js": {
+      "ipo_ts": 1781885998463,
+      "edit_count": 1,
+      "last_lines": 285,
+      "last_ts": 1781885998463,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "4473bc67"
+    },
+    "node_modules/react-dom/cjs/react-dom.production.min.js": {
+      "ipo_ts": 1781885998539,
+      "edit_count": 1,
+      "last_lines": 322,
+      "last_ts": 1781885998539,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "6738cd5c"
+    },
+    "node_modules/.vite/vitest/results.json": {
+      "ipo_ts": 1781886066991,
+      "edit_count": 7,
+      "last_lines": 1,
+      "last_ts": 1781888637868,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "70557cd4"
+    },
+    "AGENTS.md": {
+      "ipo_ts": 1781886272370,
+      "edit_count": 2,
+      "last_lines": 155,
+      "last_ts": 1781887292425,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "9949640c"
+    },
+    "scripts/check-boundaries.mjs": {
+      "ipo_ts": 1781886651367,
+      "edit_count": 1,
+      "last_lines": 518,
+      "last_ts": 1781886651367,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "33108320"
+    },
+    "qa/react-adapter-evaluator-report.md": {
+      "ipo_ts": 1781887168987,
+      "edit_count": 2,
+      "last_lines": 173,
+      "last_ts": 1781887871779,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "f5034f11"
+    },
+    ".gitnexus/parse-cache/c8757e0368de4d8ce71652a29f8b46f1e0c0d0ee13059c0bc8be932b0e8590eb.json": {
+      "ipo_ts": 1781887273930,
+      "edit_count": 1,
+      "last_lines": 1,
+      "last_ts": 1781887273930,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "292c2934"
+    },
+    ".gitnexus/parsedfile-cache/c8757e0368de4d8ce71652a29f8b46f1e0c0d0ee13059c0bc8be932b0e8590eb/c8757e0368de4d8ce71652a29f8b46f1e0c0d0ee13059c0bc8be932b0e8590eb-w1-0.json": {
+      "ipo_ts": 1781887273950,
+      "edit_count": 1,
+      "last_lines": 1,
+      "last_ts": 1781887273950,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "d8c15fa5"
+    },
+    ".gitnexus/csv/annotation.csv": {
+      "ipo_ts": 1781887276628,
+      "edit_count": 1,
+      "last_lines": 1,
+      "last_ts": 1781887276628,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "90c4a58f"
+    },
+    ".gitnexus/csv/basicblock.csv": {
+      "ipo_ts": 1781887276645,
+      "edit_count": 1,
+      "last_lines": 1,
+      "last_ts": 1781887276645,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "b3c8f9d0"
+    },
+    ".gitnexus/csv/class.csv": {
+      "ipo_ts": 1781887276663,
+      "edit_count": 1,
+      "last_lines": 1,
+      "last_ts": 1781887276663,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "7a288122"
+    },
+    ".gitnexus/csv/codeelement.csv": {
+      "ipo_ts": 1781887276675,
+      "edit_count": 1,
+      "last_lines": 1,
+      "last_ts": 1781887276675,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "7a288122"
+    },
+    ".gitnexus/csv/community.csv": {
+      "ipo_ts": 1781887276693,
+      "edit_count": 1,
+      "last_lines": 19,
+      "last_ts": 1781887276693,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "be9250bf"
+    },
+    ".gitnexus/csv/const.csv": {
+      "ipo_ts": 1781887276723,
+      "edit_count": 1,
+      "last_lines": 532,
+      "last_ts": 1781887276723,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "e1388a0c"
+    },
+    ".gitnexus/csv/constructor.csv": {
+      "ipo_ts": 1781887276736,
+      "edit_count": 1,
+      "last_lines": 1,
+      "last_ts": 1781887276736,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "90c4a58f"
+    },
+    ".gitnexus/csv/delegate.csv": {
+      "ipo_ts": 1781887276748,
+      "edit_count": 1,
+      "last_lines": 1,
+      "last_ts": 1781887276748,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "90c4a58f"
+    },
+    ".gitnexus/csv/enum.csv": {
+      "ipo_ts": 1781887276760,
+      "edit_count": 1,
+      "last_lines": 1,
+      "last_ts": 1781887276760,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "90c4a58f"
+    },
+    ".gitnexus/csv/file.csv": {
+      "ipo_ts": 1781887276787,
+      "edit_count": 1,
+      "last_lines": 6343,
+      "last_ts": 1781887276787,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "7d3dc8e6"
+    },
+    ".gitnexus/csv/folder.csv": {
+      "ipo_ts": 1781887276804,
+      "edit_count": 1,
+      "last_lines": 13,
+      "last_ts": 1781887276804,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "0"
+    },
+    ".gitnexus/csv/property.csv": {
+      "ipo_ts": 1781887276822,
+      "edit_count": 1,
+      "last_lines": 1,
+      "last_ts": 1781887276822,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "0"
+    },
+    ".gitnexus/parse-cache.tmp/c8757e0368de4d8ce71652a29f8b46f1e0c0d0ee13059c0bc8be932b0e8590eb.json": {
+      "ipo_ts": 1781887291782,
+      "edit_count": 1,
+      "last_lines": 1,
+      "last_ts": 1781887291782,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "292c2934"
+    },
+    "docs/handoff.md": {
+      "ipo_ts": 1781887511335,
+      "edit_count": 2,
+      "last_lines": 80,
+      "last_ts": 1781888552902,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "37d9e54c"
+    },
+    "docs/statekit-launch-checklist.md": {
+      "ipo_ts": 1781887543999,
+      "edit_count": 2,
+      "last_lines": 78,
+      "last_ts": 1781888453102,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "c3f4b26d"
+    },
+    "packages/shared/package.json": {
+      "ipo_ts": 1781888337758,
+      "edit_count": 1,
+      "last_lines": 49,
+      "last_ts": 1781888337758,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "770fbb1b"
+    },
+    "packages/vue/package.json": {
+      "ipo_ts": 1781888337884,
+      "edit_count": 1,
+      "last_lines": 59,
+      "last_ts": 1781888337884,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "a32809b3"
+    },
+    "apps/docs/package.json": {
+      "ipo_ts": 1781888338023,
+      "edit_count": 1,
+      "last_lines": 30,
+      "last_ts": 1781888338023,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "771f8cd0"
+    },
+    "examples/vite-vue-admin/package.json": {
+      "ipo_ts": 1781888338103,
+      "edit_count": 1,
+      "last_lines": 28,
+      "last_ts": 1781888338103,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "ba67b938"
+    },
+    "package-lock.json": {
+      "ipo_ts": 1781888338115,
+      "edit_count": 1,
+      "last_lines": 3101,
+      "last_ts": 1781888338115,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "a8c58f8f"
+    },
+    "feature_list.json": {
+      "ipo_ts": 1781888402899,
+      "edit_count": 1,
+      "last_lines": 307,
+      "last_ts": 1781888402899,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "b7651847"
+    },
+    "contracts/version-0-4-0-release-prep.md": {
+      "ipo_ts": 1781888433185,
+      "edit_count": 1,
+      "last_lines": 74,
+      "last_ts": 1781888433185,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "8f558219"
+    },
+    "docs/README.md": {
+      "ipo_ts": 1781888453223,
+      "edit_count": 1,
+      "last_lines": 79,
+      "last_ts": 1781888453223,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "5cda0720"
+    },
+    "docs/交接/CHANGELOG.md": {
+      "ipo_ts": 1781888466028,
+      "edit_count": 1,
+      "last_lines": 271,
+      "last_ts": 1781888466028,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "1731c449"
+    },
+    "docs/decision-log.md": {
+      "ipo_ts": 1781888492638,
+      "edit_count": 1,
+      "last_lines": 186,
+      "last_ts": 1781888492638,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "b3979740"
+    },
+    "node_modules/.package-lock.json": {
+      "ipo_ts": 1781888587856,
+      "edit_count": 1,
+      "last_lines": 2349,
+      "last_ts": 1781888587856,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "1dc9b563"
+    },
+    "test-results/.last-run.json": {
+      "ipo_ts": 1781888653027,
+      "edit_count": 1,
+      "last_lines": 4,
+      "last_ts": 1781888653027,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "5982922a"
+    },
+    ".agent/review-bundle.md": {
+      "ipo_ts": 1781888717527,
+      "edit_count": 1,
+      "last_lines": 6877,
+      "last_ts": 1781888717527,
+      "delisted": false,
+      "last_source": "onEdit",
+      "last_content_hash": "2caa7f95"
     }
   }
 }

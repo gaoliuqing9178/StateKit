@@ -16,6 +16,8 @@
     "paths": {
       "@statekit-vue/shared": ["packages/shared/src/index.ts"],
       "@statekit-vue/shared/*": ["packages/shared/src/*"],
+      "@statekit-vue/react": ["packages/react/src/index.ts"],
+      "@statekit-vue/react/*": ["packages/react/src/*"],
       "@statekit-vue/vue": ["packages/vue/src/index.ts"],
       "@statekit-vue/vue/*": ["packages/vue/src/*"]
     }

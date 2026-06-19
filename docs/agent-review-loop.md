@@ -45,7 +45,7 @@
 
 适用场景：
 
-- 修改 `packages/shared`、`packages/vue`、`apps/docs`、`examples/vite-vue-admin`。
+- 修改 `packages/shared`、`packages/vue`、`packages/react`、`apps/docs`、`examples/vite-vue-admin`。
 - 修改测试、docs 示例页、路由或响应式行为。
 - 修改 recipe metadata、category 文案或 docs QA 面板。
 

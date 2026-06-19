@@ -32,6 +32,11 @@ const scopes = [
     sourceRoot: "packages/vue/src",
   },
   {
+    name: "react",
+    packageName: "@statekit-vue/react",
+    sourceRoot: "packages/react/src",
+  },
+  {
     name: "docs",
     packageName: "@statekit/docs",
     sourceRoot: "apps/docs/src",
@@ -49,6 +54,7 @@ const scopes = [
 const manifestFiles = [
   "packages/shared/package.json",
   "packages/vue/package.json",
+  "packages/react/package.json",
   "apps/docs/package.json",
   "examples/vite-vue-admin/package.json",
 ];
@@ -88,6 +94,10 @@ function isPackageImport(specifier, packageName) {
 
 function isPublicVueImport(specifier) {
   return specifier === "@statekit-vue/vue" || specifier === "@statekit-vue/vue/styles.css";
+}
+
+function isPublicReactImport(specifier) {
+  return specifier === "@statekit-vue/react" || specifier === "@statekit-vue/react/styles.css";
 }
 
 function isDirectWorkspacePath(specifier) {
@@ -205,6 +215,16 @@ function checkGenericImportRules(scope, absoluteFile, specifier) {
       fix: "Export the needed API from packages/vue/src/index.ts, or use @statekit-vue/vue/styles.css for styles.",
     });
   }
+
+  if (specifier.startsWith("@statekit-vue/react/") && !isPublicReactImport(specifier)) {
+    addViolation({
+      file,
+      importSpecifier: specifier,
+      rule: "no-react-deep-imports",
+      message: "Deep React package imports bypass the published @statekit-vue/react entry.",
+      fix: "Export the needed API from packages/react/src/index.ts, or use @statekit-vue/react/styles.css for styles.",
+    });
+  }
 }
 
 function checkSharedImportRules(absoluteFile, specifier) {
@@ -228,6 +248,7 @@ function checkSharedImportRules(absoluteFile, specifier) {
 
   if (
     isPackageImport(specifier, "@statekit-vue/vue") ||
+    isPackageImport(specifier, "@statekit-vue/react") ||
     isPackageImport(specifier, "@statekit/docs") ||
     isPackageImport(specifier, "@statekit/example-vite-vue-admin")
   ) {
@@ -245,6 +266,7 @@ function checkVueImportRules(absoluteFile, specifier) {
   const file = relativeToRepo(absoluteFile);
 
   if (
+    isPackageImport(specifier, "@statekit-vue/react") ||
     isPackageImport(specifier, "@statekit/docs") ||
     isPackageImport(specifier, "@statekit/example-vite-vue-admin")
   ) {
@@ -254,6 +276,24 @@ function checkVueImportRules(absoluteFile, specifier) {
       rule: "vue-does-not-depend-on-apps",
       message: "packages/vue is the reusable Vue package and must not depend on docs or examples.",
       fix: "Keep app-only stories in apps/docs or examples/vite-vue-admin.",
+    });
+  }
+}
+
+function checkReactImportRules(absoluteFile, specifier) {
+  const file = relativeToRepo(absoluteFile);
+
+  if (
+    isPackageImport(specifier, "@statekit-vue/vue") ||
+    isPackageImport(specifier, "@statekit/docs") ||
+    isPackageImport(specifier, "@statekit/example-vite-vue-admin")
+  ) {
+    addViolation({
+      file,
+      importSpecifier: specifier,
+      rule: "react-does-not-depend-on-vue-or-apps",
+      message: "packages/react is the reusable React package and must not depend on Vue, docs, or examples.",
+      fix: "Keep framework-specific code in its own adapter and share only framework-neutral data through @statekit-vue/shared.",
     });
   }
 }
@@ -285,6 +325,16 @@ function checkExampleImportRules(absoluteFile, specifier) {
     });
   }
 
+  if (isPackageImport(specifier, "@statekit-vue/react")) {
+    addViolation({
+      file,
+      importSpecifier: specifier,
+      rule: "example-consumes-vue-public-api",
+      message: "examples/vite-vue-admin is the Vue example app and should only use the Vue package.",
+      fix: "Keep React examples in a separate React consumer, or import StateKit APIs through @statekit-vue/vue here.",
+    });
+  }
+
   if (isPackageImport(specifier, "@statekit/docs")) {
     addViolation({
       file,
@@ -307,6 +357,10 @@ function checkImport(scope, absoluteFile, specifier) {
     checkVueImportRules(absoluteFile, specifier);
   }
 
+  if (scope.name === "react") {
+    checkReactImportRules(absoluteFile, specifier);
+  }
+
   if (scope.name === "docs") {
     checkDocsImportRules(absoluteFile, specifier);
   }
@@ -323,6 +377,7 @@ function checkManifestDependency(manifestFile, manifestName, group, dependency) 
       dependency === "vue-router" ||
       dependency.startsWith("@vue/") ||
       dependency === "@statekit-vue/vue" ||
+      dependency === "@statekit-vue/react" ||
       dependency === "@statekit/docs" ||
       dependency === "@statekit/example-vite-vue-admin"
     ) {
@@ -338,14 +393,35 @@ function checkManifestDependency(manifestFile, manifestName, group, dependency) 
   }
 
   if (manifestName === "@statekit-vue/vue") {
-    if (dependency === "@statekit/docs" || dependency === "@statekit/example-vite-vue-admin") {
+    if (
+      dependency === "@statekit-vue/react" ||
+      dependency === "@statekit/docs" ||
+      dependency === "@statekit/example-vite-vue-admin"
+    ) {
       addViolation({
         file: manifestFile,
         dependency,
         group,
         rule: "vue-manifest-does-not-depend-on-apps",
-        message: "@statekit-vue/vue must not declare docs or example app dependencies.",
-        fix: "Keep app dependencies in their own workspace package.json files.",
+        message: "@statekit-vue/vue must not declare React, docs, or example app dependencies.",
+        fix: "Keep framework adapters independent and keep app dependencies in their own workspace package.json files.",
+      });
+    }
+  }
+
+  if (manifestName === "@statekit-vue/react") {
+    if (
+      dependency === "@statekit-vue/vue" ||
+      dependency === "@statekit/docs" ||
+      dependency === "@statekit/example-vite-vue-admin"
+    ) {
+      addViolation({
+        file: manifestFile,
+        dependency,
+        group,
+        rule: "react-manifest-does-not-depend-on-vue-or-apps",
+        message: "@statekit-vue/react must not declare Vue, docs, or example app dependencies.",
+        fix: "Keep framework adapters independent and share only @statekit-vue/shared.",
       });
     }
   }
@@ -364,7 +440,11 @@ function checkManifestDependency(manifestFile, manifestName, group, dependency) 
   }
 
   if (manifestName === "@statekit/example-vite-vue-admin") {
-    if (dependency === "@statekit-vue/shared" || dependency === "@statekit/docs") {
+    if (
+      dependency === "@statekit-vue/shared" ||
+      dependency === "@statekit-vue/react" ||
+      dependency === "@statekit/docs"
+    ) {
       addViolation({
         file: manifestFile,
         dependency,

@@ -1,6 +1,6 @@
 # StateKit
 
-Category-first state UI for SaaS products built with Vue.
+Category-first state UI for SaaS products built for Vue and React.
 
 [简体中文](./README.zh-CN.md)
 
@@ -36,6 +36,8 @@ Those public entries are backed by 21 preset recipes across the same seven categ
 Onboarding now ships as its own category through `OnboardingState`. The older `FirstProjectState` preset still exists, but it now reads as a post-setup empty-state bridge rather than the primary onboarding surface.
 
 ## Quick Start
+
+### Vue
 
 ```bash
 npm install @statekit-vue/vue
@@ -75,6 +77,48 @@ async function handleClearFilters() {
     }"
   />
 </template>
+```
+
+### React
+
+```bash
+npm install @statekit-vue/react
+```
+
+```tsx
+import { useState } from "react";
+import "@statekit-vue/react/styles.css";
+import { EmptyState } from "@statekit-vue/react";
+
+export function InvoiceEmptyState() {
+  const [clearing, setClearing] = useState(false);
+
+  async function handleClearFilters() {
+    setClearing(true);
+    try {
+      await Promise.resolve();
+    } finally {
+      setClearing(false);
+    }
+  }
+
+  return (
+    <EmptyState
+      title="No matching invoices"
+      description="Try a different keyword or clear your current filters."
+      primaryAction={{
+        label: "Clear filters",
+        onClick: handleClearFilters,
+        loading: clearing,
+        loadingLabel: "Clearing filters...",
+      }}
+      secondaryAction={{
+        label: "Create invoice",
+        href: "/invoices/new",
+      }}
+    />
+  );
+}
 ```
 
 ## Unified Props API
@@ -147,6 +191,7 @@ Passing rules:
 apps/docs
 packages/shared
 packages/vue
+packages/react
 examples/vite-vue-admin
 docs
 ```
@@ -154,6 +199,7 @@ docs
 - `apps/docs`: local documentation app with recipe previews, detailed recipe guides, installation guidance, and workflow examples
 - `packages/shared`: shared types, ids, metadata, and priority lists that act as the single source of truth
 - `packages/vue`: Vue components, compatibility exports, and the default stylesheet
+- `packages/react`: React components, compatibility exports, and the default stylesheet
 - `examples/vite-vue-admin`: admin-style integration example using the current action API
 - `docs`: internal product, implementation, QA, and release documentation
 

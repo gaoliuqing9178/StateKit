@@ -1,6 +1,6 @@
 # StateKit
 
-基于 Vue 构建、面向 SaaS 产品的按类别统一状态 UI 组件库。
+面向 Vue 与 React、服务 SaaS 产品的按类别统一状态 UI 组件库。
 
 [English](./README.md)
 
@@ -37,6 +37,8 @@ StateKit 专注处理产品里那些高频出现、却最容易被临时拼凑�
 onboarding 现在已经作为独立类别对外开放，对应统一入口是 `OnboardingState`。旧的 `FirstProjectState` 仍然保留，但现在更适合表达“工作区已经存在，只是还没有第一个项目”的 empty-state 过渡场景。
 
 ## 快速开始
+
+### Vue
 
 ```bash
 npm install @statekit-vue/vue
@@ -76,6 +78,48 @@ async function handleClearFilters() {
     }"
   />
 </template>
+```
+
+### React
+
+```bash
+npm install @statekit-vue/react
+```
+
+```tsx
+import { useState } from "react";
+import "@statekit-vue/react/styles.css";
+import { EmptyState } from "@statekit-vue/react";
+
+export function InvoiceEmptyState() {
+  const [clearing, setClearing] = useState(false);
+
+  async function handleClearFilters() {
+    setClearing(true);
+    try {
+      await Promise.resolve();
+    } finally {
+      setClearing(false);
+    }
+  }
+
+  return (
+    <EmptyState
+      title="没有匹配的发票"
+      description="可以更换关键词，或者先清除当前筛选条件。"
+      primaryAction={{
+        label: "清除筛选",
+        onClick: handleClearFilters,
+        loading: clearing,
+        loadingLabel: "正在清除筛选...",
+      }}
+      secondaryAction={{
+        label: "新建发票",
+        href: "/invoices/new",
+      }}
+    />
+  );
+}
 ```
 
 ## 统一 Props API
@@ -148,6 +192,7 @@ async function handleClearFilters() {
 apps/docs
 packages/shared
 packages/vue
+packages/react
 examples/vite-vue-admin
 docs
 ```
@@ -155,6 +200,7 @@ docs
 - `apps/docs`：本地文档站，包含 recipe 预览、详细用法说明、安装文档和工作流示例
 - `packages/shared`：共享类型、ID、元数据和优先级清单，是单一事实来源
 - `packages/vue`：Vue 组件、兼容导出层和默认样式
+- `packages/react`：React 组件、兼容导出层和默认样式
 - `examples/vite-vue-admin`：使用当前 action API 的后台风格集成示例
 - `docs`：项目内部的产品、实现、QA 和发布文档
 

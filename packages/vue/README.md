@@ -4,6 +4,8 @@ Category-first Vue state UI for SaaS products.
 
 `@statekit-vue/vue` is the main public package for StateKit. Install it when your app needs production-ready empty, onboarding, loading, error, permission, upgrade, and success states without rebuilding layout, copy structure, and CTA behavior from scratch.
 
+React apps can use the sibling adapter package `@statekit-vue/react`, which shares the same metadata and category-first API.
+
 ## Install
 
 ```bash

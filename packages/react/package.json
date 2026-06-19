@@ -1,0 +1,60 @@
+{
+  "x-comment": [
+    "1. React 组件包的 package 配置。",
+    "2. 作用：定义 React 包的导出入口、样式入口和构建脚本。",
+    "3. 维护要点：React 包复用 @statekit-vue/shared 的 recipe metadata，不依赖 Vue runtime。"
+  ],
+  "name": "@statekit-vue/react",
+  "version": "0.4.0",
+  "description": "Category-first React state UI for SaaS products.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": [
+    "./dist/style.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./dist/style.css"
+  },
+  "keywords": [
+    "react",
+    "saas",
+    "ui",
+    "states",
+    "empty-state",
+    "error-state",
+    "loading-state"
+  ],
+  "homepage": "https://github.com/gaoliuqing9178/StateKit#readme",
+  "bugs": {
+    "url": "https://github.com/gaoliuqing9178/StateKit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaoliuqing9178/StateKit.git"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0 || ^19.0.0",
+    "react-dom": "^18.2.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "@statekit-vue/shared": "0.4.0"
+  },
+  "scripts": {
+    "prebuild": "node ../../scripts/clean-dist.mjs ./dist",
+    "build": "vite build && tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  }
+}

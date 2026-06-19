@@ -5,7 +5,7 @@
     "3. 维护要点：发布入口或 peer 版本变化时，需要优先检查这里。"
   ],
   "name": "@statekit-vue/vue",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Category-first Vue state UI for SaaS products.",
   "type": "module",
   "main": "./dist/index.js",
@@ -49,7 +49,7 @@
     "vue": "^3.4.0"
   },
   "dependencies": {
-    "@statekit-vue/shared": "0.3.0"
+    "@statekit-vue/shared": "0.4.0"
   },
   "scripts": {
     "prebuild": "node ../../scripts/clean-dist.mjs ./dist",

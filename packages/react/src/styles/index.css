@@ -1,0 +1,11 @@
+/*
+ * React 样式总入口。
+ * 当前与 Vue 包保持同一套 class contract：
+ * 1. design tokens；
+ * 2. 统一 shell / figure / action 样式；
+ * 3. 类别扩展样式。
+ */
+
+@import "./tokens.css";
+@import "./base.css";
+@import "./blocks.css";

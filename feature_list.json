@@ -8,7 +8,7 @@
   "meta": {
     "project": "StateKit",
     "spec_version": "v0.2",
-    "last_updated": "2026-05-17-version-0-3-0-release-evidence",
+    "last_updated": "2026-06-20-version-0-4-0-release-prep",
     "schema_doc": "docs/quality.md#4-evidence-格式",
     "instructions": "passes 改为 true 时必须同时填 evaluator + evidence；evidence 路径必须可复现。禁止删减 steps / verified_by。"
   },
@@ -151,6 +151,85 @@
           "latest": "0.3.0"
         }
       }
+    },
+    {
+      "id": "react-adapter",
+      "category": "architecture",
+      "priority": "P0",
+      "description": "新增 @statekit-vue/react adapter，复用 shared metadata，提供与 Vue adapter 同语义的 7 个 category-first 入口和 21 个 preset compatibility exports",
+      "steps": [
+        "新增 packages/react workspace，包含 React StateBlockShell、StatePresetBlock、7 个 category-first 入口、21 个 preset compatibility exports 和 styles.css 入口",
+        "React adapter 只依赖 @statekit-vue/shared，并把 react / react-dom 声明为 peerDependencies；不得依赖 Vue runtime、docs 或 example app",
+        "把 React adapter 纳入 lint:boundaries、typecheck、test:unit、build、pack:check 和 smoke:install",
+        "新增 React 单测覆盖 action 语义、layout fallback、category 默认值和 onboarding 默认 action contract",
+        "spawn 独立 evaluator 写 qa/react-adapter-evaluator-report.md"
+      ],
+      "verified_by": [
+        "npm run verify:fast",
+        "npm run pack:check",
+        "npm run smoke:install",
+        "Evaluator review"
+      ],
+      "passes": true,
+      "evaluator": "react-adapter-evaluator@2026-06-20",
+      "evidence": {
+        "qa_report": "qa/react-adapter-evaluator-report.md",
+        "verify_log": "progress.md#2026-06-20-react-adapter",
+        "react_package": "packages/react/",
+        "react_unit_tests": [
+          "packages/react/src/base/StateBlockShell.test.tsx",
+          "packages/react/src/base/StatePresetBlock.test.tsx",
+          "packages/react/src/blocks/CategoryEntries.test.tsx"
+        ],
+        "boundary_script": "scripts/check-boundaries.mjs",
+        "smoke_install": "scripts/smoke-install.mjs",
+        "pack_check": "npm run pack:check",
+        "external_consumer_smoke": "npm run smoke:install"
+      }
+    },
+    {
+      "id": "version-0-4-0-release-prep",
+      "category": "release",
+      "priority": "P0",
+      "description": "准备 0.4.0 发布线：@statekit-vue/shared、@statekit-vue/vue、@statekit-vue/react 三包版本与内部消费者依赖对齐，完成 release 验证，publish 留给人工执行",
+      "steps": [
+        "将 packages/shared、packages/vue、packages/react 版本号切到 0.4.0",
+        "将 @statekit-vue/vue、@statekit-vue/react 对 @statekit-vue/shared 的依赖同步到 0.4.0",
+        "将 apps/docs 和 examples/vite-vue-admin 的 workspace 依赖同步到 0.4.0",
+        "运行 npm run verify:release，确认 lint:boundaries、typecheck、build、test:unit、test:ui、pack:check、smoke:install 全部通过",
+        "运行 npm run review:bundle 生成 .agent/review-bundle.md",
+        "spawn 独立 evaluator 写 qa/version-0-4-0-release-prep-evaluator-report.md",
+        "给出人工 npm publish 命令，但本轮不直接发布"
+      ],
+      "verified_by": [
+        "npm run verify:release",
+        "npm run review:bundle",
+        "Evaluator review"
+      ],
+      "passes": false
+    },
+    {
+      "id": "version-0-4-0-npm-publish",
+      "category": "release",
+      "priority": "P0",
+      "description": "人工发布 @statekit-vue/shared、@statekit-vue/vue、@statekit-vue/react@0.4.0，并确认三个包的 latest dist-tag 指向 0.4.0",
+      "steps": [
+        "npm publish --workspace @statekit-vue/shared",
+        "npm publish --workspace @statekit-vue/vue",
+        "npm publish --workspace @statekit-vue/react",
+        "确认 npm view @statekit-vue/shared version 返回 0.4.0",
+        "确认 npm view @statekit-vue/vue version 返回 0.4.0",
+        "确认 npm view @statekit-vue/react version 返回 0.4.0"
+      ],
+      "verified_by": [
+        "npm publish --workspace @statekit-vue/shared",
+        "npm publish --workspace @statekit-vue/vue",
+        "npm publish --workspace @statekit-vue/react",
+        "npm view @statekit-vue/shared version",
+        "npm view @statekit-vue/vue version",
+        "npm view @statekit-vue/react version"
+      ],
+      "passes": false
     },
     {
       "id": "scenario-gap-matrix",
